@@ -88,23 +88,35 @@
 
 
 <meta name="description" content="这一节,主要讲解面向对象的继承,回顾上一节讲解到判断对象原型和实例对象的两种方法.废话不多说,直接上代码 !
-继承 ==&amp;gt; 重点- 子对象–&amp;gt;父对象,Object是所有对象的父级- 一种把其他对象的属性和方法变为己有的方式- 通过继承可以提高代码的复用性和可维护性- 举例 : 动物 – 狗类 –  金毛狗类
-1.对于狗类来説:动物是它的父类型,而金毛狗类是它的子类型2.对于金毛狗类来">
+继承 ==&amp;gt; 重点
+子对象–&amp;gt;父对象,Object是所有对象的父级
+一种把其他对象的属性和方法变为己有的方式
+通过继承可以提高代码的复用性和可维护性
+举例 : 动物 – 狗类 –  金毛狗类
+1.对于狗类来説:动物是它的父类型,而金毛狗类是它的子类型2.对于金毛狗类来説.狗类">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript - 面向对象编程三">
 <meta property="og:url" content="git@github.com:anearseeyou/anearseeyou.git/2016/05/05/JavaScript-面向对象编程三/index.html">
 <meta property="og:site_name" content="Keep on coding">
 <meta property="og:description" content="这一节,主要讲解面向对象的继承,回顾上一节讲解到判断对象原型和实例对象的两种方法.废话不多说,直接上代码 !
-继承 ==&amp;gt; 重点- 子对象–&amp;gt;父对象,Object是所有对象的父级- 一种把其他对象的属性和方法变为己有的方式- 通过继承可以提高代码的复用性和可维护性- 举例 : 动物 – 狗类 –  金毛狗类
-1.对于狗类来説:动物是它的父类型,而金毛狗类是它的子类型2.对于金毛狗类来">
+继承 ==&amp;gt; 重点
+子对象–&amp;gt;父对象,Object是所有对象的父级
+一种把其他对象的属性和方法变为己有的方式
+通过继承可以提高代码的复用性和可维护性
+举例 : 动物 – 狗类 –  金毛狗类
+1.对于狗类来説:动物是它的父类型,而金毛狗类是它的子类型2.对于金毛狗类来説.狗类">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-8eb146cf35f77a01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://olxhvemh9.bkt.clouddn.com/Js%20-%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E4%B8%89.png">
-<meta property="og:updated_time" content="2017-02-25T15:24:13.942Z">
+<meta property="og:updated_time" content="2017-02-25T15:31:17.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript - 面向对象编程三">
 <meta name="twitter:description" content="这一节,主要讲解面向对象的继承,回顾上一节讲解到判断对象原型和实例对象的两种方法.废话不多说,直接上代码 !
-继承 ==&amp;gt; 重点- 子对象–&amp;gt;父对象,Object是所有对象的父级- 一种把其他对象的属性和方法变为己有的方式- 通过继承可以提高代码的复用性和可维护性- 举例 : 动物 – 狗类 –  金毛狗类
-1.对于狗类来説:动物是它的父类型,而金毛狗类是它的子类型2.对于金毛狗类来">
+继承 ==&amp;gt; 重点
+子对象–&amp;gt;父对象,Object是所有对象的父级
+一种把其他对象的属性和方法变为己有的方式
+通过继承可以提高代码的复用性和可维护性
+举例 : 动物 – 狗类 –  金毛狗类
+1.对于狗类来説:动物是它的父类型,而金毛狗类是它的子类型2.对于金毛狗类来説.狗类">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3359912-8eb146cf35f77a01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -376,9 +388,15 @@
       
         <hr>
 <h5 id="这一节-主要讲解面向对象的继承-回顾上一节讲解到判断对象原型和实例对象的两种方法-废话不多说-直接上代码"><a href="#这一节-主要讲解面向对象的继承-回顾上一节讲解到判断对象原型和实例对象的两种方法-废话不多说-直接上代码" class="headerlink" title="这一节,主要讲解面向对象的继承,回顾上一节讲解到判断对象原型和实例对象的两种方法.废话不多说,直接上代码 !"></a>这一节,主要讲解面向对象的继承,回顾上一节讲解到判断对象原型和实例对象的两种方法.废话不多说,直接上代码 !</h5><hr>
-<h2 id="继承-gt-重点"><a href="#继承-gt-重点" class="headerlink" title="继承 ==&gt; 重点"></a>继承 ==&gt; 重点</h2><h6 id="子对象–-gt-父对象-Object是所有对象的父级"><a href="#子对象–-gt-父对象-Object是所有对象的父级" class="headerlink" title="- 子对象–&gt;父对象,Object是所有对象的父级"></a>- 子对象–&gt;父对象,Object是所有对象的父级</h6><h6 id="一种把其他对象的属性和方法变为己有的方式"><a href="#一种把其他对象的属性和方法变为己有的方式" class="headerlink" title="- 一种把其他对象的属性和方法变为己有的方式"></a>- 一种把其他对象的属性和方法变为己有的方式</h6><h6 id="通过继承可以提高代码的复用性和可维护性"><a href="#通过继承可以提高代码的复用性和可维护性" class="headerlink" title="- 通过继承可以提高代码的复用性和可维护性"></a>- 通过继承可以提高代码的复用性和可维护性</h6><h6 id="举例-动物-–-狗类-–-金毛狗类"><a href="#举例-动物-–-狗类-–-金毛狗类" class="headerlink" title="- 举例 : 动物 – 狗类 –  金毛狗类"></a>- 举例 : 动物 – 狗类 –  金毛狗类</h6><blockquote>
+<h2 id="继承-gt-重点"><a href="#继承-gt-重点" class="headerlink" title="继承 ==&gt; 重点"></a>继承 ==&gt; 重点</h2><ul>
+<li><strong>子对象–&gt;父对象,Object是所有对象的父级</strong></li>
+<li><strong>一种把其他对象的属性和方法变为己有的方式</strong></li>
+<li><strong>通过继承可以提高代码的复用性和可维护性</strong></li>
+<li><strong>举例 : 动物 – 狗类 –  金毛狗类</strong><blockquote>
 <p><strong>1.对于狗类来説:动物是它的父类型,而金毛狗类是它的子类型<br>2.对于金毛狗类来説.狗类是它的父类型,动物类是它的超类型.</strong></p>
 </blockquote>
+</li>
+</ul>
 <h2 id="继承的两种方式"><a href="#继承的两种方式" class="headerlink" title="继承的两种方式"></a>继承的两种方式</h2><ul>
 <li><strong>接口继承</strong></li>
 <li><strong>实现继承</strong></li>
@@ -763,7 +781,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#这一节-主要讲解面向对象的继承-回顾上一节讲解到判断对象原型和实例对象的两种方法-废话不多说-直接上代码"><span class="nav-number">1.</span> <span class="nav-text">这一节,主要讲解面向对象的继承,回顾上一节讲解到判断对象原型和实例对象的两种方法.废话不多说,直接上代码 !</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承-gt-重点"><span class="nav-number"></span> <span class="nav-text">继承 ==> 重点</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#子对象–-gt-父对象-Object是所有对象的父级"><span class="nav-number">0.1.</span> <span class="nav-text">- 子对象–>父对象,Object是所有对象的父级</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#一种把其他对象的属性和方法变为己有的方式"><span class="nav-number">0.2.</span> <span class="nav-text">- 一种把其他对象的属性和方法变为己有的方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#通过继承可以提高代码的复用性和可维护性"><span class="nav-number">0.3.</span> <span class="nav-text">- 通过继承可以提高代码的复用性和可维护性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#举例-动物-–-狗类-–-金毛狗类"><span class="nav-number">0.4.</span> <span class="nav-text">- 举例 : 动物 – 狗类 –  金毛狗类</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承的两种方式"><span class="nav-number"></span> <span class="nav-text">继承的两种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Js中继承的几种实现方式"><span class="nav-number"></span> <span class="nav-text">Js中继承的几种实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#混入式继承"><span class="nav-number"></span> <span class="nav-text">混入式继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型式继承"><span class="nav-number"></span> <span class="nav-text">原型式继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型链继承-什么是原型链"><span class="nav-number"></span> <span class="nav-text">原型链继承 ( 什么是原型链 ? )</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#借用构造函数继承"><span class="nav-number"></span> <span class="nav-text">借用构造函数继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合-原型链-借用-继承"><span class="nav-number"></span> <span class="nav-text">组合(原型链 + 借用)继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深拷贝和浅拷贝"><span class="nav-number"></span> <span class="nav-text">深拷贝和浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过深拷贝实现继承"><span class="nav-number"></span> <span class="nav-text">通过深拷贝实现继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本包装类型"><span class="nav-number"></span> <span class="nav-text">基本包装类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附思维导图一张-希望能帮到各位-如果图片不清晰的话-请下载到本地查看"><span class="nav-number"></span> <span class="nav-text">附思维导图一张,希望能帮到各位 ! 如果图片不清晰的话 请下载到本地查看</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#这一节-主要讲解面向对象的继承-回顾上一节讲解到判断对象原型和实例对象的两种方法-废话不多说-直接上代码"><span class="nav-number">1.</span> <span class="nav-text">这一节,主要讲解面向对象的继承,回顾上一节讲解到判断对象原型和实例对象的两种方法.废话不多说,直接上代码 !</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承-gt-重点"><span class="nav-number"></span> <span class="nav-text">继承 ==> 重点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承的两种方式"><span class="nav-number"></span> <span class="nav-text">继承的两种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Js中继承的几种实现方式"><span class="nav-number"></span> <span class="nav-text">Js中继承的几种实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#混入式继承"><span class="nav-number"></span> <span class="nav-text">混入式继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型式继承"><span class="nav-number"></span> <span class="nav-text">原型式继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型链继承-什么是原型链"><span class="nav-number"></span> <span class="nav-text">原型链继承 ( 什么是原型链 ? )</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#借用构造函数继承"><span class="nav-number"></span> <span class="nav-text">借用构造函数继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合-原型链-借用-继承"><span class="nav-number"></span> <span class="nav-text">组合(原型链 + 借用)继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深拷贝和浅拷贝"><span class="nav-number"></span> <span class="nav-text">深拷贝和浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过深拷贝实现继承"><span class="nav-number"></span> <span class="nav-text">通过深拷贝实现继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本包装类型"><span class="nav-number"></span> <span class="nav-text">基本包装类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附思维导图一张-希望能帮到各位-如果图片不清晰的话-请下载到本地查看"><span class="nav-number"></span> <span class="nav-text">附思维导图一张,希望能帮到各位 ! 如果图片不清晰的话 请下载到本地查看</span></a></div>
             
 
           </div>
