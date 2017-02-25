@@ -87,25 +87,16 @@
 
 
 
-<meta name="description" content="—引言在我们开始学习面向对象之前，首先得先想一个问题，那就是何为对象？
-
-在日常生活中我们有男朋友\女朋友，称之为对象。有了男朋友可以为你遮风挡雨，有了女朋友可以为你洗衣做饭，同理，在我们的二进制编程世界里，对象完全可以理解为工具或者工具包，当然，在某种特定情况下，我们也可以把人比作是工具。
-面向对象编程其实是一种思想、思维的转变，从面向过程转变成面呈对象。面向过程注重的是过程，而面向对象注重的是">
+<meta name="description" content="引言在我们开始学习面向对象之前，首先得先想一个问题，那就是何为对象？1.在日常生活中我们有男朋友\女朋友，称之为对象。有了男朋友可以为你遮风挡雨，有了女朋友可以为你洗衣做饭，同理，在我们的二进制编程世界里，对象完全可以理解为工具或者工具包，当然，在某种特定情况下，我们也可以把人比作是工具。2.面向对象编程其实是一种思想、思维的转变，从面向过程转变成面呈对象。面向过程注重的是过程，而面向对象注重的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Js - 面向对象编程一">
 <meta property="og:url" content="git@github.com:anearseeyou/anearseeyou.git/2016/10/22/Js-面向对象编程一/index.html">
 <meta property="og:site_name" content="Keep on coding">
-<meta property="og:description" content="—引言在我们开始学习面向对象之前，首先得先想一个问题，那就是何为对象？
-
-在日常生活中我们有男朋友\女朋友，称之为对象。有了男朋友可以为你遮风挡雨，有了女朋友可以为你洗衣做饭，同理，在我们的二进制编程世界里，对象完全可以理解为工具或者工具包，当然，在某种特定情况下，我们也可以把人比作是工具。
-面向对象编程其实是一种思想、思维的转变，从面向过程转变成面呈对象。面向过程注重的是过程，而面向对象注重的是">
-<meta property="og:updated_time" content="2017-02-24T11:28:35.694Z">
+<meta property="og:description" content="引言在我们开始学习面向对象之前，首先得先想一个问题，那就是何为对象？1.在日常生活中我们有男朋友\女朋友，称之为对象。有了男朋友可以为你遮风挡雨，有了女朋友可以为你洗衣做饭，同理，在我们的二进制编程世界里，对象完全可以理解为工具或者工具包，当然，在某种特定情况下，我们也可以把人比作是工具。2.面向对象编程其实是一种思想、思维的转变，从面向过程转变成面呈对象。面向过程注重的是过程，而面向对象注重的">
+<meta property="og:updated_time" content="2017-02-25T01:55:46.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Js - 面向对象编程一">
-<meta name="twitter:description" content="—引言在我们开始学习面向对象之前，首先得先想一个问题，那就是何为对象？
-
-在日常生活中我们有男朋友\女朋友，称之为对象。有了男朋友可以为你遮风挡雨，有了女朋友可以为你洗衣做饭，同理，在我们的二进制编程世界里，对象完全可以理解为工具或者工具包，当然，在某种特定情况下，我们也可以把人比作是工具。
-面向对象编程其实是一种思想、思维的转变，从面向过程转变成面呈对象。面向过程注重的是过程，而面向对象注重的是">
+<meta name="twitter:description" content="引言在我们开始学习面向对象之前，首先得先想一个问题，那就是何为对象？1.在日常生活中我们有男朋友\女朋友，称之为对象。有了男朋友可以为你遮风挡雨，有了女朋友可以为你洗衣做饭，同理，在我们的二进制编程世界里，对象完全可以理解为工具或者工具包，当然，在某种特定情况下，我们也可以把人比作是工具。2.面向对象编程其实是一种思想、思维的转变，从面向过程转变成面呈对象。面向过程注重的是过程，而面向对象注重的">
 
 
 
@@ -341,25 +332,13 @@
       
 
       
-        <h2 id="—"><a href="#—" class="headerlink" title="—"></a>—</h2><h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p><strong>在我们开始学习面向对象之前，首先得先想一个问题，那就是何为对象？</strong></p>
-<ul>
-<li>在日常生活中我们有男朋友\女朋友，称之为对象。有了男朋友可以为你遮风挡雨，有了女朋友可以为你洗衣做饭，同理，在我们的二进制编程世界里，对象完全可以理解为工具或者工具包，当然，在某种特定情况下，我们也可以把人比作是工具。</li>
-<li>面向对象编程其实是一种思想、思维的转变，从面向过程转变成面呈对象。面向过程注重的是过程，而面向对象注重的是结果，两者的目的相同，但是实现方式却不尽相同。</li>
-<li>据说，面向对象思维最早是一个生物学家提出来的，他说：”我们编写的代码就好比生物的每一个细胞，我们的身体的每一个组件都代表一个工具，手供我们吃饭，腿供我们行走，不管那天手不能用了，但它不会影响脚的行走，如果能把每一类型的代码抽取成一个一个的工具，好比，钳子、镊子、锤子，那我们对代码、对工具的管理就会显得非常方便，只需要将这一类工具放到一个工具包里面即可。”</li>
-<li>天了噜，废话不多说了，好像开篇废点话，是一种习惯！下面就让我们开始认识面向对象编程。</li>
-<li>学习面向对象之前，得先把下面这些东西搞明白！</li>
-</ul>
+        <hr>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p><strong>在我们开始学习面向对象之前，首先得先想一个问题，那就是何为对象？</strong><br>1.在日常生活中我们有男朋友\女朋友，称之为对象。有了男朋友可以为你遮风挡雨，有了女朋友可以为你洗衣做饭，同理，在我们的二进制编程世界里，对象完全可以理解为工具或者工具包，当然，在某种特定情况下，我们也可以把人比作是工具。<br>2.面向对象编程其实是一种思想、思维的转变，从面向过程转变成面呈对象。面向过程注重的是过程，而面向对象注重的是结果，两者的目的相同，但是实现方式却不尽相同。<br>3.据说，面向对象思维最早是一个生物学家提出来的，他说：”我们编写的代码就好比生物的每一个细胞，我们的身体的每一个组件都代表一个工具，手供我们吃饭，腿供我们行走，不管那天手不能用了，但它不会影响脚的行走，如果能把每一类型的代码抽取成一个一个的工具，好比，钳子、镊子、锤子，那我们对代码、对工具的管理就会显得非常方便，只需要将这一类工具放到一个工具包里面即可。”<br>4.天了噜，废话不多说了，好像开篇废点话，是一种习惯！下面就让我们开始认识面向对象编程。<br>5.学习面向对象之前，得先把下面这些东西搞明白！</p>
 <hr>
-<h4 id="Js语言的回顾"><a href="#Js语言的回顾" class="headerlink" title="Js语言的回顾"></a>Js语言的回顾</h4><ul>
-<li><strong>三个组成部分</strong><ul>
-<li><strong>BOM：全称Browser Object Model 浏览器对象模型，核心对象（window loacation）；</strong></li>
-<li><strong>DOM：Document Object Model 文档对象模型，DOM树，本身为我们操作页面元素提供了一套方法(API)，API:application programming interface 应用程序编程接口</strong></li>
-<li><strong>ECMAScript：规定js的核心语法，js语句，关键字，保留字</strong></li>
+<h2 id="一、Js语言的回顾"><a href="#一、Js语言的回顾" class="headerlink" title="一、Js语言的回顾"></a>一、Js语言的回顾</h2><ul>
+<li><strong>Js的三个组成部分</strong><br>1.<strong>BOM：全称Browser Object Model 浏览器对象模型，核心对象（window loacation）；</strong><br>2.<strong>DOM：Document Object Model 文档对象模型，DOM树，本身为我们操作页面元素提供了一套方法(API)，API:application programming interface 应用程序编程接口</strong><br>3.<strong>ECMAScript：规定js的核心语法，js语句，关键字，保留字</strong></li>
 </ul>
-</li>
-</ul>
-<ul>
-<li><p><strong>数据类型</strong></p>
+<p>1.<strong>数据类型</strong></p>
 <ul>
 <li><strong>基本数据类型（简单数据类型）</strong><blockquote>
 <p><strong>string 字符串类型<br>number 数值<br>boolean 布尔类型(true | false)<br>undefined 未定义<br>null     空(对象)  这个类型有点特殊</strong></p>
@@ -414,8 +393,6 @@
 </blockquote>
 </li>
 <li><strong>在函数中的使用</strong><br>值类型作为函数的参数：<br>实参和形参他们的数据是相互独立的<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">        function func(param)&#123;</div><div class="line">            console.log(param);  //我是字符串</div><div class="line">            param = &quot;我也是一个字符串&quot;;</div><div class="line">            console.log(param);</div><div class="line">        &#125;</div><div class="line">        var a = &quot;我是字符串&quot;;</div><div class="line">        func(a);</div><div class="line">        console.log(a);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-</li>
-</ul>
 </li>
 </ul>
 </li>
@@ -554,6 +531,12 @@
 </ul>
 <hr>
 <h4 id="未完待续-接下来会讲解构造函数的原型对象"><a href="#未完待续-接下来会讲解构造函数的原型对象" class="headerlink" title="未完待续! 接下来会讲解构造函数的原型对象!!"></a>未完待续! 接下来会讲解构造函数的原型对象!!</h4><h4 id="内容枯燥-但是每一个牛逼的工程师都是这样一步一步走过来的"><a href="#内容枯燥-但是每一个牛逼的工程师都是这样一步一步走过来的" class="headerlink" title="内容枯燥, 但是每一个牛逼的工程师都是这样一步一步走过来的."></a>内容枯燥, 但是每一个牛逼的工程师都是这样一步一步走过来的.</h4><hr>
+<h2 id="为什么呢"><a href="#为什么呢" class="headerlink" title="为什么呢"></a>为什么呢</h2><ul>
+<li>那是因为你是个傻逼</li>
+<li>哈哈</li>
+<li>好吧 不脑了</li>
+<li></li>
+</ul>
 
       
     </div>
@@ -689,7 +672,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#—"><span class="nav-number">1.</span> <span class="nav-text">—</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引言"><span class="nav-number">1.1.</span> <span class="nav-text">引言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Js语言的回顾"><span class="nav-number">1.1.1.</span> <span class="nav-text">Js语言的回顾</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#回顾前面这些呢，就是想让接下来看面向对象的时候，脑海中有个印象和回忆，当然，这也是想到会有一些编程小白理解起来困难的原因。知识点有点枯燥-学编程嘛-得有点耐心才行"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">回顾前面这些呢，就是想让接下来看面向对象的时候，脑海中有个印象和回忆，当然，这也是想到会有一些编程小白理解起来困难的原因。知识点有点枯燥,学编程嘛 得有点耐心才行.</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向过程-amp-面向对象"><span class="nav-number">1.2.</span> <span class="nav-text">面向过程 &  面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是对象"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">什么是对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#现实中的对象和编码中的对象"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">现实中的对象和编码中的对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么要使用面向对象编程"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">为什么要使用面向对象编程?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#js对象是由两个对象组成的"><span class="nav-number">1.2.0.4.</span> <span class="nav-text">js对象是由两个对象组成的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编程语言"><span class="nav-number">1.2.0.5.</span> <span class="nav-text">编程语言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象的特性："><span class="nav-number">1.2.0.6.</span> <span class="nav-text">面向对象的特性：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建对象的四种方法"><span class="nav-number">1.2.0.7.</span> <span class="nav-text">创建对象的四种方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#构造函数的的注意事项"><span class="nav-number">1.2.0.8.</span> <span class="nav-text">构造函数的的注意事项</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#未完待续-接下来会讲解构造函数的原型对象"><span class="nav-number">1.2.1.</span> <span class="nav-text">未完待续! 接下来会讲解构造函数的原型对象!!</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内容枯燥-但是每一个牛逼的工程师都是这样一步一步走过来的"><span class="nav-number">1.2.2.</span> <span class="nav-text">内容枯燥, 但是每一个牛逼的工程师都是这样一步一步走过来的.</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Js语言的回顾"><span class="nav-number">1.1.</span> <span class="nav-text">一、Js语言的回顾</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#回顾前面这些呢，就是想让接下来看面向对象的时候，脑海中有个印象和回忆，当然，这也是想到会有一些编程小白理解起来困难的原因。知识点有点枯燥-学编程嘛-得有点耐心才行"><span class="nav-number">1.1.0.0.1.</span> <span class="nav-text">回顾前面这些呢，就是想让接下来看面向对象的时候，脑海中有个印象和回忆，当然，这也是想到会有一些编程小白理解起来困难的原因。知识点有点枯燥,学编程嘛 得有点耐心才行.</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向过程-amp-面向对象"><span class="nav-number">1.1.1.</span> <span class="nav-text">面向过程 &  面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是对象"><span class="nav-number">1.1.1.0.1.</span> <span class="nav-text">什么是对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#现实中的对象和编码中的对象"><span class="nav-number">1.1.1.0.2.</span> <span class="nav-text">现实中的对象和编码中的对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么要使用面向对象编程"><span class="nav-number">1.1.1.0.3.</span> <span class="nav-text">为什么要使用面向对象编程?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#js对象是由两个对象组成的"><span class="nav-number">1.1.1.0.4.</span> <span class="nav-text">js对象是由两个对象组成的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编程语言"><span class="nav-number">1.1.1.0.5.</span> <span class="nav-text">编程语言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象的特性："><span class="nav-number">1.1.1.0.6.</span> <span class="nav-text">面向对象的特性：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建对象的四种方法"><span class="nav-number">1.1.1.0.7.</span> <span class="nav-text">创建对象的四种方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#构造函数的的注意事项"><span class="nav-number">1.1.1.0.8.</span> <span class="nav-text">构造函数的的注意事项</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#未完待续-接下来会讲解构造函数的原型对象"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">未完待续! 接下来会讲解构造函数的原型对象!!</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内容枯燥-但是每一个牛逼的工程师都是这样一步一步走过来的"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">内容枯燥, 但是每一个牛逼的工程师都是这样一步一步走过来的.</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么呢"><span class="nav-number">1.2.</span> <span class="nav-text">为什么呢</span></a></li></ol></li></ol></div>
             
 
           </div>
