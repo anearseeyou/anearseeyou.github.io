@@ -1,0 +1,778 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTML5框架," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="框架五 :: swiper.js介绍
+Swiper是一款免费以及轻量级的移动设备触控滑块的js框架，主要是为iOS设计，同时，在Android、WP系统和其他PC浏览器上也有着良好的体验。特点
+轻量级，简洁高效，可定制性非常高；
+横跨各种设备，兼容IOS、Android、WP、PC端设备；
+提供多种版本支持（可自由选择jQuery/zepto版或原生js）;
+
+注意:Swiper从3.0开始不再">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5 - Swiper框架">
+<meta property="og:url" content="git@github.com:anearseeyou/anearseeyou.git/2015/06/22/HTML5-Swiper框架/index.html">
+<meta property="og:site_name" content="Keep on coding">
+<meta property="og:description" content="框架五 :: swiper.js介绍
+Swiper是一款免费以及轻量级的移动设备触控滑块的js框架，主要是为iOS设计，同时，在Android、WP系统和其他PC浏览器上也有着良好的体验。特点
+轻量级，简洁高效，可定制性非常高；
+横跨各种设备，兼容IOS、Android、WP、PC端设备；
+提供多种版本支持（可自由选择jQuery/zepto版或原生js）;
+
+注意:Swiper从3.0开始不再">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-d47ed22f8adf2560.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-02-26T13:59:20.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5 - Swiper框架">
+<meta name="twitter:description" content="框架五 :: swiper.js介绍
+Swiper是一款免费以及轻量级的移动设备触控滑块的js框架，主要是为iOS设计，同时，在Android、WP系统和其他PC浏览器上也有着良好的体验。特点
+轻量级，简洁高效，可定制性非常高；
+横跨各种设备，兼容IOS、Android、WP、PC端设备；
+提供多种版本支持（可自由选择jQuery/zepto版或原生js）;
+
+注意:Swiper从3.0开始不再">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3359912-d47ed22f8adf2560.gif?imageMogr2/auto-orient/strip">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6389887927219914000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="git@github.com:anearseeyou/anearseeyou.git/2015/06/22/HTML5-Swiper框架/"/>
+
+
+
+
+
+  <title> HTML5 - Swiper框架 | Keep on coding </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Keep on coding</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">We can't stop | Just do it.</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="git@github.com:anearseeyou/anearseeyou.git/2015/06/22/HTML5-Swiper框架/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Mr.Koc">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://olrw5apal.bkt.clouddn.com/background.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Keep on coding">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Keep on coding" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML5 - Swiper框架
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-22T20:17:06+08:00">
+                2015-06-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/06/22/HTML5-Swiper框架/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/22/HTML5-Swiper框架/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h2 id="框架五-swiper-js"><a href="#框架五-swiper-js" class="headerlink" title="框架五 :: swiper.js"></a>框架五 :: swiper.js</h2><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><ul>
+<li><strong>Swiper是一款免费以及轻量级的移动设备触控滑块的js框架，主要是为iOS设计，同时，在Android、WP系统和其他PC浏览器上也有着良好的体验。</strong><h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4></li>
+<li><strong>轻量级，简洁高效，可定制性非常高；</strong></li>
+<li><strong>横跨各种设备，兼容IOS、Android、WP、PC端设备；</strong></li>
+<li><strong>提供多种版本支持（可自由选择jQuery/zepto版或原生js）;</strong></li>
+</ul>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h4><p><strong>Swiper从3.0开始不再全面支持PC端。因此，如需要在PC上兼容更多浏览器，可以选择swiper 2.x(支持IE7) </strong></p>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><ul>
+<li><strong>引入方法</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; href=“css/swiper.min.css&quot;&gt;</div><div class="line">&lt;script src=“js/swiper.min.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>HTML结构</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-container"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-wrapper"</span>&gt;</span></div><div class="line">             <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>Slide 1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">             <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>Slide 2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">             <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>Slide 3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>Js文件调用</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> swiper = <span class="keyword">new</span> Swiper(<span class="string">'.swiper-container'</span>);</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>高级效果和参数设置</strong><br> <strong>HTML</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-container"</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-wrapper"</span>&gt;</span></div><div class="line">             <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>Slide 1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">             <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>Slide 2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">             <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>Slide 3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">          <span class="comment">&lt;!-- 如果需要分页器 --&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-pagination"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">          <span class="comment">&lt;!-- 如果需要导航按钮 --&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-button-prev"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-button-next"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">          <span class="comment">&lt;!-- 如果需要滚动条 --&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-scrollbar"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>  <strong> js部分 </strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mySwiper = <span class="keyword">new</span> Swiper (<span class="string">'.swiper-container'</span>, &#123;</div><div class="line">               <span class="comment">// 如果需要分页器</span></div><div class="line">               pagination: <span class="string">'.swiper-pagination'</span>,</div><div class="line">               <span class="comment">// 如果需要前进后退按钮</span></div><div class="line">               nextButton: <span class="string">'.swiper-button-next'</span>,</div><div class="line">               <span class="attr">prevButton</span>: <span class="string">'.swiper-button-prev'</span>,</div><div class="line">               <span class="comment">// 如果需要滚动条</span></div><div class="line">              scrollbar: <span class="string">'.swiper-scrollbar'</span>,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>  <strong> 其他参数 根据自己项目的需求可以手动设置 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">loop: true, //循环开关</div><div class="line">autoplay: 3000, //⾃动播放间隔时间（单位：毫秒）默认不⾃动播放</div><div class="line">direction: &apos;vertical&apos;, //切换⽅向 ⽔平(horizontal)或垂直(vertical)</div><div class="line">speed:300, //切换速度（单位：毫秒）</div><div class="line">keyboardControl:true, //键盘控制开关</div><div class="line">paginationType:‘bullets’, //分⻚器外观 bullets 、 fraction 、 progress</div><div class="line">effect: &apos;fade&apos;, //切换效果 fade、cube、coverflow、flip</div></pre></td></tr></table></figure></p>
+<h4 id="swiper-animate"><a href="#swiper-animate" class="headerlink" title="swiper animate"></a>swiper animate</h4><ul>
+<li><strong>引入文件(比之前多了animate.css 和swiper.animate.js)</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">“css/swiper.min.css</span>"&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">“css/animate.min.css</span>"&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">“js/swiper.min.js</span>"&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">“js/swiper.animate.min.js</span>"&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>HTML</strong></li>
+<li><strong>在需要运动的元素上面增加类名 ani, 然后添加swiper animate 参数</strong></li>
+<li><strong>swiper-animate-effect：切换效果，例如 fadeInUp</strong></li>
+<li><strong>swiper-animate-duration：动画持续时间（单位秒），例如 0.5s</strong></li>
+<li><strong>swiper-animate-delay: 延迟时间（单位秒）</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-container"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-wrapper"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ani"</span> <span class="attr">swiper-animate-effect</span>=<span class="string">"fadeInUp"</span> <span class="attr">swiper-animate-duration</span>=<span class="string">"0.5s"</span> <span class="attr">swiper-animate-delay</span>=<span class="string">"0.3s"</span>&gt;</span>Slider 1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>js调用</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mySwiper = <span class="keyword">new</span> Swiper (<span class="string">'.swiper-container'</span>, &#123;</div><div class="line">         <span class="attr">onInit</span>: <span class="function"><span class="keyword">function</span>(<span class="params">swiper</span>)</span>&#123; <span class="comment">//Swiper2.x的初始化是onFirstInit</span></div><div class="line">         swiperAnimateCache(swiper); <span class="comment">//隐藏动画元素</span></div><div class="line">         swiperAnimate(swiper); <span class="comment">//初始化完成开始动画</span></div><div class="line">         &#125;,</div><div class="line">         <span class="attr">onSlideChangeEnd</span>: <span class="function"><span class="keyword">function</span>(<span class="params">swiper</span>)</span>&#123;</div><div class="line">             swiperAnimate(swiper); <span class="comment">//每个slide切换结束时也运⾏当前slide动画</span></div><div class="line">         &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="附一个Demo-帮助更好的理解和使用"><a href="#附一个Demo-帮助更好的理解和使用" class="headerlink" title="附一个Demo  帮助更好的理解和使用 !"></a>附一个Demo  帮助更好的理解和使用 !</h3><h4 id="lt-———-HTML-———–-gt"><a href="#lt-———-HTML-———–-gt" class="headerlink" title="&lt; ! ———- HTML  ———– &gt;"></a>&lt; ! ———- HTML  ———– &gt;</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-container box"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-wrapper slider"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/01.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/02.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/10.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/13.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/14.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/16.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/19.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/35.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 如果需要分页器 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-pagination"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- 如果需要导航按钮 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-button-prev"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-button-next"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- 如果需要滚动条 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-scrollbar"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="lt-———-Style-—————-gt"><a href="#lt-———-Style-—————-gt" class="headerlink" title="&lt; ! ——— Style ————— &gt;"></a>&lt; ! ——— Style ————— &gt;</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    .box &#123;</div><div class="line">        width: 300px;</div><div class="line">        height: 433px;</div><div class="line">        margin: 100px auto;</div><div class="line">    &#125;</div><div class="line">    .slider img&#123;</div><div class="line">        width: 300px;</div><div class="line">        height: 433px;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h4 id="lt-———-JavaScript-——-gt"><a href="#lt-———-JavaScript-——-gt" class="headerlink" title="&lt; ! ——— JavaScript  ——- &gt;"></a>&lt; ! ——— JavaScript  ——- &gt;</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> swiper = <span class="keyword">new</span> Swiper(<span class="string">'.swiper-container'</span>, &#123;</div><div class="line">        <span class="comment">// 如果需要分页器器</span></div><div class="line">        pagination: <span class="string">'.swiper-pagination'</span>,</div><div class="line"></div><div class="line">        <span class="comment">// 如果需要前进后退按钮</span></div><div class="line">        nextButton: <span class="string">'.swiper-button-next'</span>,</div><div class="line">        <span class="attr">prevButton</span>: <span class="string">'.swiper-button-prev'</span>,</div><div class="line"></div><div class="line">        <span class="comment">// 如果需要滚动条</span></div><div class="line">        scrollbar: <span class="string">'.swiper-scrollbar'</span>,</div><div class="line"></div><div class="line">        <span class="attr">loop</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">autoplay</span>: <span class="number">1000</span>,</div><div class="line">        <span class="attr">direction</span>: <span class="string">'horizontal'</span>, <span class="comment">//切换方向 水平(horizontal)或垂直(vertical)</span></div><div class="line">        speed: <span class="number">400</span>,</div><div class="line">        <span class="attr">keyboardControl</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">paginationType</span>: <span class="string">"fraction"</span>,</div><div class="line">        <span class="attr">effect</span>: <span class="string">'flip'</span>,</div><div class="line">    &#125;);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h4 id="lt-———-效果展示-———-gt"><a href="#lt-———-效果展示-———-gt" class="headerlink" title="&lt; ! ——— 效果展示  ———- &gt;"></a>&lt; ! ——— 效果展示  ———- &gt;</h4><p><img src="http://upload-images.jianshu.io/upload_images/3359912-d47ed22f8adf2560.gif?imageMogr2/auto-orient/strip" alt="zepto1.gif"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML5框架/" rel="tag"># HTML5框架</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/18/HTML5-Zepto框架/" rel="next" title="HTML5 - Zepto框架">
+                <i class="fa fa-chevron-left"></i> HTML5 - Zepto框架
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/22/JavaScript-面向对象编程一/" rel="prev" title="JavaScript - 面向对象编程一">
+                JavaScript - 面向对象编程一 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/06/22/HTML5-Swiper框架/"
+           data-title="HTML5 - Swiper框架" data-url="git@github.com:anearseeyou/anearseeyou.git/2015/06/22/HTML5-Swiper框架/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://olrw5apal.bkt.clouddn.com/background.jpg"
+               alt="Mr.Koc" />
+          <p class="site-author-name" itemprop="name">Mr.Koc</p>
+          <p class="site-description motion-element" itemprop="description">Please call me Mr.Koc</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#框架五-swiper-js"><span class="nav-number">1.</span> <span class="nav-text">框架五 :: swiper.js</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">1.0.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点"><span class="nav-number">1.0.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">1.0.3.</span> <span class="nav-text">注意:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法"><span class="nav-number">1.0.4.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swiper-animate"><span class="nav-number">1.0.5.</span> <span class="nav-text">swiper animate</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附一个Demo-帮助更好的理解和使用"><span class="nav-number">1.1.</span> <span class="nav-text">附一个Demo  帮助更好的理解和使用 !</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-HTML-———–-gt"><span class="nav-number">1.1.1.</span> <span class="nav-text">< ! ———- HTML  ———– ></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-Style-—————-gt"><span class="nav-number">1.1.2.</span> <span class="nav-text">< ! ——— Style ————— ></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-JavaScript-——-gt"><span class="nav-number">1.1.3.</span> <span class="nav-text">< ! ——— JavaScript  ——- ></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-效果展示-———-gt"><span class="nav-number">1.1.4.</span> <span class="nav-text">< ! ——— 效果展示  ———- ></span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Koc</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"keeponcode"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
