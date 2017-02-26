@@ -1,0 +1,788 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTML5框架," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="开篇废话是一种情怀
+本节主要介绍两款前端比较流行的框架, 后面还会有别的框架更新 !希望喜欢的朋友可以持续关注
+这两款框架属于视觉效果类的，比较简单易懂．各位朋友如果有什么好的建议和心得可以留言，大家一起分享成长
+总之，我是个喜欢开篇废话的＇程序猿＇，因为我希望自己是一个有情怀的人.
+
+框架一 ==&amp;gt; Animate.css
+Animate.css是一个css动画样式库,可以减少我们的开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5 - 常用框架一">
+<meta property="og:url" content="git@github.com:anearseeyou/anearseeyou.git/2015/03/18/HTML5-Animate和Wow框架/index.html">
+<meta property="og:site_name" content="Keep on coding">
+<meta property="og:description" content="开篇废话是一种情怀
+本节主要介绍两款前端比较流行的框架, 后面还会有别的框架更新 !希望喜欢的朋友可以持续关注
+这两款框架属于视觉效果类的，比较简单易懂．各位朋友如果有什么好的建议和心得可以留言，大家一起分享成长
+总之，我是个喜欢开篇废话的＇程序猿＇，因为我希望自己是一个有情怀的人.
+
+框架一 ==&amp;gt; Animate.css
+Animate.css是一个css动画样式库,可以减少我们的开发">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-697f0eda4f6fd51f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-6311680a5b8f5b6d.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-02-26T10:51:18.252Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5 - 常用框架一">
+<meta name="twitter:description" content="开篇废话是一种情怀
+本节主要介绍两款前端比较流行的框架, 后面还会有别的框架更新 !希望喜欢的朋友可以持续关注
+这两款框架属于视觉效果类的，比较简单易懂．各位朋友如果有什么好的建议和心得可以留言，大家一起分享成长
+总之，我是个喜欢开篇废话的＇程序猿＇，因为我希望自己是一个有情怀的人.
+
+框架一 ==&amp;gt; Animate.css
+Animate.css是一个css动画样式库,可以减少我们的开发">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3359912-697f0eda4f6fd51f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6389887927219914000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="git@github.com:anearseeyou/anearseeyou.git/2015/03/18/HTML5-Animate和Wow框架/"/>
+
+
+
+
+
+  <title> HTML5 - 常用框架一 | Keep on coding </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Keep on coding</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">We can't stop | Just do it.</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="git@github.com:anearseeyou/anearseeyou.git/2015/03/18/HTML5-Animate和Wow框架/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Mr.Koc">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://olrw5apal.bkt.clouddn.com/background.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Keep on coding">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Keep on coding" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML5 - 常用框架一
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-18T18:11:24+08:00">
+                2015-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/03/18/HTML5-Animate和Wow框架/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/18/HTML5-Animate和Wow框架/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h2 id="开篇废话是一种情怀"><a href="#开篇废话是一种情怀" class="headerlink" title="开篇废话是一种情怀"></a>开篇废话是一种情怀</h2><ul>
+<li><strong>本节主要介绍两款前端比较流行的框架, 后面还会有别的框架更新 !希望喜欢的朋友可以持续关注</strong></li>
+<li><strong>这两款框架属于视觉效果类的，比较简单易懂．各位朋友如果有什么好的建议和心得可以留言，大家一起分享成长</strong></li>
+<li><strong>总之，我是个喜欢开篇废话的＇程序猿＇，因为我希望自己是一个有情怀的人.</strong></li>
+</ul>
+<h2 id="框架一-gt-Animate-css"><a href="#框架一-gt-Animate-css" class="headerlink" title="框架一 ==&gt; Animate.css"></a>框架一 ==&gt; Animate.css</h2><ul>
+<li>Animate.css是一个css动画样式库,可以减少我们的开发时间.它预设了抖动（shake）、闪烁（flash）、弹跳（bounce）、翻转（flip）、旋转（rotateIn/rotateOut）、淡入淡出<br>（fadeIn/fadeOut）等多达70多种动画特效，几乎包含了所有常用的动画特效。</li>
+<li><strong>重点</strong>: 主要是兼容各种浏览器,Animate的底层是靠css实现的,当然只兼容支持CSS3animate属性的浏览器: IE10+、Firefox、Chrome、Opera、Safari。</li>
+<li><strong>下载文件包链接：<a href="https://daneden.github.io/animate.css/" target="_blank" rel="external">https://daneden.github.io/animate.css/</a> </strong></li>
+</ul>
+<h2 id="Animate-css的具体使用"><a href="#Animate-css的具体使用" class="headerlink" title="Animate.css的具体使用"></a>Animate.css的具体使用</h2><h4 id="引入文件"><a href="#引入文件" class="headerlink" title="引入文件"></a>引入文件</h4><p><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;animate.min.css&quot;&gt;</code></p>
+<h4 id="给做动画的标签添加类名"><a href="#给做动画的标签添加类名" class="headerlink" title="给做动画的标签添加类名"></a>给做动画的标签添加类名</h4><p><code>&lt;div class=&quot;box myAnimated flip&quot;&gt;&lt;/div&gt;</code></p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h4><ul>
+<li><strong>类 animated 的作用是控制动画的持续时间，是所有动画的前提条件， 在其后面的类则为动画的效果类。</strong></li>
+</ul>
+<hr>
+<h2 id="框架二-gt-WOW-js"><a href="#框架二-gt-WOW-js" class="headerlink" title="框架二  ==&gt;  WOW.js"></a>框架二  ==&gt;  WOW.js</h2><h4 id="核心作用：让我们的页面滚动更有质感，更酷炫"><a href="#核心作用：让我们的页面滚动更有质感，更酷炫" class="headerlink" title="核心作用：让我们的页面滚动更有质感，更酷炫"></a>核心作用：让我们的页面滚动更有质感，更酷炫</h4><ul>
+<li>通过WOW.js，可以在页面逐渐向下滚动的过程中逐渐释放这些动画效果。也就是说：当我们向下滚动页面时，可以省去很多判断条件，让CSS动画逐渐展示出来。</li>
+</ul>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>轻量级类库， 不依赖jQuery，超简单的安装和使用，与animate.css配合，只需要短短几行代码就可以实现很多特效。</li>
+<li>容易定制，我们可以改变动画去设置喜欢的风格、延迟、长度、偏移和迭代等等。</li>
+</ul>
+<h4 id="兼容性问题"><a href="#兼容性问题" class="headerlink" title="兼容性问题"></a>兼容性问题</h4><ul>
+<li><strong>因为，WOW.js要和animate.css配合使用，所有其也只兼容支持CSS3 animate属性的浏览器：IE10+、Firefox、Chrome、Opera、Safari。</strong></li>
+</ul>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><ul>
+<li><p><strong>引入文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!-- Css文件 必须有这个animate文件的支持才能使用WOW --&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;animate.min.css&quot;&gt;</div><div class="line">&lt;script src=&quot;wow.min.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在相对的HTML标签中通过类名进行绑定</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wow slideInLeft"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wow slideInRight"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>然后在JavaScript文件中只需要一行初始化代码就搞定咯</strong><br><code>new WOW().init();</code></p>
+</li>
+</ul>
+<h2 id="WOW-js常用的属性"><a href="#WOW-js常用的属性" class="headerlink" title="WOW.js常用的属性"></a>WOW.js常用的属性</h2><ul>
+<li><strong>data-wow-delay: 动画开始前延迟</strong></li>
+<li><strong>data-wow-duration: 动画持续时间</strong></li>
+<li><strong>data-wow-iteration: 动画重复次数</strong></li>
+<li><strong>data-wow-offset: 距离浏览器底部到隐藏框顶部的距离（偏移量）</strong></li>
+</ul>
+<h4 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h4><ul>
+<li><p>可以加入 data-wow-duration (动画持续时间)和 data-wow-delay （动画延迟时间）等属性。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wow slideInLeft"</span> <span class="attr">data-wow-duration</span>=<span class="string">"3s"</span> <span class="attr">data-wow-delay</span>=<span class="string">"1s"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wow slideInRight"</span> <span class="attr">data-wow-iteration</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>data-wow-offset 图解</strong></p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-697f0eda4f6fd51f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="**data-wow-offset**"></p>
+<ul>
+<li><strong>WOW的默认配置参数,如果需要自定义配置,可手动修改</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> wow = <span class="keyword">new</span> WOW(&#123;</div><div class="line"><span class="attr">boxClass</span>: <span class="string">'wow'</span>, <span class="comment">// 动画元素的CSS类（默认类名wow）</span></div><div class="line">animateClass:<span class="string">'animated'</span>, <span class="comment">// 动画CSS类 （默认类名animated）</span></div><div class="line">offset: <span class="number">0</span>, <span class="comment">// 距离可视区域多少开始执行动画（默认为0）</span></div><div class="line">mobile: <span class="literal">true</span>, <span class="comment">// 是否在移动设备上执行动画 （默认是true）</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">wow.init();</div></pre></td></tr></table></figure>
+<h2 id="附Demo一个-帮助更好的理解和使用"><a href="#附Demo一个-帮助更好的理解和使用" class="headerlink" title="附Demo一个, 帮助更好的理解和使用 !"></a>附Demo一个, 帮助更好的理解和使用 !</h2><h2 id="lt-———-HTML-————-gt"><a href="#lt-———-HTML-————-gt" class="headerlink" title="&lt; ! ———- HTML  ———— &gt;"></a>&lt; ! ———- HTML  ———— &gt;</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"door"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left wow slideInLeft"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right wow slideInRight"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="lt-———-Style-————–-gt"><a href="#lt-———-Style-————–-gt" class="headerlink" title="&lt; ! ——— Style ————– &gt;"></a>&lt; ! ——— Style ————– &gt;</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">        * &#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">            border: 0;</div><div class="line">            list-style-type: none;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .door &#123;</div><div class="line">            width: 980px;</div><div class="line">            margin: 100px auto;</div><div class="line">            overflow: hidden;</div><div class="line">            background: #fff;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        div &#123;</div><div class="line">            width: 450px;</div><div class="line">            height: 300px;</div><div class="line">            background: #cccccc;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .left &#123;</div><div class="line">            float: left;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .right &#123;</div><div class="line">            float: right;</div><div class="line">        &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="lt-———-JavaScript-——-gt"><a href="#lt-———-JavaScript-——-gt" class="headerlink" title="&lt; ! ——— JavaScript  ——- &gt;"></a>&lt; ! ——— JavaScript  ——- &gt;</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 两行代码轻松实现</span></div><div class="line">&lt;script src=<span class="string">"js/wow.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script&gt;</div><div class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">new</span> WOW().init();</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="lt-———-效果展示-———-gt"><a href="#lt-———-效果展示-———-gt" class="headerlink" title="&lt; ! ——— 效果展示  ———- &gt;"></a>&lt; ! ——— 效果展示  ———- &gt;</h2><p><img src="http://upload-images.jianshu.io/upload_images/3359912-6311680a5b8f5b6d.gif?imageMogr2/auto-orient/strip" alt="开门效果"></p>
+<h4 id="但是WOW-js实例的动画只能加载一次，如果要重新执行动画必须要进行刷新。"><a href="#但是WOW-js实例的动画只能加载一次，如果要重新执行动画必须要进行刷新。" class="headerlink" title="但是WOW.js实例的动画只能加载一次，如果要重新执行动画必须要进行刷新。"></a>但是WOW.js实例的动画只能加载一次，如果要重新执行动画必须要进行刷新。</h4><h4 id="为了更好的解决这个问题-所以在下一次更新会引出第三个框架"><a href="#为了更好的解决这个问题-所以在下一次更新会引出第三个框架" class="headerlink" title="为了更好的解决这个问题,所以在下一次更新会引出第三个框架"></a>为了更好的解决这个问题,所以在下一次更新会引出第三个框架</h4><hr>
+<h2 id="未完待续-…"><a href="#未完待续-…" class="headerlink" title="未完待续 …"></a>未完待续 …</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML5框架/" rel="tag"># HTML5框架</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/22/JavaScript-面向对象编程一/" rel="prev" title="JavaScript - 面向对象编程一">
+                JavaScript - 面向对象编程一 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/03/18/HTML5-Animate和Wow框架/"
+           data-title="HTML5 - 常用框架一" data-url="git@github.com:anearseeyou/anearseeyou.git/2015/03/18/HTML5-Animate和Wow框架/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://olrw5apal.bkt.clouddn.com/background.jpg"
+               alt="Mr.Koc" />
+          <p class="site-author-name" itemprop="name">Mr.Koc</p>
+          <p class="site-description motion-element" itemprop="description">Please call me Mr.Koc</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开篇废话是一种情怀"><span class="nav-number">1.</span> <span class="nav-text">开篇废话是一种情怀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#框架一-gt-Animate-css"><span class="nav-number">2.</span> <span class="nav-text">框架一 ==> Animate.css</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Animate-css的具体使用"><span class="nav-number">3.</span> <span class="nav-text">Animate.css的具体使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#引入文件"><span class="nav-number">3.0.1.</span> <span class="nav-text">引入文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给做动画的标签添加类名"><span class="nav-number">3.0.2.</span> <span class="nav-text">给做动画的标签添加类名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">3.0.3.</span> <span class="nav-text">注意:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#框架二-gt-WOW-js"><span class="nav-number">4.</span> <span class="nav-text">框架二  ==>  WOW.js</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#核心作用：让我们的页面滚动更有质感，更酷炫"><span class="nav-number">4.0.1.</span> <span class="nav-text">核心作用：让我们的页面滚动更有质感，更酷炫</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点"><span class="nav-number">4.0.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#兼容性问题"><span class="nav-number">4.0.3.</span> <span class="nav-text">兼容性问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法"><span class="nav-number">4.0.4.</span> <span class="nav-text">使用方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WOW-js常用的属性"><span class="nav-number">5.</span> <span class="nav-text">WOW.js常用的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法-1"><span class="nav-number">5.0.1.</span> <span class="nav-text">使用方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附Demo一个-帮助更好的理解和使用"><span class="nav-number">6.</span> <span class="nav-text">附Demo一个, 帮助更好的理解和使用 !</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-———-HTML-————-gt"><span class="nav-number">7.</span> <span class="nav-text">< ! ———- HTML  ———— ></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-———-Style-————–-gt"><span class="nav-number">8.</span> <span class="nav-text">< ! ——— Style ————– ></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-———-JavaScript-——-gt"><span class="nav-number">9.</span> <span class="nav-text">< ! ——— JavaScript  ——- ></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-———-效果展示-———-gt"><span class="nav-number">10.</span> <span class="nav-text">< ! ——— 效果展示  ———- ></span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#但是WOW-js实例的动画只能加载一次，如果要重新执行动画必须要进行刷新。"><span class="nav-number">10.0.1.</span> <span class="nav-text">但是WOW.js实例的动画只能加载一次，如果要重新执行动画必须要进行刷新。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为了更好的解决这个问题-所以在下一次更新会引出第三个框架"><span class="nav-number">10.0.2.</span> <span class="nav-text">为了更好的解决这个问题,所以在下一次更新会引出第三个框架</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续-…"><span class="nav-number">11.</span> <span class="nav-text">未完待续 …</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Koc</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"keeponcode"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
