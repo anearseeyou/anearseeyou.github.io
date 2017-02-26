@@ -439,7 +439,7 @@
 </blockquote>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">param</span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(param);  <span class="comment">//我是字符串</span></div><div class="line">            param = <span class="string">"我也是一个字符串"</span>;</div><div class="line">            <span class="built_in">console</span>.log(param);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> a = <span class="string">"我是字符串"</span>;</div><div class="line">        func(a);</div><div class="line">        <span class="built_in">console</span>.log(a);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">param</span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(param);  <span class="comment">//我是字符串</span></div><div class="line">            param = <span class="string">"我也是一个字符串"</span>;</div><div class="line">            <span class="built_in">console</span>.log(param);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> a = <span class="string">"我是字符串"</span>;</div><div class="line">        func(a);</div><div class="line">        <span class="built_in">console</span>.log(a);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>引用类型作为函数的参数：<br>1.形参和实参共享同一份数据,修改其中的某个对象对另外一个对象也会有影响<br>2.示例代码 : 
 </strong></p>
@@ -473,12 +473,12 @@
 <ul>
 <li><strong>函数表达式</strong></li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//01 匿名函数</span></div><div class="line">    <span class="keyword">var</span> func01 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">    &#125;;</div><div class="line">    <span class="comment">//02 命名的函数表达式</span></div><div class="line">    <span class="keyword">var</span> func02 = <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    &#125;;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//01 匿名函数</span></div><div class="line">    <span class="keyword">var</span> func01 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">    &#125;;</div><div class="line">    <span class="comment">//02 命名的函数表达式</span></div><div class="line">    <span class="keyword">var</span> func02 = <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    &#125;;</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
 <ul>
 <li><strong>使用构造函数创建函数对象</strong></li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> func = <span class="keyword">new</span> <span class="built_in">Function</span>();   <span class="comment">//没有内容(没有函数体)</span></div><div class="line">    func();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">funcTest</span> (<span class="params"></span>)</span>&#123;&#125;;     <span class="comment">//等价</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span> func02 = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"console.log('demo');"</span>);</div><div class="line">    func02();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> obj = &#123;<span class="attr">name</span>:<span class="string">"zhangsan"</span>&#125;;</div><div class="line">    <span class="keyword">var</span> obj2 = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">    <span class="keyword">var</span> obj3 = &#123;&#125;;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> func = <span class="keyword">new</span> <span class="built_in">Function</span>();   <span class="comment">//没有内容(没有函数体)</span></div><div class="line">    func();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">funcTest</span> (<span class="params"></span>)</span>&#123;&#125;;     <span class="comment">//等价</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span> func02 = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"console.log('demo');"</span>);</div><div class="line">    func02();</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> obj = &#123;<span class="attr">name</span>:<span class="string">"zhangsan"</span>&#125;;</div><div class="line">    <span class="keyword">var</span> obj2 = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">    <span class="keyword">var</span> obj3 = &#123;&#125;;</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
 <hr>
 <h5 id="回顾前面这些呢，就是想让接下来看面向对象的时候，脑海中有个印象和回忆，当然，这也是想到会有一些编程小白理解起来困难的原因。知识点有点枯燥-学编程嘛-得有点耐心才行"><a href="#回顾前面这些呢，就是想让接下来看面向对象的时候，脑海中有个印象和回忆，当然，这也是想到会有一些编程小白理解起来困难的原因。知识点有点枯燥-学编程嘛-得有点耐心才行" class="headerlink" title="回顾前面这些呢，就是想让接下来看面向对象的时候，脑海中有个印象和回忆，当然，这也是想到会有一些编程小白理解起来困难的原因。知识点有点枯燥,学编程嘛 得有点耐心才行."></a>回顾前面这些呢，就是想让接下来看面向对象的时候，脑海中有个印象和回忆，当然，这也是想到会有一些编程小白理解起来困难的原因。知识点有点枯燥,学编程嘛 得有点耐心才行.</h5><hr>
 <h2 id="面向过程-gt-面向对象"><a href="#面向过程-gt-面向对象" class="headerlink" title="面向过程 ==&gt;  面向对象"></a>面向过程 ==&gt;  面向对象</h2><ul>
@@ -617,6 +617,10 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2015/03/18/HTML5-常用框架一/" rel="next" title="HTML5 - 常用框架一">
+                <i class="fa fa-chevron-left"></i> HTML5 - 常用框架一
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
@@ -699,7 +703,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -708,7 +712,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -717,7 +721,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
