@@ -1,0 +1,958 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="面向对象编程," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="上一小节讲到了基本包装类型,本小节继续补充面向对象的内容.有点多,有点杂.好像我每次都在强调耐心这个词,确实,没有耐心是学不好技术的,如果讲的不够详细,大家又是似懂非懂的状态,这样与你与我都不好 !所以我会很耐心的去分享,希望读者也有耐心去学习!
+原型链  — 绘图展示
+示例代码 :
+
+123456789101112131415161718&amp;lt;script&amp;gt;    function A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript - 面向对象编程四">
+<meta property="og:url" content="git@github.com:anearseeyou/anearseeyou.git/2016/06/10/JavaScript-面向对象编程四/index.html">
+<meta property="og:site_name" content="Keep on coding">
+<meta property="og:description" content="上一小节讲到了基本包装类型,本小节继续补充面向对象的内容.有点多,有点杂.好像我每次都在强调耐心这个词,确实,没有耐心是学不好技术的,如果讲的不够详细,大家又是似懂非懂的状态,这样与你与我都不好 !所以我会很耐心的去分享,希望读者也有耐心去学习!
+原型链  — 绘图展示
+示例代码 :
+
+123456789101112131415161718&amp;lt;script&amp;gt;    function A">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-5276364ac4b2509f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-64fa7110a15b47f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-02-27T15:37:43.801Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript - 面向对象编程四">
+<meta name="twitter:description" content="上一小节讲到了基本包装类型,本小节继续补充面向对象的内容.有点多,有点杂.好像我每次都在强调耐心这个词,确实,没有耐心是学不好技术的,如果讲的不够详细,大家又是似懂非懂的状态,这样与你与我都不好 !所以我会很耐心的去分享,希望读者也有耐心去学习!
+原型链  — 绘图展示
+示例代码 :
+
+123456789101112131415161718&amp;lt;script&amp;gt;    function A">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3359912-5276364ac4b2509f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6389887927219914000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="git@github.com:anearseeyou/anearseeyou.git/2016/06/10/JavaScript-面向对象编程四/"/>
+
+
+
+
+
+  <title> JavaScript - 面向对象编程四 | Keep on coding </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Keep on coding</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">We can't stop | Just do it.</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="git@github.com:anearseeyou/anearseeyou.git/2016/06/10/JavaScript-面向对象编程四/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Mr.Koc">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://olrw5apal.bkt.clouddn.com/background.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Keep on coding">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Keep on coding" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript - 面向对象编程四
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-10T20:21:13+08:00">
+                2016-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术控/" itemprop="url" rel="index">
+                    <span itemprop="name">技术控</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术控/程序猿/" itemprop="url" rel="index">
+                    <span itemprop="name">程序猿</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/06/10/JavaScript-面向对象编程四/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/10/JavaScript-面向对象编程四/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/06/10/JavaScript-面向对象编程四/" class="leancloud_visitors" data-flag-title="JavaScript - 面向对象编程四">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h6 id="上一小节讲到了基本包装类型-本小节继续补充面向对象的内容-有点多-有点杂-好像我每次都在强调耐心这个词-确实-没有耐心是学不好技术的-如果讲的不够详细-大家又是似懂非懂的状态-这样与你与我都不好"><a href="#上一小节讲到了基本包装类型-本小节继续补充面向对象的内容-有点多-有点杂-好像我每次都在强调耐心这个词-确实-没有耐心是学不好技术的-如果讲的不够详细-大家又是似懂非懂的状态-这样与你与我都不好" class="headerlink" title="上一小节讲到了基本包装类型,本小节继续补充面向对象的内容.有点多,有点杂.好像我每次都在强调耐心这个词,确实,没有耐心是学不好技术的,如果讲的不够详细,大家又是似懂非懂的状态,这样与你与我都不好 !"></a>上一小节讲到了基本包装类型,本小节继续补充面向对象的内容.有点多,有点杂.好像我每次都在强调耐心这个词,确实,没有耐心是学不好技术的,如果讲的不够详细,大家又是似懂非懂的状态,这样与你与我都不好 !</h6><h6 id="所以我会很耐心的去分享-希望读者也有耐心去学习"><a href="#所以我会很耐心的去分享-希望读者也有耐心去学习" class="headerlink" title="所以我会很耐心的去分享,希望读者也有耐心去学习!"></a>所以我会很耐心的去分享,希望读者也有耐心去学习!</h6><hr>
+<h2 id="原型链-—-绘图展示"><a href="#原型链-—-绘图展示" class="headerlink" title="原型链  — 绘图展示"></a>原型链  — 绘图展示</h2><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="comment">//设置原型链(原型)继承</span></div><div class="line">    <span class="keyword">var</span> a1 = <span class="keyword">new</span> Animal();</div><div class="line">    Dog.prototype = a1;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> dog1 = <span class="keyword">new</span> Dog();</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.constructor);</div><div class="line"></div><div class="line">    <span class="keyword">var</span> o = &#123;&#125;;</div><div class="line">    <span class="built_in">console</span>.log(o.constructor == <span class="built_in">Object</span>.prototype.constructor);</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__ == <span class="built_in">Object</span>.prototype);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>图解  – 更形象的展示原型链</strong></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-5276364ac4b2509f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" **原型链 **"></p>
+<h2 id="Object对象的补充点"><a href="#Object对象的补充点" class="headerlink" title="Object对象的补充点"></a>Object对象的补充点</h2><ul>
+<li><strong>创建基本包装类型的对象</strong></li>
+<li><strong>js中所有的对象都基于object,都继承自object</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> str1 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"demo01"</span>);</div><div class="line">    <span class="keyword">var</span> str2 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"demo01"</span>);</div><div class="line">    <span class="keyword">var</span> str3 = str1;</div><div class="line">    <span class="keyword">var</span> str4 = <span class="string">"demo01"</span>;</div><div class="line"></div><div class="line">    <span class="comment">//判断是否相等</span></div><div class="line">    <span class="built_in">console</span>.log(str1 == str2);    <span class="comment">//false(!!!!)</span></div><div class="line">    <span class="built_in">console</span>.log(str1 == str4);    <span class="comment">//true(内部会隐式转换)</span></div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(str1 === str2);   <span class="comment">//false</span></div><div class="line">    <span class="built_in">console</span>.log(str1 === str3);   <span class="comment">//true</span></div><div class="line">    <span class="built_in">console</span>.log(str1 === str4);   <span class="comment">//false</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span> num1 = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">10</span>);</div><div class="line">    <span class="keyword">var</span> num2 = <span class="number">10</span>;</div><div class="line">    <span class="keyword">var</span> num3 = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">10</span>);</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(num1 == num2);      <span class="comment">//true</span></div><div class="line">    <span class="built_in">console</span>.log(num1 == num3);      <span class="comment">//false</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="Object-prototype详解"><a href="#Object-prototype详解" class="headerlink" title="Object.prototype详解"></a>Object.prototype详解</h2><ul>
+<li><strong>constructor:指向该对象的构造函数</strong></li>
+<li><strong>hasOwnProperty:检测对象中是否存在某个实例属性</strong></li>
+<li><strong>isPrototypeOf:判断某个对象是否是指定对象的原型对象(会判断整条原型链)</strong></li>
+<li><strong>propertyIsEnumerable:判断该属性是否是可枚举</strong><br><strong>如果是可以枚举的,那么在使用for..in循环的时候可以打印出来</strong></li>
+<li><strong>toString 返回一个对当前对象的字符串描述信息,并非一定是该对象的字符串形式</strong><blockquote>
+<p><strong>1.object类型的对象 返回的什么  [obejct Object]<br>2.其他对象类型如函数 | 数组 ,返回对应的字符串形式<br>3.Number类型 可以传递参数(进制) 不传递参数:默认是十进制</strong></p>
+</blockquote>
+</li>
+<li><strong>toLocaleString 大部分情况下的等价于toString方法，特殊情况下会做本地化处理</strong></li>
+<li><strong>valueOf 返回对应的值</strong><blockquote>
+<p><strong>1.基本包装类型（String Number Boolean）,返回对应的基本类型的值<br>2.object类型的，返回this(该对象本身)<br>3.date(日期类)，返回时间戳</strong></p>
+</blockquote>
+</li>
+<li><strong>示例代码1 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">    <span class="keyword">var</span> obj = &#123;<span class="attr">name</span>:<span class="string">"name"</span>&#125;;</div><div class="line">    Person.prototype = obj;  <span class="comment">//替换原型对象</span></div><div class="line">    Person.constructor = Person;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> p1 = <span class="keyword">new</span> Person();</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(obj.isPrototypeOf(p1));  <span class="comment">//是原型对象</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.isPrototypeOf(p1));</div><div class="line">    <span class="comment">// true   整条原型链上面的原型对象都会进行判断</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码2 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> obj = &#123;<span class="attr">name</span>:<span class="string">"张三"</span>,<span class="attr">age</span>:<span class="number">23</span>&#125;;</div><div class="line">    <span class="comment">//console.log(Object.getOwnPropertyDescriptor(obj, "name"));</span></div><div class="line">    <span class="comment">//设置属性</span></div><div class="line">    <span class="built_in">Object</span>.defineProperty(obj,<span class="string">"age"</span>,&#123;</div><div class="line">        <span class="attr">enumerable</span>:<span class="literal">false</span>,</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> obj)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">console</span>.log(k, obj[k]);</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码3 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> o = &#123;<span class="attr">name</span>:<span class="string">"dingding"</span>&#125;;</div><div class="line">    <span class="built_in">console</span>.log(o.toString());    <span class="comment">//[obejct Object]</span></div><div class="line">    <span class="keyword">var</span> arr = [<span class="string">"demo01"</span>,<span class="string">"demo02"</span>,<span class="string">"demo03"</span>];</div><div class="line">    <span class="built_in">console</span>.log(arr.toString());  <span class="comment">//demo01,demo02,demo03</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">demoTest</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">    <span class="comment">// console.log(demoTest.toString());  //function demoTest()&#123;&#125;</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span> num = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">10</span>);</div><div class="line">    <span class="built_in">console</span>.log(num.toString());  <span class="comment">//20</span></div><div class="line">    <span class="built_in">console</span>.log(num.toString(<span class="number">2</span>));  <span class="comment">//二进制 -- 1010 --- &gt; 1 * 2*2*2 + 0 *2*2 + 1*2 + 0*1 = 8 + 0 + 2 + 0 = 10</span></div><div class="line">    <span class="built_in">console</span>.log(num.toString(<span class="number">3</span>));  <span class="comment">//三进制 -- 101  ---&gt; 1*3*3 + 0 * 3 + 1 *1 = 9 + 0 + 1 = 10</span></div><div class="line">    <span class="built_in">console</span>.log(num.toString(<span class="number">7</span>));   <span class="comment">//七进制 -- 13  ---&gt; 1 * 7 + 3*1 = 10</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span> str = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"tese"</span>);</div><div class="line">    <span class="built_in">console</span>.log(str.valueOf());  <span class="comment">//tese</span></div><div class="line">    <span class="keyword">var</span> o = &#123;<span class="attr">name</span>:<span class="string">"jiji"</span>&#125;;</div><div class="line">    <span class="built_in">console</span>.log(o.valueOf());</div><div class="line">    <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();   <span class="comment">//当前的时间</span></div><div class="line">    <span class="built_in">console</span>.log(date.valueOf()); <span class="comment">//1488163624297 时间戳，是一个绝对的值</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="Object的静态成员和实例成员"><a href="#Object的静态成员和实例成员" class="headerlink" title="Object的静态成员和实例成员"></a>Object的静态成员和实例成员</h2><h4 id="实例成员"><a href="#实例成员" class="headerlink" title="实例成员"></a>实例成员</h4><ul>
+<li><strong>成员 : 属性和方法</strong></li>
+<li><strong>说明 : 实力对象上面添加的属性和方法</strong></li>
+</ul>
+<h4 id="静态成员"><a href="#静态成员" class="headerlink" title="静态成员"></a>静态成员</h4><ul>
+<li><p><strong>构造函数 : 本身也是对象，所以构造函数自己也可以拥有属性和方法，这些属性和方法就是静态成员</strong></p>
+</li>
+<li><p><strong>Object.apply  –&gt; 借用其它对象的函数</strong></p>
+</li>
+<li><strong>Object.arguments –&gt;函数内部的一个隐藏参数，主要用来接收实参。</strong></li>
+<li><strong>Object.assign –&gt; 拷贝对象的属性的</strong></li>
+<li><strong>Object.bind –&gt; 绑定处理（call和apply很像）</strong></li>
+<li><strong>Object.call –&gt; 借用其它对象的函数</strong></li>
+<li><strong>Object.caller<br>某个函数的调用函数，返回的是一个函数<br>如果是在全局作用域中调用该方法，那么打印出来的是：null而不是window</strong></li>
+<li><strong>Object.constructor –&gt; 构造器属性，指向该对象的构造函数</strong></li>
+<li><strong>Object.create  –&gt; 创建对象，并且设置原型对象</strong></li>
+<li><strong>Object.getPrototypeOf –&gt; 获得某个对象的原型对象</strong></li>
+<li><strong>Object.getOwnPropertyDescriptor<br>获得对象中某个实例属性的描述信息（是否可以配置，枚举，值，是否可以重写）</strong><br><strong>具体的描述信息如下：</strong><blockquote>
+<p><strong>1.configurable:true  是否是可以配置的（能不能删除属性或者是修改这个配置本身）<br>2.enumerable:true    是否是可以枚举的（在for..in循环中是否能够遍历出来|keys()）<br>3.value:”zhangsan”   属性对应的值<br>4.writable:true      是否是可重写的</strong></p>
+</blockquote>
+</li>
+<li><strong>Object.defineProperty 用来设置属性的描述信息（修改已有的属性|新增属性）<br>1.修改已有的属性，默认情况下这三个值是true<br>2.新增加属性     默认情况下，这三个属性的值都是false</strong><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    var obj = &#123;&#125;;</div><div class="line">    //Object.defineProperty来新增属性并且设置属性的描述对象</div><div class="line">    Object.defineProperty(obj,&quot;age&quot;,&#123;</div><div class="line">        value:&quot;100&quot;</div><div class="line">    &#125;);</div><div class="line">    console.log(Object.getOwnPropertyDescriptor(obj, &quot;age&quot;));</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>Object.getOwnPropertyNames<br>1.不包含原型属性<br>2.获得所有的实例属性（名称），返回值是一个数组</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> obj = &#123;<span class="attr">name</span>:<span class="string">"zhangsan"</span>,<span class="attr">age</span>:<span class="number">78</span>&#125;;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyNames(obj));</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(obj) == <span class="built_in">Object</span>.prototype);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"><span class="string">``</span></div><div class="line"></div><div class="line">- **<span class="built_in">Object</span>.keys --&gt; 获得对象的key 不包含原型属性**</div><div class="line">- **示例代码 :**</div><div class="line"></div><div class="line"><span class="string">``</span><span class="string">`javascript  </span></div><div class="line">&lt;script&gt;</div><div class="line">    function Person()&#123;</div><div class="line">        this.name = "momo"</div><div class="line">    &#125;;</div><div class="line">    Person.prototype.say = "say";</div><div class="line">    var p1 = new Person();</div><div class="line">    console.log(Object.keys(p1));</div><div class="line">    console.log(Object.getOwnPropertyNames(p1));</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>Object.preventExtensions || Object.isExtensible –&gt; 禁止对象扩展，默认情况下对象可以动态的增加属性，如果设置了禁止扩展，那么将无法增加属性</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> o = &#123;&#125;;</div><div class="line">    o.name = <span class="string">"names"</span>;</div><div class="line">    <span class="built_in">console</span>.log(o);</div><div class="line">    <span class="built_in">Object</span>.preventExtensions(o);</div><div class="line">    o.age = <span class="number">30</span>;</div><div class="line">    <span class="built_in">console</span>.log(o);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>Object.seal 密封对象 –&gt; 禁止删除对象的属性，禁止修改对象的配置信息configurable，禁止扩展</strong></li>
+<li><strong>Object.freeze 冻结对象 –&gt; 不能删除属性，不能增加属性，也不能修改属性</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> obj = &#123;<span class="attr">des</span>:<span class="string">"des"</span>&#125;;</div><div class="line">    <span class="built_in">Object</span>.freeze(obj);</div><div class="line">    obj.name = <span class="string">"momo"</span>;</div><div class="line">    obj.age = <span class="number">20</span>;</div><div class="line">    <span class="built_in">console</span>.log(obj);</div><div class="line">    <span class="keyword">delete</span> obj.des;</div><div class="line">    <span class="built_in">console</span>.log(obj);</div><div class="line">    obj.des = <span class="string">"能不能修改"</span>;</div><div class="line">    <span class="built_in">console</span>.log(obj);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>或者你也可以打开控制台查看,都有! 想知道每个的功能可以一一去实验</strong></li>
+<li><strong>图解</strong></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-64fa7110a15b47f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="**Object的静态成员**"></p>
+<h2 id="Function的构造函数的使用"><a href="#Function的构造函数的使用" class="headerlink" title="Function的构造函数的使用"></a>Function的构造函数的使用</h2><h4 id="创建函数的几种方法"><a href="#创建函数的几种方法" class="headerlink" title="创建函数的几种方法"></a>创建函数的几种方法</h4><ul>
+<li><strong>函数声明</strong></li>
+<li><strong>函数表达式</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">func01</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//函数体</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> func02 = <span class="function"><span class="keyword">function</span> <span class="title">name</span>(<span class="params"></span>)</span>&#123;&#125;;  <span class="comment">//命名函数表达式</span></div><div class="line">    <span class="keyword">var</span> func03 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;&#125;;      <span class="comment">//匿名函数表达式</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span> func04 = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"console.log(\"1\");"</span>);</div><div class="line">    func04();</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>new Function</strong><br><strong>1.一个参数都没有，那么创建的是一个空函数<br>2.有一个参数，这个参数作为新创建出来的函数的函数体<br>3.有多个参数，最后一个参数是新创建的函数的函数体，其它的参数是形参列表</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">// 操作符 + 拼接字符串的方式</span></div><div class="line">    <span class="keyword">var</span> func = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"console.log(\"让我掉下眼泪的，不是昨夜的酒\");"</span> +</div><div class="line">            <span class="string">"  console.log(\"让我依依不舍的，不止你的温柔\");"</span> +</div><div class="line">            <span class="string">"console.log(\"余路还要走多久，我牵着你的手\");"</span>);</div><div class="line">    func();</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码 :  —&gt; 改进</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/template"</span> id=<span class="string">"demo"</span>&gt;</div><div class="line">    <span class="comment">// 使用js模板来存放数据</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"让我掉下眼泪的，不是昨夜的酒"</span>);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"让我依依不舍的，不止你的温柔"</span>);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"余路还要走多久，我牵着你的手"</span>);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> func = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">`</span></div><div class="line">            // 反括号`<span class="string">`</span></div><div class="line">            console.log(\"让我掉下眼泪的，不是昨夜的酒\");</div><div class="line">            console.log(\"让我依依不舍的，不止你的温柔\");</div><div class="line">            console.log(\"余路还要走多久，我牵着你的手\");`);</div><div class="line">    func();</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> script = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</div><div class="line">    <span class="keyword">var</span> str = script.innerHTML;</div><div class="line">    <span class="keyword">var</span> func = <span class="keyword">new</span> <span class="built_in">Function</span>(str);</div><div class="line">    func();</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面向对象编程/" rel="tag"># 面向对象编程</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/05/JavaScript-面向对象编程三/" rel="next" title="JavaScript - 面向对象编程三">
+                <i class="fa fa-chevron-left"></i> JavaScript - 面向对象编程三
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/27/JavaScript-面向对象编程五/" rel="prev" title="JavaScript - 面向对象编程五">
+                JavaScript - 面向对象编程五 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/10/JavaScript-面向对象编程四/"
+           data-title="JavaScript - 面向对象编程四" data-url="git@github.com:anearseeyou/anearseeyou.git/2016/06/10/JavaScript-面向对象编程四/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://olrw5apal.bkt.clouddn.com/background.jpg"
+               alt="Mr.Koc" />
+          <p class="site-author-name" itemprop="name">Mr.Koc</p>
+          <p class="site-description motion-element" itemprop="description">Please call me Mr.Koc</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#上一小节讲到了基本包装类型-本小节继续补充面向对象的内容-有点多-有点杂-好像我每次都在强调耐心这个词-确实-没有耐心是学不好技术的-如果讲的不够详细-大家又是似懂非懂的状态-这样与你与我都不好"><span class="nav-number">1.</span> <span class="nav-text">上一小节讲到了基本包装类型,本小节继续补充面向对象的内容.有点多,有点杂.好像我每次都在强调耐心这个词,确实,没有耐心是学不好技术的,如果讲的不够详细,大家又是似懂非懂的状态,这样与你与我都不好 !</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#所以我会很耐心的去分享-希望读者也有耐心去学习"><span class="nav-number">2.</span> <span class="nav-text">所以我会很耐心的去分享,希望读者也有耐心去学习!</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链-—-绘图展示"><span class="nav-number"></span> <span class="nav-text">原型链  — 绘图展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object对象的补充点"><span class="nav-number"></span> <span class="nav-text">Object对象的补充点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-prototype详解"><span class="nav-number"></span> <span class="nav-text">Object.prototype详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object的静态成员和实例成员"><span class="nav-number"></span> <span class="nav-text">Object的静态成员和实例成员</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实例成员"><span class="nav-number"></span> <span class="nav-text">实例成员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态成员"><span class="nav-number"></span> <span class="nav-text">静态成员</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function的构造函数的使用"><span class="nav-number"></span> <span class="nav-text">Function的构造函数的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建函数的几种方法"><span class="nav-number"></span> <span class="nav-text">创建函数的几种方法</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Koc</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"keeponcode"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("hCS32BdMw43hQACJYKDrXVny-gzGzoHsz", "Ja18UTWNr1AELp5Ba20h4Cyb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
