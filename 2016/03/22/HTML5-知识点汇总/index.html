@@ -1,0 +1,1217 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTML5," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="HTML5知识点汇总
+字符集12&amp;lt;meta charset=&amp;quot;GBK&amp;quot;&amp;gt;     GBK中文汉字 国标  纯中文网站&amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;   UTF-8 国际通用 字库很全
+
+DTD文档声明1&amp;lt;!DOCTYPE html&amp;gt;     作用告诉浏览器  我是一个文档
+
+H系列标签1234567h1 h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5-知识点汇总">
+<meta property="og:url" content="git@github.com:anearseeyou/anearseeyou.git/2016/03/22/HTML5-知识点汇总/index.html">
+<meta property="og:site_name" content="Keep on coding">
+<meta property="og:description" content="HTML5知识点汇总
+字符集12&amp;lt;meta charset=&amp;quot;GBK&amp;quot;&amp;gt;     GBK中文汉字 国标  纯中文网站&amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;   UTF-8 国际通用 字库很全
+
+DTD文档声明1&amp;lt;!DOCTYPE html&amp;gt;     作用告诉浏览器  我是一个文档
+
+H系列标签1234567h1 h">
+<meta property="og:image" content="git@github.com:anearseeyou/anearseeyou.git/QRCode.jpg">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-6325cfd55e07df5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-75650579f9f7dbe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-4596a00e08ba254c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-548093bcd16505d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-5ac31088c80ec0d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-8bc5fd53c5edf465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-07f93a1fad5ceb90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-25f576e7a3345033.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-2bb86e005ed25d76.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-dc2b9ab5c3fcf2bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-6c47e7adbd85575f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-9733fcdccca82257.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-b67ec1519da2ed7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-01T04:06:19.781Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5-知识点汇总">
+<meta name="twitter:description" content="HTML5知识点汇总
+字符集12&amp;lt;meta charset=&amp;quot;GBK&amp;quot;&amp;gt;     GBK中文汉字 国标  纯中文网站&amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;   UTF-8 国际通用 字库很全
+
+DTD文档声明1&amp;lt;!DOCTYPE html&amp;gt;     作用告诉浏览器  我是一个文档
+
+H系列标签1234567h1 h">
+<meta name="twitter:image" content="git@github.com:anearseeyou/anearseeyou.git/QRCode.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6389887927219914000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="git@github.com:anearseeyou/anearseeyou.git/2016/03/22/HTML5-知识点汇总/"/>
+
+
+
+
+
+  <title> HTML5-知识点汇总 | Keep on coding </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Keep on coding</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">We can't stop | Just do it.</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="git@github.com:anearseeyou/anearseeyou.git/2016/03/22/HTML5-知识点汇总/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="西巴撸">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://olrw5apal.bkt.clouddn.com/background.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Keep on coding">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Keep on coding" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML5-知识点汇总
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-22T20:32:03+08:00">
+                2016-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/科技控/" itemprop="url" rel="index">
+                    <span itemprop="name">科技控</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/科技控/程序猿/" itemprop="url" rel="index">
+                    <span itemprop="name">程序猿</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/22/HTML5-知识点汇总/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/22/HTML5-知识点汇总/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/03/22/HTML5-知识点汇总/" class="leancloud_visitors" data-flag-title="HTML5-知识点汇总">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li><h2 id="HTML5知识点汇总"><a href="#HTML5知识点汇总" class="headerlink" title="HTML5知识点汇总"></a>HTML5知识点汇总</h2><ul>
+<li><h5 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;meta charset=&quot;GBK&quot;&gt;     GBK中文汉字 国标  纯中文网站</div><div class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;   UTF-8 国际通用 字库很全</div></pre></td></tr></table></figure>
+</li>
+<li><h6 id="DTD文档声明"><a href="#DTD文档声明" class="headerlink" title="DTD文档声明"></a>DTD文档声明</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;     作用告诉浏览器  我是一个文档</div></pre></td></tr></table></figure>
+</li>
+<li><h5 id="H系列标签"><a href="#H系列标签" class="headerlink" title="H系列标签"></a>H系列标签</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">h1 h2 h3 h4 h5 h6 标签 只有h1到h6   主标题  字体依次变小</div><div class="line">&lt;!--在浏览器上显示一条分割线--&gt;</div><div class="line">&lt;!--注意：独占一行--&gt;</div><div class="line">&lt;hr/&gt;标签</div><div class="line">&lt;!--注意：在浏览器中独占一行--&gt;</div><div class="line">&lt;p&gt;我是一段文本&lt;/p&gt;</div><div class="line">&lt;!--快速添加前后标签--&gt;&lt;!--选中文字，然后快捷键：Ctrl+Alt+T--&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><h5 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!--&lt;p&gt;我是段落&lt;/p&gt;--&gt;  工作中注释非常重要 注释的内容不会显示在页面上</div><div class="line">&lt;!--快捷键：Ctrl + / --&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><h5 id="img标签和路径问题"><a href="#img标签和路径问题" class="headerlink" title="img标签和路径问题"></a>img标签和路径问题</h5><ul>
+<li>img标签是英文的缩写，用来显示一张图片</li>
+</ul>
+<ol>
+<li><p>img标签的格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src = &quot;&quot;&gt;  src是英文 source 的缩写，source：资源，src是用来告诉img标签需要显示的图片。</div></pre></td></tr></table></figure>
+</li>
+<li><p>注意点<br>和H系列的标签不一样，img标签不会独占一行- 如果我们手动指定图片的宽度和高度，会使图片变形  如果不想图片变形，只指定一个值，系统会自动自动高度，都是等比拉伸，不会变形</p>
+</li>
+<li>img包含的属性 ：<br>width：宽度  height：高度  width/height两个属性来控制图片的高度和宽度  如果没有指定宽度和高度，系统会默认显示<br>title：当鼠标悬停在图片上的时候，需要弹出的描述框中显示什么内容<br>alt：是英文alternate的缩写       作用是：当需要显示的图片找不到时，显示什么内容。  <h5 id="路径问题："><a href="#路径问题：" class="headerlink" title="路径问题："></a>路径问题：</h5>给src赋值有两种方式</li>
+</ol>
+<ul>
+<li>通过相对路径赋值相对路径就是每次从.html中查找</li>
+<li>同级就是图片和.html存储在同一个文件夹中格式：src=”QRCode.jpg”含义：在.html文件所在的文件夹中查找名称叫做QRCode.jpg的图片</li>
+<li>下级下级就是存储图片的文件夹和.html文件在同一个文件夹中格式：在.html文件所在的文件夹中找到名称教程images的文件夹</li>
+<li>上级上级就是存储图片的位置和存储代码的文件夹在同一个文件夹中格式：src=”../QRCode.jpg”../代表跳出现在的文件夹从上级文件夹中查找名称叫做QRCode.jpg的文件</li>
+<li>通过绝对路径赋值绝对路径每次都是从指定的硬盘开始查找<br>注意：</li>
+<li>路径中不要出现中文，否则会导致无法显示图片</li>
+<li>通过相对路径指定，不能跨硬盘<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">- ##### 换行标签</div><div class="line">  - 如何在HTML中换行，可以用br标签</div><div class="line">  - br标签的作用：换行</div><div class="line">  - br标签的格式：&lt;br&gt;</div><div class="line">  - 注意点：  </div><div class="line">  - 多个br标签可以连续使用，使用了几个就会换几行  </div><div class="line">  - 由于HTML的作用就是给文本添加语义，而br标签的语义是不另起一个段落换行，而在企业中开发一般需要另起一个段落换行，所以开发中很少使用br标签。</div><div class="line"></div><div class="line">- ##### a标签</div><div class="line">  - 什么是a标签</div><div class="line">  - a标签的作用:就是用于控制页面与玉面之间跳转的</div><div class="line">  - a标签的格式：&lt;a href=&quot;指定需要跳转的目标界面&quot;&gt;需要给用户查看的内容&lt;/a&gt;</div><div class="line">  - a标签中还有一个叫做target(目标)属性，这个属性的作用是来控制如何跳转页面</div><div class="line">  - _self(当前):当前页面跳转，不新建选项卡</div><div class="line">  - _blank(空白):重新打开一个新选项卡跳转</div><div class="line">  - a标签中还有一个叫做title的属性，和img标签中的title属性是一样的，都是用来控制鼠标悬停时显示的提示文本的</div><div class="line">  - 注意点：</div><div class="line">  - a标签不仅可以让文字可以点击跳转，还可以让图片跳转</div><div class="line">  - 一个a标签必须有一个href属性，不然无法实现跳转</div><div class="line">  - 如果通过a标签的href属性指定一个URL地址的时候，前面必须加上http://或https://4.a标签除了可以指定网络地址以外，还可以指定本地地址</div><div class="line">  - &lt;!--跳转到外部链接--&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://www.nuomi.com/?cid=002540" target="_blank" rel="external">糯米</a><a href="https://www.taobao.com" target="_blank" rel="external">    <img src="QRCode.jpg" width="100"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- &lt;!--跳转到本地--&gt;</div></pre></td></tr></table></figure></p>
+<p><a href="08-br标签.html">08-br标签.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">![插入a标签](http://upload-images.jianshu.io/upload_images/3359912-3cf16f4004542709.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line">   - &lt;!--target属性控制跳转--&gt;</div></pre></td></tr></table></figure></p>
+<p><a href="https://www.nuomi.com/?cid=002540" target="_self">糯米</a><a href="https://www.nuomi.com/?cid=002540" target="_blank">糯米</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- &lt;!--title属性控制文本提示内容--&gt;</div></pre></td></tr></table></figure></p>
+<p><a href="https://www.nuomi.com/?cid=002540" title="友情提示:会跳转到百度糯米首页" target="_blank" rel="external">糯米</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- ##### base标签</div><div class="line"> - base(基础)标签就是专门用来统一指定当前网页中所有的超链接（a标签）需要如何打开</div><div class="line"> - 注意点：</div><div class="line"> - .base标签必须写在head标签的开始标签和结尾标签中间</div><div class="line"> - .如果既在base标签中指定了target，又在a标签中指定了target，那么浏览器会按照a标签中指定的方式打开</div></pre></td></tr></table></figure></p>
+<p><base target="_blank">   控制整个页面的跳转  插入在head标签之中<br><a href="https://www.nuomi.com/?cid=002540" target="_self">糯米</a><br><a href="http://news.baidu.com/" target="_blank" rel="external">新闻</a><br><a href="https://www.hao123.com/" target="_blank" rel="external">hao123</a><br><a href="http://map.baidu.com/" target="_blank" rel="external">地图</a><br><a href="http://tieba.baidu.com/" target="_blank" rel="external">贴吧</a><br><a href="http://v.baidu.com/" target="_blank" rel="external">视频</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">![a标签页面跳转](http://upload-images.jianshu.io/upload_images/3359912-5fda04ef5ba80976.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line">  - ##### 假链接</div><div class="line">   - 假链接就是点击之后不会跳转页面意义：在企业开前期，其他界面都没有写出来，所以不知道该往那里跳，所以用假链接来代替。</div><div class="line">   - 开发到后期之后把假链接替换成真链接假链接的格式：1.#：点击之后会自动回到页面顶部2.javascript：点击之后不会自动回到顶部</div></pre></td></tr></table></figure></p>
+<p></p><h1>我是顶部</h1><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><a href="#">点我1</a><a href="javascript">点我2</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- ##### 锚点</div><div class="line"> - 要想a标签跳转到指定的位置，必须告诉a标签一个独一无二的身份证号码，这样才能找到</div><div class="line"> - 如果给HTML中的标签绑定一个独一无二的身份号码呢？  在html中都有一个叫做id的属性，id属性是独一无二的</div><div class="line"> - 想要跳转到指定的位置分两步</div><div class="line"> - 给目标位置添加一个id属性，然后指定一个独一无二的值</div><div class="line"> - 告诉a标签需要跳转到的目标标签对用的独一无二的身份证号码是多少格式：</div></pre></td></tr></table></figure><p></p>
+<p><a href="#center">跳转到中部</a></p><h2 id="center">我是中部</h2><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- 注意点：1.通过a标签跳转到指定位置的时候，是没有过度动画效果的，直接一下就跳到指定位置</div><div class="line">- a标签除了可以跳转到当前界面的指定位置以后，还可以跳转到其他界面的时候直接跳转到指定位置格式：</div></pre></td></tr></table></figure><p></p>
+<p><a href="13-锚点的测试界面.html#bottom" target="_blank">跳转到锚点测试界面</a></p><h2 id="bottom">我是锚点测试界面3333</h2><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">&lt;a href=&quot;13-锚点的测试界面.html#bottom&quot; target=&quot;_blank&quot;&gt;跳转到锚点测试界面&lt;/a&gt;&lt;h2&gt;我是顶部&lt;/h2&gt;&lt;a href=&quot;#center&quot;&gt;跳转到中部&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;hr/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;hr/&gt;&lt;br/&gt;&lt;br/&gt;&lt;hr/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;hr/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;hr/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;hr/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;hr/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;hr/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;hr/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;hr/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;h2 id=&quot;center&quot;&gt;我是中部&lt;/h2&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;h2&gt;我是底部&lt;/h2&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;</div></pre></td></tr></table></figure><p></p>
+<ul>
+<li><h5 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h5><ul>
+<li>1.什么是列表标签列表标签就是用来给一对数据添加列表语义，告诉浏览器这堆数据是一个整体</li>
+<li>2.HTML中列表标签的分类</li>
+<li>2.1无序列表（最多）（unordered list）(ul的缩写)</li>
+<li>2.2有序列表（最少）（ordered list）</li>
+<li>2.3定义列表（其次）（definition list）</li>
+<li>3.无序列表的作用给一堆数据添加列表语义，并且这一堆数据中所有的数据没有先后之分先后之分：例如排行榜没有先后之分：例如城市</li>
+<li><p>4.无序列表格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt; </div><div class="line">      &lt;li&gt;需要显示的内容&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">li其实就是list item（列表条目）的缩写  list：（列表） item：（条目）</div></pre></td></tr></table></figure>
+</li>
+<li><p>注意点：</p>
+</li>
+<li>1.ul标签是用来给一堆数据添加语义的，而不是给用来给它们前面添加小圆点的</li>
+<li>2.ul标签和li标签是一个组合，一般情况同时出现，不会单个出现</li>
+<li>3.ul标签和li标签是一个组合，所以ul标签中不推荐包含其他标签无序列表的</li>
+<li>应用场景</li>
+<li>1.新闻列表</li>
+<li>2.商品列表</li>
+<li>3.导航条<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;h2&gt;中国的城市有那些&lt;/h2&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">        &lt;li&gt;北京&lt;/li&gt;</div><div class="line">        &lt;li&gt;上海&lt;/li&gt;</div><div class="line">        &lt;li&gt;武汉&lt;/li&gt;</div><div class="line">        &lt;li&gt;天津&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">练习</div><div class="line">&lt;hr width=&quot;500px&quot; align=&quot;left&quot;&gt;</div><div class="line">&lt;ul type=&quot;circle&quot;&gt;</div><div class="line">    &lt;li&gt;男子帮前车拆穿碰瓷 遭&quot;碰瓷党&quot;砸穿车窗&lt;/li&gt;</div><div class="line">    &lt;li&gt;老鼠咬坏天然气胶管 户主点火做饭气灶闪爆&lt;/li&gt;</div><div class="line">    &lt;li&gt;小区业主和物业激战多年 老师被逼成“泼妇”&lt;/li&gt;</div><div class="line">    &lt;li&gt;体操美女不幸爆菊身亡！下体血肉模糊&lt;/li&gt;</div><div class="line">    &lt;li&gt;小伙陷传销欲骗家人钱 PS剁手指照被识破(图)&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-6325cfd55e07df5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="无序列表练习"></p>
+<ul>
+<li>ul标签中最好只放li标签，但是在企业开发中，li标签的内容可能会很复杂，所以我们可以继续在li标签中添加其他的标签，来丰富界面<br>总结：</li>
+<li>1.一定记住ul标签中最好只放li标签</li>
+<li>2.但是li标签中还可以继续添加其他的标签</li>
+<li><p>3.无序列表中的li标签除了可以添加别的标签丰富界面以后，还可以添加ul标签ul中可以有li，li中又可以有ul</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!--快速简写ul方式--&gt;  &lt;!--ul&gt;li*1++--&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><h5 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h5></li>
+</ul>
+</li>
+<li>无序列表的作用</li>
+<li>给一堆数据添加列表语义，并且这一堆数据中所有的数据有先后之分</li>
+<li><p>有序列表格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ol&gt;(ordered list缩写)</div><div class="line">    &lt;li&gt;需要显示的内容&lt;/li&gt;</div><div class="line">&lt;/ol&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>注意点和应用场景都和ul的差不多</p>
+<ul>
+<li><h5 id="定义列表"><a href="#定义列表" class="headerlink" title="定义列表"></a>定义列表</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">1.定义列表的格式：</div><div class="line">        &lt;dl&gt;</div><div class="line">            &lt;dt&gt;&lt;/dt&gt;</div><div class="line">            &lt;dd&gt;&lt;/dd&gt;</div><div class="line">            &lt;dt&gt;&lt;/dt&gt;</div><div class="line">            &lt;dd&gt;&lt;/dd&gt;</div><div class="line">        &lt;/dl&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>2.dt和dd都是英文缩写<br>   dt是英文definition title的缩写，所以dt的含义就是用来定义列表<br>   dd是英文definition description的缩写，所以dd的含义就是用来定义标题对应的描述</p>
+</li>
+<li>定义列表的作用：</li>
+<li>1.定义列表的作用</li>
+<li>1.1给一堆数据添加列表语义</li>
+<li>1.2先通过dt标签定义列表中的所有标题，然后通过dd标签给每个标题添加描述信息</li>
+<li>3.定义列表的应用场景</li>
+<li>3.1 做网页底部的相关信息</li>
+<li>3.2 图文混排</li>
+<li>4.注意点：</li>
+<li>4.1 和ul和ol一样，dl和dt/dd是一个整体，所以他们一般都是同时出现的，不会单独出现</li>
+<li>4.2 和ul和ol一样，由于dl和dt/dd是一组合标签，所以dl中建议只放dt和dd标签</li>
+<li>4.3 一个dt可以没有对应的dd，也可以有多个对应的dd，但无论有或者没有dd都不推荐使用，只推荐一个dt对应一个dd</li>
+<li>4.4 和li标签一样，需要丰富界面时，我们可以在dt和dd标签中继续添加其他标签<ul>
+<li><h5 id="表格标签基本使用"><a href="#表格标签基本使用" class="headerlink" title="表格标签基本使用"></a>表格标签基本使用</h5></li>
+</ul>
+</li>
+<li>以前很多网站都用表格标签做的，表格标签是一个时代的代表</li>
+<li>1.什么是表格标签</li>
+<li>作用：用来给一堆数据添加表格语义<br>表格是一种数据的展现形式，当数据量特别大的时候，用表格来展示的时候就会非常清晰</li>
+<li><p>2.表格标签的格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;需要显示的内容&lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div><div class="line">table代表整个表格，一对table标签就是一个表格</div><div class="line">tr标签代表表格中的一行数据，一对tr标签就是一行数据</div><div class="line">td标签代表表格中一行的一个单元格，一对td标签就是一行中的一个单元格</div></pre></td></tr></table></figure>
+</li>
+<li><p>3.注意点</p>
+</li>
+<li>3.1 表格标签中有一个边框属性，这个属性决定了边框的宽度，默认情况下属性值是0，所以看不到</li>
+<li>3.2 表格标签和列表标签一样，是一个组合标签，所以table/tr/td同时出现，不会单独出现<ul>
+<li><h5 id="表格标签的属性"><a href="#表格标签的属性" class="headerlink" title="表格标签的属性"></a>表格标签的属性</h5></li>
+</ul>
+</li>
+<li><ol>
+<li>宽度和高度的属性<br>可以给td标签和table标签使用</li>
+</ol>
+</li>
+<li>1.1 表格的宽度和高度默认按照内容的尺寸来调整，也可以给table标签设置width和height来手动指定</li>
+<li>1.2 如果给td标签设置width和height属性，会修改当前单元格一行的宽度和高度，不会影响整个表格</li>
+<li><ol>
+<li>水平对齐和垂直对齐属性<br>其中水平对齐可以给table和tr和td标签使用<br>垂直对齐只能对tr和td标签使用</li>
+</ol>
+</li>
+<li>2.1 给table标签设置align属性，可以控制表格在水平方向的对齐</li>
+<li>2.2 给tr标签设置align属性，可以控制当前行中单元格内容的水平方向对齐</li>
+<li>2.3 给td标签设置align属性，可以控制当前单元格内容在水平方向的对齐方式</li>
+<li>注意点：<br>如果td和tr中都设置了align属性，那么单元格中的内容会按照td中设置的来对齐</li>
+<li>2.4 给tr标签设置valign属性，可以控制当前行中所有单元格的内容，在垂直方向的对齐方式</li>
+<li>2.5 给td标签设置valign属性，可以控制当前单元格的内容在垂直方向的对齐方式</li>
+<li>注意点：</li>
+<li>如果td和tr中都设置了valign属性，那么单元格中的内容会按照td中设置的来对齐</li>
+<li><ol>
+<li>外边距和内边距属性   只能对table标签使用</li>
+</ol>
+</li>
+<li>3.1 外边距就是单元格和单元格之间的距离  默认情况下，外边距的距离是2px</li>
+<li>3.2 内边距就是表格中的内容和单元格边框之间的距离   默认情况下内边距是1</li>
+<li><strong>案例</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;table border=&quot;1&quot; width=&quot;500px&quot; height=&quot;300px&quot; align=&quot;center&quot; cellspacing=&quot;12&quot; cellpadding=&quot;20&quot;&gt;</div><div class="line">    &lt;tr valign=&quot;bottom&quot;&gt;</div><div class="line">        &lt;td width=&quot;150px&quot; height=&quot;50px&quot;&gt;11&lt;/td&gt;</div><div class="line">        &lt;td valign=&quot;top&quot;&gt;22&lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr align=&quot;center&quot;&gt;</div><div class="line">        &lt;td align=&quot;right&quot;&gt;33&lt;/td&gt;</div><div class="line">        &lt;td&gt;44&lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-75650579f9f7dbe0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="两行两列表格"></p>
+<ul>
+<li><h5 id="细线表格"><a href="#细线表格" class="headerlink" title="细线表格"></a>细线表格</h5><ul>
+<li>在表格标签中想通过指定外边距为0来实现细线表格是不行的，</li>
+<li>其实他是2条线合并成一条线，看起来很不舒服的</li>
+<li>细线表格的制作方式：</li>
+<li><ol>
+<li>给table标签设置backgroundcolor为黑色</li>
+</ol>
+</li>
+<li><ol>
+<li>给tr标签设置backgroundcolor为白色</li>
+</ol>
+</li>
+<li><ol>
+<li>给table标签设置cellspacing = “1px”</li>
+</ol>
+</li>
+<li>注意点：<br>table标签和tr标签以及td标签都支持bgcolor属性</li>
+<li><strong>案例</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;table bgcolor=&quot;black&quot; cellspacing=&quot;1&quot;&gt;</div><div class="line">    &lt;tr bgcolor=&quot;white&quot;&gt;</div><div class="line">        &lt;td&gt;1.1&lt;/td&gt;</div><div class="line">        &lt;td&gt;1.2&lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr bgcolor=&quot;white&quot;&gt;</div><div class="line">        &lt;td&gt;2.1&lt;/td&gt;</div><div class="line">        &lt;td&gt;2.2&lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-4596a00e08ba254c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="细线表格"></p>
+<ul>
+<li><h5 id="表格标签的其他标签"><a href="#表格标签的其他标签" class="headerlink" title="表格标签的其他标签"></a>表格标签的其他标签</h5><ul>
+<li>表格的标题<br> 在表格标签中提供了一个专门用来设置表格标题的标签，叫caption<br> 只要将这个标签写入表格当中，它就会自动居中</li>
+<li><ol>
+<li>caption标签一定要写在table中，否则无效</li>
+</ol>
+</li>
+<li>2.2 caption标签一定要跟在table标签后面</li>
+<li><ol>
+<li>标题单元格标签</li>
+</ol>
+</li>
+<li><p>在表格标签中提供了一个专门用来存储每一列标题的标签，这个标签叫做th标签，只要将当前列的标题存        储在这个标签当中就会自动居中+加粗</p>
+</li>
+<li><p>到此为止我们发现，表格中有两种单元格一种是td标签，一种th标签，th标签就是专门用来存储当前列         标题的</p>
+</li>
+</ul>
+</li>
+<li><h5 id="单元格合并练习"><a href="#单元格合并练习" class="headerlink" title="单元格合并练习"></a>单元格合并练习</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;table bgcolor=&quot;black&quot; cellspacing=&quot;1px&quot; width=&quot;500px&quot; height=&quot;300px&quot; align=&quot;center&quot;&gt;</div><div class="line">    &lt;tr bgcolor=&quot;white&quot;&gt;</div><div class="line">        &lt;td&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr bgcolor=&quot;white&quot;&gt;</div><div class="line">        &lt;td&gt;&lt;/td&gt;</div><div class="line">        &lt;td colspan=&quot;2&quot; rowspan=&quot;2&quot;&gt;&lt;/td&gt;</div><div class="line">        &lt;!--&lt;td&gt;&lt;/td&gt;--&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr bgcolor=&quot;white&quot;&gt;</div><div class="line">        &lt;td&gt;&lt;/td&gt;</div><div class="line">        &lt;!--&lt;td colspan=&quot;2&quot;&gt;&lt;/td&gt;--&gt;</div><div class="line">        &lt;!--&lt;td&gt;&lt;/td&gt;--&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr bgcolor=&quot;white&quot;&gt;</div><div class="line">        &lt;td&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-548093bcd16505d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="单元格合并"></p>
+<ul>
+<li><h5 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h5><ul>
+<li>1.什么是表单<br>专门用来搜集用户信息</li>
+<li>2.什么是表单元素</li>
+<li>2.1 什么是元素<br>在HTML中，标签/标记元素都是指HTML中的标签<br>例如：<a> a标签/a元素/a标记<br>表单元素其实就是HTML中的一些标签，只不过这些标签比较特殊，在浏览器中所有的表单标签都是特殊的外观和默认的功能</a></li>
+<li><p>3.表单格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;form&gt;</div><div class="line">    &lt;表单元素&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>4.常见的表单元素<br>input元素，有一个type的属性，这个属性有很多不同类型的取值，取值不同，功能和外观就不同</p>
+</li>
+<li><strong>案例</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;form&gt;</div><div class="line">    &lt;!--明文输入框--&gt;</div><div class="line">    帐号:&lt;input type=&quot;text&quot;/&gt;&lt;br/&gt;&lt;br/&gt;</div><div class="line">    &lt;!--暗文输入框--&gt;</div><div class="line">    密码:&lt;input type=&quot;password&quot;&gt;&lt;br/&gt;&lt;br/&gt;</div><div class="line">    &lt;!--给输入框设置默认值--&gt;</div><div class="line">    帐号:&lt;input type=&quot;text&quot; value=&quot;请输入帐号&quot;/&gt;&lt;br/&gt;&lt;br/&gt;</div><div class="line">    密码:&lt;input type=&quot;password&quot;&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;</div><div class="line">    &lt;!--</div><div class="line">    单选框</div><div class="line">    注意点：</div><div class="line">    1.默认情况下单选框不会互斥，要想单选框互斥，必须给每一个设置一个name属性，然后name值还必须设置相同的值</div><div class="line">    2.要想让单选框默认选中某一个框，那么给input添加一个checked属性</div><div class="line">    3.在HTML中如果属性的取值和属性的名称一样，可以只写一个，但是在企业开发中不要省略取值</div><div class="line">    --&gt;</div><div class="line">    性别:</div><div class="line">    &lt;input type=&quot;radio&quot; name=&quot;gender&quot;/&gt;男</div><div class="line">    &lt;input type=&quot;radio&quot; name=&quot;gender&quot;/&gt;女</div><div class="line">    &lt;input type=&quot;radio&quot; name=&quot;gender&quot; checked=&quot;checked&quot;/&gt;保密&lt;br&gt;</div><div class="line">    &lt;!--</div><div class="line">    多选框</div><div class="line">    --&gt;</div><div class="line">    爱好：</div><div class="line">    &lt;input type=&quot;checkbox&quot;/&gt;篮球</div><div class="line">    &lt;input type=&quot;checkbox&quot;/&gt;足球</div><div class="line">    &lt;input type=&quot;checkbox&quot;/&gt;羽毛球</div><div class="line">    &lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot;/&gt;棒球</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-5ac31088c80ec0d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="表单"></p>
+<ul>
+<li><h5 id="表单案例"><a href="#表单案例" class="headerlink" title="表单案例"></a>表单案例</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">&lt;form action=&quot;http://www.520it.com&quot;&gt;</div><div class="line">    帐号:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt;&lt;br/&gt;</div><div class="line">    密码:&lt;input type=&quot;password&quot; name=&quot;password&quot;/&gt;&lt;br/&gt;</div><div class="line">    &lt;!--</div><div class="line">    定义普通按钮</div><div class="line">    可以通过value属性来给按钮指定标题</div><div class="line">    作用：配合JS完成一些动画操作</div><div class="line">    --&gt;</div><div class="line">    &lt;input type=&quot;button&quot; value=&quot;我是按钮&quot; onclick=&quot;alert(123)&quot;/&gt;</div><div class="line">    &lt;!--</div><div class="line">    图片按钮</div><div class="line">    作用：配合JS完成一些动画操作</div><div class="line">    --&gt;</div><div class="line">    &lt;input type=&quot;image&quot; src=&quot;images/register.jpg&quot; onclick=&quot;alert(345)&quot;&gt;</div><div class="line">    &lt;!--</div><div class="line">    重置按钮</div><div class="line">    作用：用于清空表单中已经填好的数据</div><div class="line">    注意点：</div><div class="line">    如果想改重置按钮默认的按钮标题可以通过value属性来修改</div><div class="line">    --&gt;</div><div class="line">    &lt;input type=&quot;reset&quot; value=&quot;清空&quot;/&gt;</div><div class="line">    &lt;!--</div><div class="line">    提交按钮</div><div class="line">    作用：将表单中已经填好的数据，提交到远程服务器</div><div class="line">    注意点：</div><div class="line">    要想把表单中填好的数据提交到远程服务器，必须具备两个条件</div><div class="line">    1.需要给form表单添加一个action的属性，通过这个属性提交到服务器</div><div class="line">    2.需要给需要提交到服务器的表单元素添加一个name属性</div><div class="line">    --&gt;</div><div class="line">    &lt;input type=&quot;submit&quot;/&gt;</div><div class="line">    &lt;!--</div><div class="line">    隐藏域</div><div class="line">    作用：配合提交按钮将一下数据悄悄的提交到服务器</div><div class="line">    Ajax</div><div class="line">    --&gt;</div><div class="line">    &lt;input type=&quot;hidden&quot; name=&quot;cc&quot; value=&quot;mimimi&quot;/&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-8bc5fd53c5edf465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="表单"></p>
+<ul>
+<li><h5 id="Label标签"><a href="#Label标签" class="headerlink" title="Label标签"></a>Label标签</h5><ul>
+<li>1.默认情况下文字和输入框是没有关联关系的，如果想点击文字时让对应的输入框聚焦时，那么就需要把文字和输入框绑定</li>
+<li>2.要想让输入框和文字绑定在一起，那么我们可以使用label标签</li>
+<li>3.绑定的格式：</li>
+<li>3.1 将文字利用label标签包裹起来</li>
+<li>3.2 给输入框添加一个id属性</li>
+<li>3.3 在label标签中通过for属性和输入框里面的id绑定起来</li>
+<li><strong>案例</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;form action=&quot;&quot;&gt;</div><div class="line">    &lt;!--</div><div class="line">    这种绑定方式是官方推荐，不论是后面需要聚焦的输入框是不是和前面的文字对应都可以实现</div><div class="line">    --&gt;</div><div class="line">    &lt;label for=&quot;account&quot;&gt;帐号:&lt;input type=&quot;text&quot; id=&quot;account&quot;&gt;&lt;br/&gt;&lt;/label&gt;</div><div class="line">    &lt;label for=&quot;pwd&quot;&gt;密码:&lt;input type=&quot;password&quot; id=&quot;pwd&quot;/&gt;&lt;/label&gt;</div><div class="line">    &lt;!--</div><div class="line">        虽然把帐号可以包裹在label标签里面也可以实现绑定，但是有局限性</div><div class="line">        如果后面绑定的输入框不是前面对应的文字的时候就无法实现聚焦</div><div class="line">    --&gt;</div><div class="line">    &lt;label&gt;</div><div class="line">        帐号:&lt;input type=&quot;text&quot;&gt;</div><div class="line">    &lt;/label&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-07f93a1fad5ceb90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="label标签"></p>
+<ul>
+<li><h5 id="Datalist标签"><a href="#Datalist标签" class="headerlink" title="Datalist标签"></a>Datalist标签</h5><ul>
+<li>1.datalist标签</li>
+<li>作用：给输入框绑定带选项</li>
+<li><p>2.datalist格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;datalist&gt;</div><div class="line">    &lt;option&gt;待选项内容&lt;/option&gt;</div><div class="line">&lt;/datalist&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>案例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">请输入你的车型:&lt;input type=&quot;text&quot; list=&quot;cars&quot;&gt;</div><div class="line">&lt;datalist id=&quot;cars&quot;&gt;</div><div class="line">    &lt;option&gt;奔驰&lt;/option&gt;</div><div class="line">    &lt;option&gt;宝马&lt;/option&gt;</div><div class="line">    &lt;option&gt;奥迪&lt;/option&gt;</div><div class="line">    &lt;option&gt;路虎&lt;/option&gt;</div><div class="line">    &lt;option&gt;宾利&lt;/option&gt;</div><div class="line">&lt;/datalist&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-25f576e7a3345033.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="绑定下拉选项"></p>
+<ul>
+<li><h5 id="表单标签3"><a href="#表单标签3" class="headerlink" title="表单标签3"></a>表单标签3</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;form action=&quot;&quot;&gt;</div><div class="line">    &lt;!--</div><div class="line">    可以自动校验驶入的内容是否符合邮箱的格式</div><div class="line">    --&gt;</div><div class="line">    邮箱:&lt;input type=&quot;email&quot;/&gt;</div><div class="line">    &lt;!--k</div><div class="line">    可以自动校验驶入的内容是否符合域名的格式</div><div class="line">    --&gt;</div><div class="line">    域名:&lt;input type=&quot;url&quot;&gt;</div><div class="line">    &lt;!--</div><div class="line">    输入框中只可以输入数字</div><div class="line">    --&gt;</div><div class="line">    电话:&lt;input type=&quot;number&quot;&gt;</div><div class="line">    &lt;!--</div><div class="line">    可以通过日历来选择时间</div><div class="line">    --&gt;</div><div class="line">    时间:&lt;input type=&quot;date&quot;&gt;</div><div class="line">    &lt;!--</div><div class="line">    可以通过取色板来选择颜色</div><div class="line">    --&gt;</div><div class="line">    颜色:&lt;input type=&quot;color&quot;&gt;</div><div class="line"></div><div class="line">         &lt;input type=&quot;submit&quot;&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-2bb86e005ed25d76.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="input属性"></p>
+<ul>
+<li><h5 id="select标签"><a href="#select标签" class="headerlink" title="select标签"></a>select标签</h5><ul>
+<li>1.select标签</li>
+<li>作用：用于定义下拉列表</li>
+<li><p>格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;select&gt;</div><div class="line">    &lt;optgroup label=&quot;分组名&quot;&gt;</div><div class="line">        &lt;option&gt;列表数据&lt;/option&gt;</div><div class="line">    &lt;/optgroup&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>注意点：</p>
+</li>
+<li>1.下拉列表不能输入内容，但是可以直接在列表中选择内容</li>
+<li>2.可以通过给option添加一个selected属性来指定列表的默认值</li>
+<li>3.可以通过给option包裹一个optgroup标签来给下拉列表中的数据分类</li>
+<li>2.textarea标签</li>
+<li>作用：定义一个多行的输入框</li>
+<li>格式：<textarea><br></textarea></li>
+<li>注意点：</li>
+<li>1.默认情况下输入框可以无限换行</li>
+<li>2.默认情况下输入框有自己的宽度和高度</li>
+<li>3.可以通过cols和rows来指定输入框的宽度和高度，但是还是可以无限换行</li>
+<li><strong>案例</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;select&gt;</div><div class="line">    &lt;optgroup label=&quot;北京&quot;&gt;</div><div class="line">        &lt;option&gt;朝阳区&lt;/option&gt;</div><div class="line">        &lt;option&gt;昌平区&lt;/option&gt;</div><div class="line">        &lt;option&gt;通州区&lt;/option&gt;</div><div class="line">    &lt;/optgroup&gt;</div><div class="line">    &lt;optgroup label=&quot;广州&quot;&gt;</div><div class="line">        &lt;option&gt;天河区&lt;/option&gt;</div><div class="line">        &lt;option&gt;越秀区&lt;/option&gt;</div><div class="line">        &lt;option&gt;文明区&lt;/option&gt;</div><div class="line">    &lt;/optgroup&gt;</div><div class="line">&lt;/select&gt;</div><div class="line">&lt;hr/&gt;</div><div class="line">&lt;textarea name=&quot;dd&quot; id=&quot;aa&quot; cols=&quot;2&quot; rows=&quot;5&quot;&gt;&lt;/textarea&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-dc2b9ab5c3fcf2bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="下拉菜单"></p>
+<ul>
+<li><h5 id="表单练习"><a href="#表单练习" class="headerlink" title="表单练习"></a>表单练习</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line">&lt;form action=&quot;http://www.520it.com&quot;&gt;</div><div class="line">    &lt;!--</div><div class="line">    fieldest标签给表单添加一个边框</div><div class="line">    lengend标签给表单添加一个标题</div><div class="line">    --&gt;</div><div class="line">    &lt;fieldset&gt;</div><div class="line">        &lt;legend&gt;注册界面&lt;/legend&gt;</div><div class="line">        &lt;p&gt;</div><div class="line">        &lt;label for=&quot;username&quot;&gt;帐号:&lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;account&quot;&gt;&lt;/label&gt;</div><div class="line">        &lt;/p&gt;</div><div class="line">        &lt;p&gt;</div><div class="line">        &lt;label for=&quot;pws&quot;&gt;密码:&lt;input type=&quot;password&quot; id=&quot;pws&quot; name=&quot;pwd&quot;&gt;&lt;/label&gt;</div><div class="line">        &lt;/p&gt;</div><div class="line">        &lt;p&gt;</div><div class="line">        性别:</div><div class="line">        &lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;male&quot;&gt;男</div><div class="line">        &lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt;女</div><div class="line">        &lt;input type=&quot;radio&quot; name=&quot;gender&quot; checked=&quot;checked&quot; value=&quot;sec&quot;&gt;保密</div><div class="line">        &lt;/p&gt;</div><div class="line">        &lt;p&gt;</div><div class="line">            &lt;!--注意点</div><div class="line">            单选框和多选框都需要指定相同的name值</div><div class="line">            --&gt;</div><div class="line">        爱好:</div><div class="line">        &lt;input type=&quot;checkbox&quot; name=&quot;sport&quot; value=&quot;basketball&quot;&gt;篮球</div><div class="line">        &lt;input type=&quot;checkbox&quot; name=&quot;sport&quot; value=&quot;football&quot;&gt;足球</div><div class="line">        &lt;input type=&quot;checkbox&quot; name=&quot;sport&quot; checked=&quot;checked&quot; value=&quot;crazy&quot;&gt;足浴</div><div class="line">        &lt;/p&gt;</div><div class="line">        &lt;p&gt;</div><div class="line">        个人简介：</div><div class="line">        &lt;textarea role=&quot;15&quot; rows=&quot;6&quot; name=&quot;desc&quot;&gt;&lt;/textarea&gt;</div><div class="line">        &lt;/p&gt;</div><div class="line">        &lt;p&gt;</div><div class="line">        生日:&lt;input type=&quot;date&quot; name=&quot;birthday&quot;&gt;</div><div class="line">        &lt;/p&gt;</div><div class="line">        &lt;p&gt;</div><div class="line">        邮箱:&lt;input type=&quot;email&quot; name=&quot;email&quot;&gt;</div><div class="line">        &lt;/p&gt;</div><div class="line">        &lt;p&gt;</div><div class="line">        手机:&lt;input type=&quot;number&quot; name=&quot;phone&quot;&gt;</div><div class="line">        &lt;/p&gt;</div><div class="line">        &lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;     </div><div class="line">        &lt;input type=&quot;reset&quot; value=&quot;清空&quot;&gt;</div><div class="line"></div><div class="line">    &lt;!--不加value值之前服务器的反馈</div><div class="line">        account=111&amp;</div><div class="line">        pwd=222&amp;</div><div class="line">        gender=on&amp;</div><div class="line">        sport=on&amp;</div><div class="line">        sport=on&amp;d</div><div class="line">        esc=jest+do+it&amp;</div><div class="line">        birthday=2016-10-03&amp;</div><div class="line">        email=12345%40qq.com&amp;</div><div class="line">        phone=12345678910</div><div class="line">    --&gt;</div><div class="line">    &lt;!--</div><div class="line">    除了按钮类型的input标签以外，其他类型的标签都可以通过添加value属性来指定将来提交到服务器的值</div><div class="line">    --&gt;</div><div class="line">    &lt;!--加了value值之后服务器的反馈，这才是完美匹配</div><div class="line">        account=111&amp;</div><div class="line">        pwd=222&amp;</div><div class="line">        gender=male&amp;</div><div class="line">        sport=basketball&amp;</div><div class="line">        sport=crazy&amp;</div><div class="line">        desc=just+do+it&amp;</div><div class="line">        birthday=2016-10-13&amp;</div><div class="line">        email=87987%40qq.com&amp;</div><div class="line">        phone=90898787890</div><div class="line">    --&gt;</div><div class="line">    &lt;/fieldset&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-6c47e7adbd85575f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="表单练习"></p>
+<ul>
+<li><h5 id="video和audio"><a href="#video和audio" class="headerlink" title="video和audio"></a>video和audio</h5><ul>
+<li>1.video标签是用来播放视频的</li>
+<li>2.格式：<video src=""><br></video></li>
+<li>video标签的属性</li>
+<li>src：用于告诉video标签需要播放的视频地址</li>
+<li>autoplay：用于告诉video标签是否自动播放视频</li>
+<li>control：用于告诉video标签是否需要显示控制条</li>
+<li>poster：用于告诉video标签视频没有播放之前显示的占位图片</li>
+<li>loop：一般用于做广告视频，用于告诉video标签视频播放完毕之后是否循环播放</li>
+<li>preload：预加载视频，但是需要注意，这个属性和autoplay相冲，如果设置了autoplay属性，那么preload属性就会失效</li>
+<li>muted：静音</li>
+<li>width/height：和img标签的设置方式一模一样</li>
+<li><p><strong>video第二种格式</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;video&gt;</div><div class="line">    &lt;source src=&quot;&quot; type=&quot;&quot;&gt;&lt;/source&gt;</div><div class="line">    &lt;source src=&quot;&quot; type=&quot;&quot;&gt;&lt;/source&gt;</div><div class="line">&lt;/video&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>由于视频数据非常重要，所以五大浏览器厂商都不愿意指出别人的视频格式，所以导致了没有一种视频格式是所有浏览器都支持的，所以W3C为了解决这个问题，就推出了第二个video标签的格式</p>
+</li>
+<li>video标签第二种格式存在的意义就是为了解决浏览器的适配问题<br>video元素支持三种视频格式，我们可以把这三种格式都通过source标签指定给video标签，那么当浏览器播放视频的时候它就会自动检测一种自己支持的格式来播放</li>
+<li><p>注意点：<br>当前通过video标签的第二种格式虽然能够指定所有浏览器都支持的视频格式，但是显然所有浏览器都通过video标签播放视频还有一个前提条件，就是浏览器必须支持H5标签，否则无法播放。如果想实现所有浏览器都可以播放视频，后续会学到js里面的一个框架html5media来实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;video controls=&quot;controls&quot;&gt;</div><div class="line">    &lt;source src=&quot;images/sb1.webm&quot; type=&quot;video/webm&quot;&gt;</div><div class="line">    &lt;source src=&quot;images/sb1.mp4&quot; type=&quot;video/mp4&quot;&gt;</div><div class="line">    &lt;source src=&quot;images/sb1.ogg&quot; type=&quot;video/ogg&quot;&gt;</div><div class="line">&lt;/video&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>audio和video的用法相同</strong></p>
+</li>
+</ul>
+</li>
+<li><h5 id="详情和概论"><a href="#详情和概论" class="headerlink" title="详情和概论"></a>详情和概论</h5><ul>
+<li>1.什么是详情和概要</li>
+<li>作用：</li>
+<li>利用summary标签来描述概要信息，默认情况是折叠显示，想看详情必须点击。</li>
+<li>格式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;details&gt;</div><div class="line">    &lt;summary&gt;概要信息&lt;/summary&gt;</div><div class="line">    详情信息</div><div class="line">&lt;/details&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;details&gt;</div><div class="line">    &lt;summary&gt;周杰伦&lt;/summary&gt;</div><div class="line">    周杰伦（Jay Chou），华语天王巨星。1979年1月18日出生于台湾省新北市，中国台湾流行乐男歌手、音乐人、演员、导演、编剧、监制、商人。</div><div class="line">&lt;/details&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-9733fcdccca82257.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="详情概要"></p>
+<ul>
+<li><h5 id="marquee标签"><a href="#marquee标签" class="headerlink" title="marquee标签"></a>marquee标签</h5><ul>
+<li>1.什么是marquee</li>
+<li>作用：跑马灯</li>
+<li>格式：<marquee>内容</marquee></li>
+<li>属性：</li>
+<li>direction：设置滚动方向left/right/up/down</li>
+<li>scrollamount:设置滚动的速度，值越大越快</li>
+<li>loop：设置滚动的次数，默认值是1</li>
+<li>behavior：设置滚动类型，slide滚动到边界就停止，alternate滚动到边界就弹回</li>
+<li>注意点：<br>marquee不是W3C推荐的标签，在官网也找不到这个标签，但是各大浏览器都支持非常好。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;!--设置滚动方向--&gt;</div><div class="line">&lt;marquee&gt;随便写点内容&lt;/marquee&gt;</div><div class="line">&lt;marquee direction=&quot;right&quot;&gt;随便写点内容&lt;/marquee&gt;</div><div class="line">&lt;marquee direction=&quot;up&quot;&gt;随便写点内容&lt;/marquee&gt;</div><div class="line">&lt;marquee direction=&quot;down&quot;&gt;随便写点内容&lt;/marquee&gt;</div><div class="line">&lt;hr/&gt;</div><div class="line">&lt;!--设置滚动速度--&gt;</div><div class="line">&lt;marquee scrollamount=&quot;1&quot;&gt;随便写点内容&lt;/marquee&gt;</div><div class="line">&lt;marquee scrollamount=&quot;10&quot;&gt;随便写点内容&lt;/marquee&gt;</div><div class="line">&lt;hr/&gt;</div><div class="line">&lt;!--设置滚动次数--&gt;</div><div class="line">&lt;marquee loop=&quot;1&quot;&gt;随便写点内容&lt;/marquee&gt;</div><div class="line">&lt;hr/&gt;</div><div class="line">&lt;!--设置滚动类型--&gt;</div><div class="line">&lt;marquee behavior=&quot;slide&quot;&gt;随便写点内容&lt;/marquee&gt;</div><div class="line">&lt;marquee behavior=&quot;alternate&quot;&gt;随便写点内容&lt;/marquee&gt;</div><div class="line">&lt;hr/&gt;</div><div class="line">&lt;!--图片滚动--&gt;</div><div class="line">&lt;marquee&gt;</div><div class="line">    &lt;img src=&quot;images/NJ.jpg&quot; width=&quot;50px&quot;&gt;</div><div class="line">&lt;/marquee&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-b67ec1519da2ed7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="跑马灯效果"></p>
+<ul>
+<li><h5 id="HTML中被废弃的标签"><a href="#HTML中被废弃的标签" class="headerlink" title="HTML中被废弃的标签"></a>HTML中被废弃的标签</h5><ul>
+<li><p>1.为什么html中有一部分标签会被废弃<br>因为当前HTML中的标签只有一个作用，就是添加语义<br>而早期的HTML中的标签有一部分标签是没有语义的，所以这部分标签就被淘汰</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;&lt;hr&gt;&lt;font&gt;</div><div class="line">&lt;b&gt;&lt;u&gt;&lt;i&gt;&lt;s&gt;这些标签都是用来修改样式的</div><div class="line">b(bold) 加粗</div><div class="line">u(underlined) 下划线</div><div class="line">i(italic) 倾斜</div><div class="line">s(strikethrough) 删除线</div></pre></td></tr></table></figure>
+</li>
+<li><p>注意点：<br>以后在企业开发中不到万不得已，不要用这些废弃的标签<br>如果一定要使用，一般情况下都是用来作为css的钩子来使用<br>这些新增标签替代被废弃的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">strong == b 语义：定义重要性强调的文字</div><div class="line">ins（inseted） == u    语义：定义插入的文字</div><div class="line">em （emphasized）== i     语义：定义强调的文字</div><div class="line">del（deleted） == s    语义：定义被删除的文字</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><h5 id="字符实体"><a href="#字符实体" class="headerlink" title="字符实体"></a>字符实体</h5><ul>
+<li>1.在HTML中对空格/回车/tab不敏感，会把多个空格和回车和Tab都当作一个空格来处理</li>
+<li>2.什么是字符实体<br>在HTML中有的字符是被HTML保留的，有的HTML字符在HTML中是有特殊含义的，在浏览器中不能直接显示出来，那么这些东西要想显示出来就必须通过字符实体来实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> 就是一个空格的意思，有几个 就有几个空格会显示出来，切记最后一定要加分号</div><div class="line">小于符号&lt;：&lt;    (less than)的缩写</div><div class="line"> 大于符号&gt;：&gt;    (greater than)的缩写</div><div class="line"> 版权符号：©</div></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML5/" rel="tag"># HTML5</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/27/HTML5-Bootstrap框架/" rel="next" title="HTML5 - Bootstrap框架">
+                <i class="fa fa-chevron-left"></i> HTML5 - Bootstrap框架
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/22/JavaScript-面向对象编程一/" rel="prev" title="JavaScript - 面向对象编程一">
+                JavaScript - 面向对象编程一 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/22/HTML5-知识点汇总/"
+           data-title="HTML5-知识点汇总" data-url="git@github.com:anearseeyou/anearseeyou.git/2016/03/22/HTML5-知识点汇总/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://olrw5apal.bkt.clouddn.com/background.jpg"
+               alt="西巴撸" />
+          <p class="site-author-name" itemprop="name">西巴撸</p>
+          <p class="site-description motion-element" itemprop="description">Fucking the code</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5知识点汇总"><span class="nav-number">1.</span> <span class="nav-text">HTML5知识点汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字符集"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">字符集</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#DTD文档声明"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">DTD文档声明</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#H系列标签"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">H系列标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注释"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#img标签和路径问题"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">img标签和路径问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#路径问题："><span class="nav-number">1.0.0.5.</span> <span class="nav-text">路径问题：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">我是顶部</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#center"><span class="nav-number">1.</span> <span class="nav-text">我是中部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bottom"><span class="nav-number">2.</span> <span class="nav-text">我是锚点测试界面3333</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#无序列表"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">无序列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#有序列表"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">有序列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#定义列表"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">定义列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#表格标签基本使用"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">表格标签基本使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#表格标签的属性"><span class="nav-number">2.0.0.5.</span> <span class="nav-text">表格标签的属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#细线表格"><span class="nav-number">2.0.0.6.</span> <span class="nav-text">细线表格</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#表格标签的其他标签"><span class="nav-number">2.0.0.7.</span> <span class="nav-text">表格标签的其他标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单元格合并练习"><span class="nav-number">2.0.0.8.</span> <span class="nav-text">单元格合并练习</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#表单标签"><span class="nav-number">2.0.0.9.</span> <span class="nav-text">表单标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#表单案例"><span class="nav-number">2.0.0.10.</span> <span class="nav-text">表单案例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Label标签"><span class="nav-number">2.0.0.11.</span> <span class="nav-text">Label标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Datalist标签"><span class="nav-number">2.0.0.12.</span> <span class="nav-text">Datalist标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#表单标签3"><span class="nav-number">2.0.0.13.</span> <span class="nav-text">表单标签3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#select标签"><span class="nav-number">2.0.0.14.</span> <span class="nav-text">select标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#表单练习"><span class="nav-number">2.0.0.15.</span> <span class="nav-text">表单练习</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#video和audio"><span class="nav-number">2.0.0.16.</span> <span class="nav-text">video和audio</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#详情和概论"><span class="nav-number">2.0.0.17.</span> <span class="nav-text">详情和概论</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#marquee标签"><span class="nav-number">2.0.0.18.</span> <span class="nav-text">marquee标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HTML中被废弃的标签"><span class="nav-number">2.0.0.19.</span> <span class="nav-text">HTML中被废弃的标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符实体"><span class="nav-number">2.0.0.20.</span> <span class="nav-text">字符实体</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">西巴撸</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"keeponcode"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("hCS32BdMw43hQACJYKDrXVny-gzGzoHsz", "Ja18UTWNr1AELp5Ba20h4Cyb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
