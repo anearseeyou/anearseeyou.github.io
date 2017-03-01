@@ -1,0 +1,1140 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="内容LongLongLong是一种情怀朋友总说我写的博客老长老长了,谁会有耐心去阅读呢 ? 而我觉得我把全部的知识概要罗列出来,每一个路过的人至少他不用费心竭力的去网上各种搜各种找,然后还外带各种坑,学习起来太费劲 ! 也不系统 ! 如果是一个真正想进入互联网行业,想成为一个真正的工程师的人,他应该不会觉得长的.希望我的文章对你有所帮助 !
+CSS格式
+一定要用一对style标签包裹起来  而且">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS-知识点汇总一">
+<meta property="og:url" content="git@github.com:anearseeyou/anearseeyou.git/2015/12/12/CSS-知识点汇总一/index.html">
+<meta property="og:site_name" content="Keep on coding">
+<meta property="og:description" content="内容LongLongLong是一种情怀朋友总说我写的博客老长老长了,谁会有耐心去阅读呢 ? 而我觉得我把全部的知识概要罗列出来,每一个路过的人至少他不用费心竭力的去网上各种搜各种找,然后还外带各种坑,学习起来太费劲 ! 也不系统 ! 如果是一个真正想进入互联网行业,想成为一个真正的工程师的人,他应该不会觉得长的.希望我的文章对你有所帮助 !
+CSS格式
+一定要用一对style标签包裹起来  而且">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-8f0583d648041c01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-01T11:42:14.738Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS-知识点汇总一">
+<meta name="twitter:description" content="内容LongLongLong是一种情怀朋友总说我写的博客老长老长了,谁会有耐心去阅读呢 ? 而我觉得我把全部的知识概要罗列出来,每一个路过的人至少他不用费心竭力的去网上各种搜各种找,然后还外带各种坑,学习起来太费劲 ! 也不系统 ! 如果是一个真正想进入互联网行业,想成为一个真正的工程师的人,他应该不会觉得长的.希望我的文章对你有所帮助 !
+CSS格式
+一定要用一对style标签包裹起来  而且">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3359912-8f0583d648041c01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6389887927219914000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="git@github.com:anearseeyou/anearseeyou.git/2015/12/12/CSS-知识点汇总一/"/>
+
+
+
+
+
+  <title> CSS-知识点汇总一 | Keep on coding </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Keep on coding</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">We can't stop | Just do it.</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="git@github.com:anearseeyou/anearseeyou.git/2015/12/12/CSS-知识点汇总一/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="西巴撸">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://olrw5apal.bkt.clouddn.com/background.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Keep on coding">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Keep on coding" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS-知识点汇总一
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-12T10:31:15+08:00">
+                2015-12-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术控/" itemprop="url" rel="index">
+                    <span itemprop="name">技术控</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术控/程序猿/" itemprop="url" rel="index">
+                    <span itemprop="name">程序猿</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/12/12/CSS-知识点汇总一/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/12/CSS-知识点汇总一/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2015/12/12/CSS-知识点汇总一/" class="leancloud_visitors" data-flag-title="CSS-知识点汇总一">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h2 id="内容LongLongLong是一种情怀"><a href="#内容LongLongLong是一种情怀" class="headerlink" title="内容LongLongLong是一种情怀"></a>内容LongLongLong是一种情怀</h2><h4 id="朋友总说我写的博客老长老长了-谁会有耐心去阅读呢-而我觉得我把全部的知识概要罗列出来-每一个路过的人至少他不用费心竭力的去网上各种搜各种找-然后还外带各种坑-学习起来太费劲-也不系统-如果是一个真正想进入互联网行业-想成为一个真正的工程师的人-他应该不会觉得长的-希望我的文章对你有所帮助"><a href="#朋友总说我写的博客老长老长了-谁会有耐心去阅读呢-而我觉得我把全部的知识概要罗列出来-每一个路过的人至少他不用费心竭力的去网上各种搜各种找-然后还外带各种坑-学习起来太费劲-也不系统-如果是一个真正想进入互联网行业-想成为一个真正的工程师的人-他应该不会觉得长的-希望我的文章对你有所帮助" class="headerlink" title="朋友总说我写的博客老长老长了,谁会有耐心去阅读呢 ? 而我觉得我把全部的知识概要罗列出来,每一个路过的人至少他不用费心竭力的去网上各种搜各种找,然后还外带各种坑,学习起来太费劲 ! 也不系统 ! 如果是一个真正想进入互联网行业,想成为一个真正的工程师的人,他应该不会觉得长的.希望我的文章对你有所帮助 !"></a>朋友总说我写的博客老长老长了,谁会有耐心去阅读呢 ? 而我觉得我把全部的知识概要罗列出来,每一个路过的人至少他不用费心竭力的去网上各种搜各种找,然后还外带各种坑,学习起来太费劲 ! 也不系统 ! 如果是一个真正想进入互联网行业,想成为一个真正的工程师的人,他应该不会觉得长的.希望我的文章对你有所帮助 !</h4><hr>
+<h2 id="CSS格式"><a href="#CSS格式" class="headerlink" title="CSS格式"></a>CSS格式</h2><ul>
+<li>一定要用一对style标签包裹起来  而且必须要写在head标签之内 titile标签的下面</li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;style type="text/css"&gt;</div><div class="line">        P&#123;</div><div class="line">            text-align: center;</div><div class="line">            color: green;</div><div class="line">        &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="文字属性"><a href="#文字属性" class="headerlink" title="文字属性"></a>文字属性</h2><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">        p&#123;</div><div class="line">            font-style: italic;</div><div class="line">            /*快捷键*/</div><div class="line">            /*fs font-style:italic; fs然后按Tab就会自动补全，其实想要写的代码首字母*/</div><div class="line">            </div><div class="line">            font-weight: bold;</div><div class="line">            /*快捷键*/</div><div class="line">            /*fwb font-weight:bold; fwb然后按Tab就会自动补全，其实想要写的代码首字母*/</div><div class="line"></div><div class="line">            font-size: 30px;</div><div class="line">            /*快捷键*/</div><div class="line">            /*fz30 font-size:30px; */</div><div class="line"></div><div class="line">            font-family: '楷体';</div><div class="line">        &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>如果我们设置的字体用户电脑不存在，那么系统会用默认的字体来显示宋体</li>
+<li>如果设置的字体不存在，而我们又不想用默认的字体来显示怎么办？</li>
+<li>如果想给中文和英文分别单独设置样式怎么办？</li>
+<li>开发中一般常见的字体<br>中文：宋体/黑体/微软雅黑<br>英文：Arial/Time New Roma</li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    p&#123;</div><div class="line">        /*font-family: '乱七八糟的字体','微软雅黑'; *//*(备选方案用逗号隔开)*/</div><div class="line"></div><div class="line">        font-family: 'Arial','微软雅黑';</div><div class="line">        /*font-family: '微软雅黑','Arial';*/</div><div class="line"></div><div class="line">        /*中文字体可以处理英文字体样式，但是英文字体无法处理中文字体样式，用备选方案即可*/</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="文字属性的缩写"><a href="#文字属性的缩写" class="headerlink" title="文字属性的缩写"></a>文字属性的缩写</h2><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    p&#123;</div><div class="line">        /*font-style: italic;*/</div><div class="line">        /*font-weight: bold;*/</div><div class="line">        /*font-size: 30px;*/</div><div class="line">        /*font-family: '楷体';*/</div><div class="line"></div><div class="line">        /* 缩写格式，中间用空格隔开，style和weight可以省略和互换位置，size和family不可以省略，也不可以互换位置，size必须写在family的前面，否则没有任何效果 */</div><div class="line"></div><div class="line">        font: italic bold 30px '楷体';</div><div class="line"></div><div class="line">        /*14px代表字号 24代表行高 楷体代表字形 这是一个语法 缺一不可*/</div><div class="line">        font:14px/24px "楷体";</div><div class="line"></div><div class="line">        /*中文字体的别名*/</div><div class="line">        font-family:"Microsoft YaHei";  /*微软雅黑*/</div><div class="line">        font-family:"SimSun";   /*宋体*/</div><div class="line"></div><div class="line">        /*缩写*/</div><div class="line">        font:24px/44px "Times New Roman","Microsoft YaHei","SimSun";</div><div class="line">    &#125;</div><div class="line"> &lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="文本属性"><a href="#文本属性" class="headerlink" title="文本属性"></a>文本属性</h2><ul>
+<li>文本装饰的属性</li>
+<li>格式：</li>
+<li>text-decoration: underline;</li>
+<li>取值：<br>underline:下划线<br>line-through：删除线<br>over-line：上划线<br>none：什么都没有 最常见的用途就是删除超链接的下划线</li>
+<li>文本水平对齐的属性</li>
+<li>格式：<br>text-align: center;</li>
+<li>取值：<br>left/right/center</li>
+<li>文本缩进的属性</li>
+<li>格式：</li>
+<li>text-indent: 2em;</li>
+<li>取值：<br>em缩进两个字符</li>
+</ul>
+<h2 id="颜色的属性"><a href="#颜色的属性" class="headerlink" title="颜色的属性"></a>颜色的属性</h2><ul>
+<li>在CSS中如何通过color属性来修改文字颜色</li>
+<li>格式：color：值;</li>
+<li>取值：<blockquote>
+<p>1.英文单词（表达有限制，不是所有颜色都可以用英文来表达的）<br>2.rgb<br>  三原色，r代表red，g代表green，b代表blue） rgb（0，0，0）里面的取值就是取色的比例，0-255<br>  红色：rgb(255,0,0);<br>  绿色：rgb(0,255,0);<br>  蓝色：rgb(0,0,255);<br>  黑色：rgb(0,0,0);<br>  灰色：rgb(150,150,150);<br>  只要让其中的取值都相同就是灰色，值越小越偏黑，值越大越偏白。企业开发中一般都用灰色的多<br>3.rgba<br>  CSS3的时候推出来的，前面的rgb和上面的都是一样的，后面的a是代表透明度，最大值是1<br>4.<strong>十六进制</strong><br>  十六进制的本质就是rgb，例如：#FFEE00 FF代表r EE代表g 00代表b<br>  十进制是0-9，逢十进一<br>  十六进制是0-F，逢十六进一<br>  十六进制和十进制转换的公式<br>  用十六进制的第一位 x16 + 十六进制的第二位 = 十进制<br>  15 == 1x16 + 5 = 21<br>  12 == 1x16 + 2 = 18<br>  FF == Fx16 + F = 15x16 + 15 = 240 + 15 = 255<br>  00 == 0x16 + 0 = 0<br>5.十六进制缩写<br>  在CSS中只要十六进制的颜色每两位的值都是一样的，那么就可以简写为一位<br>  例如：#FF0000 = #F00<br>6.<strong>注意点：</strong><br>如果当前颜色对应的数字不一样，那就不能简写，例如：#123455<br>如果两位相同的数字不是属于同一个颜色的，也不能简写，例如：#122334</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h2><ul>
+<li>作用：根据指定的标签名称，在当前界面找到找有该名称的标签，然后设置属性</li>
+<li>格式：</li>
+<li>标签名称{<br>  属性：值；<br>  }</li>
+<li><strong>注意点：</strong><blockquote>
+<p>1.标签选择器选中的是当前界面中所有的标签，而不能单独选中某一个标签<br>2.标签选择器无论标签藏的多深，被包裹几层，都能选中<br>3.只要是HTML中的标签就可以作为标签选择器</p>
+</blockquote>
+</li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    p&#123;    /* p标签 就是一个标签选择器 */</div><div class="line">       color: red;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h2><ul>
+<li>作用：根据指定的id名称找到对应的标签，然后给它设置属性，</li>
+<li>格式：id前面必须 + #</li>
+<li><strong>注意点：</strong><blockquote>
+<p>1.每个HTML标签都有一个属性就做id，每个标签都可以设置id<br>2.id是独一无二的，必须是唯一的<br>3.id选择器前面必须加 #<br>4.id的名称只能由字母/数字/下划线 （a-z，0-9，_），其他的一律不行<br>5.id的名称不能由数字开头<br>6.id名称不能是HTML标签的名称（a，img，h1…）<br>7.在开发中一般情况下如果只是为了设置样式，我们不会用id，因为在前端开发中id是留给js使</p>
+</blockquote>
+</li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;p id="identity1"&gt;迟到毁一生&lt;/p&gt;</div><div class="line">&lt;p id="identity2"&gt;早退穷三代&lt;/p&gt;</div><div class="line">&lt;p id="identity3"&gt;按时上下班&lt;/p&gt;</div><div class="line">&lt;p id="identity4"&gt;必成高富帅&lt;/p&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        #identity1&#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">        #identity2&#123;</div><div class="line">            color: blue;</div><div class="line">        &#125;</div><div class="line">        #identity3&#123;</div><div class="line">            color: green;</div><div class="line">        &#125;</div><div class="line">        #identity4&#123;</div><div class="line">            color: yellow;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h2><ul>
+<li>作用:根据指定的类名称找到对应的标签,然后设置属性</li>
+<li>格式:</li>
+<li><strong>.</strong> 类名{ }</li>
+<li><strong>注意点:</strong><blockquote>
+<p><strong>1.每个HTML标签都有一个属性就做class，每个标签都可以设置class<br>2.class是可以重复的<br>3.id选择器前面必须加 .<br>4.类名的命名规范和id名称的命名规范一样<br>5.类名就是专门用来给某个特定的标签设置样式的<br>6.在HTML中每一个标签可以同时绑定多个类名<br>7.格式:<br>&lt;标签名称 class=”类名1 类名2…”&gt;<br><p class="类名1" ...=""></p>   错误的写法</strong></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="id选择器和class选择器的区别"><a href="#id选择器和class选择器的区别" class="headerlink" title="id选择器和class选择器的区别"></a>id选择器和class选择器的区别</h2><ul>
+<li>id相当于人的身份证不可以重复</li>
+<li>class相当于人的名称可以重复</li>
+<li>一个HTML标签只能绑定一个id名称</li>
+<li>一个HTML标签可以绑定多个class名称</li>
+<li>id选择器是以#开头</li>
+<li>class选择器是以.开头</li>
+<li>开发中到底用id选择器和class选择器呢<blockquote>
+<p><strong>1.id一般情况下是给js使用的,所以除非是特殊情况,否则不要使用id去设置样式<br>2.在企业开发中一个开发人员对类的使用可以看出这个开发人员的技术水平<br>3.一般情况在企业开发中要注重冗余代码的抽取,可以将一些公共的代码抽取到一个类选择器中,然后让标签和这个类 选择器绑定即可</strong></p>
+<h2 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h2></blockquote>
+</li>
+<li>找到指定标签的所有后代标签,设置属性</li>
+<li>格式:<br>标签名称1 标签名称2{<pre><code>  属性:值;
+}
+</code></pre></li>
+<li>先找到名称叫做标签1的标签,然后再在这个标签下面查找所有名称叫做标签2的标签,然后设置属性</li>
+<li><strong>注意点:</strong><blockquote>
+<p>1.后代选择器必须用空格隔开<br>2.后代选择器不仅仅是儿子,也包括孙子/重孙子,只要最终是放到指定标签中的都是后代<br>3.后代选择器不仅仅可以使用标签的名称,还可以选择其他的选择器**</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h2><ul>
+<li>作用:找到指定标签中所有特定的直接资源色,然后设置属性</li>
+<li>格式:<br>标签名称1&gt;标签名称2{<pre><code>属性:值;
+</code></pre>}</li>
+<li><strong>注意点:</strong><blockquote>
+<p><strong>1.子元素选择器只会查找儿子,不会查找其他的元素<br>2.子元素选择器之间需要用&gt;符号链接 不能有空格<br>3.子元素选择器不仅仅可以使用标签的名称,还可以选择其他的选择器<br>4.子元素选择器可以通过&gt;符号一直延续下去</strong></p>
+</blockquote>
+</li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">&lt;div id="identity"&gt;</div><div class="line">    &lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">    &lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">        &lt;li&gt;</div><div class="line">            &lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        /*</div><div class="line">        div&gt;p&#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">        */</div><div class="line">        /*</div><div class="line">        #identity&gt;p&#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">        */</div><div class="line">        div&gt;ul&gt;li&gt;p&#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="后代选择器和子元素选择器"><a href="#后代选择器和子元素选择器" class="headerlink" title="后代选择器和子元素选择器"></a>后代选择器和子元素选择器</h2><h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ul>
+<li>后代选择器使用空格作为连接符号</li>
+<li>子元素选择器使用&gt;作为连接符号</li>
+<li>后代选择器会选中指点标签中所有的特定后代标签 也就是会选中儿子/孙子… 只要被放到指定标签中的特定标签都会被选中</li>
+<li>子元素选择器智慧选中指定标签中所有的特定直接标签 也就是只会选中- 特定的儿子标签</li>
+</ul>
+<h4 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h4><ul>
+<li>后代选择器和子元素选择器都可以使用标签名称/id名称/class名称来作为选择器</li>
+<li>后代选择器和子元素选择器都可以通过各自的连接符号一直延续下去</li>
+<li>开发中如何选择<br>1.如果想选中指定标签中所有特定的标签 那么就使用后代选择器<br>2.如果纸箱选中指定标签中的所有特定的儿子标签 那么就使用子元素选择器</li>
+</ul>
+<h2 id="交集选择器"><a href="#交集选择器" class="headerlink" title="交集选择器"></a>交集选择器</h2><ul>
+<li>作用:给所有选择器选中的标签中相交的那部分标签设置属性</li>
+<li>格式:<br>选择器1选择器2{<pre><code>属性:值;
+</code></pre>}</li>
+<li><strong>注意点:</strong><blockquote>
+<p><strong>1.选择器和选择器之间没有任何的连接符号<br>2.选择器可以使用标签名称/id名称/class名称<br>3.只做了解 开发中很少用到</strong></p>
+</blockquote>
+</li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;p class="para1" id="identity"&gt;我是段落&lt;/p&gt;</div><div class="line">&lt;p class="para1"&gt;我是段落&lt;/p&gt;</div><div class="line">p.para1#identity&#123;    color: red;&#125;</div></pre></td></tr></table></figure>
+<h2 id="并集选择器"><a href="#并集选择器" class="headerlink" title="并集选择器"></a>并集选择器</h2><ul>
+<li><strong>作用:给所有选择器选中的标签设置属性</strong></li>
+<li><strong>格式:</strong><br>选择器1,选择器2{<br>  属性:值;<br>}</li>
+<li><strong>注意点:</strong><blockquote>
+<p><strong>1.并集选择器必须用,隔开<br>2.选择器可以使用标签名称/id名称/class名称</strong></p>
+</blockquote>
+</li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;h1 class="ht"&gt;我是标题&lt;/h1&gt;</div><div class="line">&lt;p class="para"&gt;我是段落&lt;/p&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        /*</div><div class="line">        .ht&#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">        .para&#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">        */</div><div class="line">        .ht,.para&#123;</div><div class="line">            color:blue;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="兄弟选择器"><a href="#兄弟选择器" class="headerlink" title="兄弟选择器"></a>兄弟选择器</h2><h4 id="相邻兄弟选择器-CSS2"><a href="#相邻兄弟选择器-CSS2" class="headerlink" title="相邻兄弟选择器 CSS2"></a>相邻兄弟选择器 CSS2</h4><ul>
+<li><strong>作用:给指定选择器后面紧跟的那个选择器选中的标签设置属性</strong></li>
+<li><strong>格式:</strong><br>选择器1+选择器2{<br>  属性:值;<br>}</li>
+<li>注意点:<blockquote>
+<p><strong>1.相邻兄弟选择器之间必须用+连接起来<br>2.相邻兄弟选择器只能选择紧跟其后的那个标签 不能选中被隔开的标签</strong></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="通用兄弟选择器"><a href="#通用兄弟选择器" class="headerlink" title="通用兄弟选择器="></a>通用兄弟选择器=</h4><ul>
+<li>作用:给指定选择器后面的所有选择器选中的所有标签设置属性</li>
+<li>格式:<br>选择器1~选择器2{<br>  属性:值;<br>}</li>
+<li><strong>注意点:<br>1.通过兄弟选择器必须用~隔开<br>2.通用兄弟选择器选中的是指定选择器后面某个选择器中所有的标签 不管中间有没有被其他标签隔开</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;h1 class="ht"&gt;我是标题&lt;/h1&gt;</div><div class="line">&lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">&lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">&lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">&lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">&lt;h1&gt;我是标题&lt;/h1&gt;</div><div class="line">&lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">&lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">&lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">&lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        /*</div><div class="line">        .ht+p&#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">        */</div><div class="line">        h1~p&#123;</div><div class="line">            color: blue;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="序选择器"><a href="#序选择器" class="headerlink" title="序选择器"></a>序选择器</h2><h4 id="CSS3中新增的选择器最具代表的就是序选择器"><a href="#CSS3中新增的选择器最具代表的就是序选择器" class="headerlink" title="CSS3中新增的选择器最具代表的就是序选择器"></a>CSS3中新增的选择器最具代表的就是序选择器</h4><h4 id="同级别中的第几个"><a href="#同级别中的第几个" class="headerlink" title="同级别中的第几个"></a>同级别中的第几个</h4><ul>
+<li><strong>:first-child 选中同级别中的第一个标签</strong></li>
+<li><strong>:last-child 选中同级别中的最后一个标签</strong></li>
+<li><strong>nth-child(n) 选中同级别中的第n个标签</strong></li>
+<li><strong>:nth-last-child(n) 选中同级别中的倒数第n个标签</strong></li>
+<li><strong>:only-child 选中父元素中唯一的这个元素</strong></li>
+<li><strong>注意点:这几个都不区分类型</strong></li>
+</ul>
+<h4 id="同级别同类型中的第几个"><a href="#同级别同类型中的第几个" class="headerlink" title="同级别同类型中的第几个"></a>同级别同类型中的第几个</h4><ul>
+<li><strong>:first-of-type 选中同级别中同类型的第一个标签</strong></li>
+<li><strong>:last-of-type 选中同级别中同类型的最后一个标签</strong></li>
+<li><strong>:nth-of-type(n) 选中同级别中同类型的第n个一个标签</strong></li>
+<li><strong>:nth-last-of-type(n)   选中同级别中同类型的倒数第n个标签</strong></li>
+<li><strong>:only-of-type 选中父元素唯一类型的某个标签</strong></li>
+<li><strong>:nth-child(odd)  选中同级别中的所有奇数</strong></li>
+<li><strong>:nth-child(even) 选中同级别中的所有偶数</strong></li>
+<li><strong>:nth-child(xn+y)</strong></li>
+<li><strong>x和y是用户自定义的 而n是一个计数器 从0开始递增</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    p:first-child&#123;</div><div class="line">        color: red;</div><div class="line">    &#125;</div><div class="line">    p:first-of-type&#123;</div><div class="line">        color: blue;</div><div class="line">    &#125;</div><div class="line">    p:last-child&#123;</div><div class="line">        color: red;</div><div class="line">    &#125;</div><div class="line">    p:last-of-type&#123;</div><div class="line">        color: blue;</div><div class="line">    &#125;</div><div class="line">    p:nth-child(3)&#123;</div><div class="line">        color: green;</div><div class="line">    &#125;</div><div class="line">    p:nth-of-type(3)&#123;</div><div class="line">        color: red;</div><div class="line">    &#125;</div><div class="line">    p:nth-last-child(2)&#123;</div><div class="line">        color: red;</div><div class="line">    &#125;</div><div class="line">    p:nth-last-of-type(2)&#123;</div><div class="line">        color: red;</div><div class="line">    &#125;</div><div class="line">    p:only-child&#123;</div><div class="line">        color: purple;</div><div class="line">    &#125;</div><div class="line">    p:only-of-type&#123;</div><div class="line">        color: red;</div><div class="line">    &#125;</div><div class="line">    p:nth-child(odd)&#123;</div><div class="line">        color: red;</div><div class="line">    &#125;</div><div class="line">    p:nth-child(even)&#123;</div><div class="line">        color: blue;</div><div class="line">    &#125;</div><div class="line">    p:nth-of-type(odd)&#123;</div><div class="line">        color: red;</div><div class="line">    &#125;</div><div class="line">    p:nth-of-type(even)&#123;</div><div class="line">        color: blue;</div><div class="line">    &#125;</div><div class="line">    p:nth-child(2n+0)&#123;</div><div class="line">        color: red;</div><div class="line">    &#125;</div><div class="line">    p:nth-child(3n+0)&#123;</div><div class="line">        color: red;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><ul>
+<li>作用:根据指定的属性名称找到对应的标签设置属性</li>
+<li>格式:<br>[attribute=value]<br>1.作用:找到有指定属性 并且属性的取值等于value的标签 然后设置属性<br>2.最常见的场景就是区分input属性</li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">input[type=password]&#123;&#125;</div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;p id=&quot;identity1&quot;&gt;我是段落1&lt;/p&gt;</div><div class="line">&lt;p id=&quot;identity2&quot; class=&quot;cc&quot;&gt;我是段落2&lt;/p&gt;</div><div class="line">&lt;p class=&quot;cc&quot;&gt;我是段落3&lt;/p&gt;</div><div class="line">&lt;p id=&quot;identity3&quot; class=&quot;para&quot;&gt;我是段落4&lt;/p&gt;</div><div class="line">&lt;p&gt;我是段落5&lt;/p&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        /*</div><div class="line">        p[id]&#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">        */</div><div class="line">        p[class=cc]&#123;</div><div class="line">            color: blue;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="属性选择器2"><a href="#属性选择器2" class="headerlink" title="属性选择器2"></a>属性选择器2</h2><h4 id="属性取值是以什么开头的"><a href="#属性取值是以什么开头的" class="headerlink" title="属性取值是以什么开头的"></a>属性取值是以什么开头的</h4><ul>
+<li><strong>[attribute^=value] CSS3</strong></li>
+<li><strong>[attribute|=value] CSS2</strong></li>
+<li><strong>区别:</strong><blockquote>
+<p><strong>1.CSS2中的只能找到value开头 value是被-和其他内容隔开的<br>2.CSS中只要是以value开头的都可以找到,无论它是不是被隔开<br>3.属性的取值是以什么结尾的<br>[attribute$=value] CSS3<br>4.属性的取值是否包含某个特定的值<br>[attribute~=value] CSS2<br>[attribute*=value] CSS3</strong></p>
+</blockquote>
+</li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;img src="" alt="abcwwwmmm"&gt;</div><div class="line">&lt;img src="" alt="wwwmmmabc"&gt;</div><div class="line">&lt;img src="" alt="wwwabcmmm"&gt;</div><div class="line">&lt;img src="" alt="def abc"&gt;</div><div class="line">&lt;img src="" alt="ppp abc"&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        /*</div><div class="line">        img[alt^=abc]&#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">        */</div><div class="line">        /*</div><div class="line">        img[alt|=abc]&#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">        img[alt$=abc]&#123;</div><div class="line">            color: blue;</div><div class="line">        &#125;</div><div class="line">        */</div><div class="line">        img[alt*=abc]&#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h2><ul>
+<li>由于通配符选择器是设置界面上所有的标签属性 所以在设置之前会遍历所有的标签 如果当前界面的标签比较多 那么性能就会比较差 所以在企业开发中一般不会使用通配符选择器</li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    /* 不推荐使用 */</div><div class="line">    *&#123;</div><div class="line">        margin:0;</div><div class="line">        padding:0;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="CSS三大特性之继承性"><a href="#CSS三大特性之继承性" class="headerlink" title="CSS三大特性之继承性"></a>CSS三大特性之继承性</h2><h4 id="什么是继承性"><a href="#什么是继承性" class="headerlink" title="什么是继承性"></a>什么是继承性</h4><ul>
+<li>作用:给父元素设置的属性 他的子元素也可以使用</li>
+<li><p><strong>注意点:</strong></p>
+<blockquote>
+<p><strong> 1.并不是所有的属性都可以继承  只有以color/font-/text-/line开头的属性才可以继承<br> 2.在CSS的继承中 不仅仅是儿子可以继承 只要是后代 都可以继承<br> 3.CSS继承性中的特殊性<br> a标签的文字颜色和下划线是不能继承的<br> h标签的文字大小是不能继承的</strong></p>
+</blockquote>
+</li>
+<li><p><strong>应用场景:</strong><br>一般用于设置网页上的一些共性信息 例如网页的文字颜色 字体 字体大小等内容   body{}</p>
+</li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">        &lt;li&gt;</div><div class="line">            &lt;p&gt;我是段落&lt;/p&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div&gt;</div><div class="line">    &lt;a href="#"&gt;我是超链接&lt;/a&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div&gt;</div><div class="line">    &lt;h1&gt;我是大标题&lt;/h1&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        div&#123;</div><div class="line">            color:red;</div><div class="line">            font-size: 30px;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="CSS三大特性之层叠性"><a href="#CSS三大特性之层叠性" class="headerlink" title="CSS三大特性之层叠性"></a>CSS三大特性之层叠性</h2><h4 id="什么是层叠性"><a href="#什么是层叠性" class="headerlink" title="什么是层叠性"></a>什么是层叠性</h4><ul>
+<li>作用:层叠性就是CSS处理冲突的一种能力</li>
+<li><strong>注意点:</strong><br>层叠性只有在多个选择器选中”同一个标签” 然后又设置了”相同的属性” 才会发生层叠性</li>
+<li><strong>CSS全称 Cascading StyleSheet</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;p id="identity" class="para"&gt;我是段落&lt;/p&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        p&#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">        .para&#123;</div><div class="line">            color: blue;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="CSS三大特性之优先级"><a href="#CSS三大特性之优先级" class="headerlink" title="CSS三大特性之优先级"></a>CSS三大特性之优先级</h2><h4 id="什么是优先级"><a href="#什么是优先级" class="headerlink" title="什么是优先级"></a>什么是优先级</h4><ul>
+<li>作用:当多个选择器选中同一个标签 并且给同一个标签设置相同属性时 如何层叠就由优先级来确定</li>
+<li><strong>优先级判断的三种方式</strong><blockquote>
+<p><strong>1.是否是直接选中(间接选中就是继承) 遵循就近原则 谁离的近 就层叠谁的样式<br>2.相同的选择器 如果都是直接选中 都是同类型的选择器 谁写在后面就层叠谁的样式<br>3.不同的选择器 如果都是直接选中 但是是不同类型的选择器<br>id&gt;类&gt;标签&gt;通配符&gt;继承&gt;浏览器默认</strong></p>
+</blockquote>
+</li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;lu&gt;</div><div class="line">        &lt;li&gt;</div><div class="line">            &lt;p id="identity" class="para"&gt;我是段落&lt;/p&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">    &lt;/lu&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        p&#123;&#125;</div><div class="line">        #identity&#123;&#125;</div><div class="line">        .para&#123;&#125;</div><div class="line">        ul&#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">        li&#123;</div><div class="line">            color: blue;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="优先级之-important"><a href="#优先级之-important" class="headerlink" title="优先级之 important"></a>优先级之 important</h2><ul>
+<li><strong>作用:用于提升某个标签直接选中标签的选择器的某个属性的优先级的 可以将被指定的属性的优先级提升为最高</strong></li>
+<li><strong>注意点:</strong><br><strong>1.important只能用于直接选中 不能用与间接选中<br>2.通配符选择器选中的标签也是直接选中的<br>3.!important只能提升被指定的属性的优先级 其他属性的优先级不会被提升<br>4.!important必须写在属性值的后面 感叹号不能省略 必须写在分号里面</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;lu&gt;</div><div class="line">        &lt;li&gt;</div><div class="line">            &lt;p id="identity" class="para"&gt;我是段落&lt;/p&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">    &lt;/lu&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        #identity&#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">        p&#123;</div><div class="line">            color: deepskyblue ;</div><div class="line">        &#125;</div><div class="line">        li&#123;</div><div class="line">            color: blue !important; (间接选中的无效)</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="优先级之权重问题"><a href="#优先级之权重问题" class="headerlink" title="优先级之权重问题"></a>优先级之权重问题</h2><ul>
+<li>作用:当多个选择器混合在一起使用时 我们可以通过计算权重来判断谁的优先级最高</li>
+</ul>
+<h4 id="权重的计算规则"><a href="#权重的计算规则" class="headerlink" title="权重的计算规则"></a>权重的计算规则</h4><ul>
+<li>首选计算选择器中谁的id最多</li>
+<li>如果id的个数一样 那么再看类名的个数 类名个数多的优先级别高</li>
+<li>如果类名的个数一样 那么再看标签名的个数 标签名个数多的优先级别高</li>
+<li>如果id/类名/标签名的个数都一样 那么谁写在最后面就层叠谁的样式</li>
+<li><strong>注意点:</strong><br>只有选择器是直接选中标签的 才需要计算权重</li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;div id="identity" class="box1"&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">        &lt;li&gt;</div><div class="line">            &lt;p id="identity1" class="box2"&gt;我是段落&lt;/p&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        #identity1.box2&#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">        .box1 .box2&#123;</div><div class="line">            color: aqua;</div><div class="line">        &#125;</div><div class="line">        div ul li p&#123;</div><div class="line">            color: blue;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="div和span标签"><a href="#div和span标签" class="headerlink" title="div和span标签"></a>div和span标签</h2><h4 id="div"><a href="#div" class="headerlink" title="div"></a>div</h4><ul>
+<li>作用:配合CSS完成网页的基本布局</li>
+</ul>
+<h4 id="span"><a href="#span" class="headerlink" title="span"></a>span</h4><ul>
+<li>作用:一般配合CSS修改网页中的局部信息</li>
+</ul>
+<h4 id="div和span有什么区别"><a href="#div和span有什么区别" class="headerlink" title="div和span有什么区别"></a>div和span有什么区别</h4><ul>
+<li>div会独占一行 而span不会独占一行</li>
+<li>div是一个容器级别的标签 而span是文本级别的标签</li>
+<li>容器级的标签和文本级的标签的区别</li>
+</ul>
+<h4 id="容器级的标签"><a href="#容器级的标签" class="headerlink" title="容器级的标签"></a>容器级的标签</h4><ul>
+<li>容器级的标签中可以嵌套其他所有的标签</li>
+<li>文本级的标签中只可以嵌套文字/超链接/图片</li>
+<li>容器级的标签<br>例如:div h ul ol dl li …</li>
+<li>文本级的标签<br>例如:span p buis strong em ins del…</li>
+<li><strong>注意点:</strong><br>那些标签是文本级的 那些标签是容器级的 不用可以记忆 在企业开发中要嵌套都是嵌套在div中 </li>
+</ul>
+<h2 id="CSS元素的显示模式"><a href="#CSS元素的显示模式" class="headerlink" title="CSS元素的显示模式"></a>CSS元素的显示模式</h2><ul>
+<li>在HTML中将所有的标签分为两类 分别是容器级标签和文本级标签</li>
+<li>在CSS中也将所有的标签分为两类 分别是块级标签和行内标签<h4 id="块级标签-特点-独占一行"><a href="#块级标签-特点-独占一行" class="headerlink" title="块级标签  特点:独占一行"></a>块级标签  特点:独占一行</h4></li>
+<li>所有的容器级标签都是块级标签<br>例如:p div h ul ol dl li …<h4 id="行内标签-特点-不会独占一行"><a href="#行内标签-特点-不会独占一行" class="headerlink" title="行内标签  特点:不会独占一行"></a>行内标签  特点:不会独占一行</h4></li>
+<li>所有文本级的标签都是行内标签 除p标签以外<br>例如:span b u i s strong em ins del…<h4 id="块级标签和行内标签的区别"><a href="#块级标签和行内标签的区别" class="headerlink" title="块级标签和行内标签的区别"></a>块级标签和行内标签的区别</h4></li>
+<li><strong>块级标签</strong><blockquote>
+<p><strong>1.独占一行<br>2.如果没有设置宽度 默认和父元素一样宽高<br>3.如果设置了宽高 那就按照设置的来显示</strong></p>
+</blockquote>
+</li>
+<li><strong>行内标签</strong><blockquote>
+<p><strong>1.不会独占一行</strong><br>2.如果没有设置宽度 默认和字体宽度一样<br>3.行内标签是不可以设置宽度和高度**</p>
+</blockquote>
+</li>
+<li><strong>行内块级标签</strong><br>为了能够让标签既能够不独占一行 又可以设置宽度和高度 就出现了行内块级标签</li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>我是div<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">hr</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>我是span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">b</span>&gt;</span>我是加粗<span class="tag">&lt;/<span class="name">b</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">strong</span>&gt;</span>我是强调<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">hr</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/picture.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/picture.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">        div&#123;</div><div class="line">            background-color: red;</div><div class="line">            width: 200px;</div><div class="line">            height: 100px;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        img&#123;</div><div class="line">            width: 50px;</div><div class="line">            height: 50px;</div><div class="line">        &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-8f0583d648041c01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="**显示模式**"></p>
+<h2 id="CSS显示模式转换"><a href="#CSS显示模式转换" class="headerlink" title="CSS显示模式转换"></a>CSS显示模式转换</h2><ul>
+<li><strong>转换CSS中元素的显示模式</strong></li>
+<li><strong>通过display属性来转换</strong></li>
+<li><strong>display取值:</strong><blockquote>
+<p><strong>inline  —– &gt;  行内<br>  block  —— &gt; 块级<br>  inline-block —–&gt; 行内块级</strong></p>
+</blockquote>
+</li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>我是div<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>我是div<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>我是span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>我是span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"cc"</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">b</span> <span class="attr">class</span>=<span class="string">"cc"</span>&gt;</span>我是加粗<span class="tag">&lt;/<span class="name">b</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    div&#123;</div><div class="line">        display: inline;</div><div class="line">        background: red;</div><div class="line">        width: 200px;</div><div class="line">        height: 200px;</div><div class="line">    &#125;</div><div class="line">    span&#123;</div><div class="line">        display: block;</div><div class="line">        width: 200px;</div><div class="line">        height: 200px;</div><div class="line">        background: green;</div><div class="line">    &#125;</div><div class="line">    .cc&#123;</div><div class="line">        background: blue;</div><div class="line">        width: 200px;</div><div class="line">        height: 200px;</div><div class="line">        display: inline-block;</div><div class="line">        /*</div><div class="line">        快捷键</div><div class="line">        di display: inline;</div><div class="line">        db display: block;</div><div class="line">        dib display: inline-block;</div><div class="line">      */</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/25/HTML5-知识点汇总二/" rel="next" title="HTML5-知识点汇总二">
+                <i class="fa fa-chevron-left"></i> HTML5-知识点汇总二
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/31/CSS-知识点汇总二/" rel="prev" title="CSS-知识点汇总二">
+                CSS-知识点汇总二 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/12/12/CSS-知识点汇总一/"
+           data-title="CSS-知识点汇总一" data-url="git@github.com:anearseeyou/anearseeyou.git/2015/12/12/CSS-知识点汇总一/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://olrw5apal.bkt.clouddn.com/background.jpg"
+               alt="西巴撸" />
+          <p class="site-author-name" itemprop="name">西巴撸</p>
+          <p class="site-description motion-element" itemprop="description">Fucking the code</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#内容LongLongLong是一种情怀"><span class="nav-number">1.</span> <span class="nav-text">内容LongLongLong是一种情怀</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#朋友总说我写的博客老长老长了-谁会有耐心去阅读呢-而我觉得我把全部的知识概要罗列出来-每一个路过的人至少他不用费心竭力的去网上各种搜各种找-然后还外带各种坑-学习起来太费劲-也不系统-如果是一个真正想进入互联网行业-想成为一个真正的工程师的人-他应该不会觉得长的-希望我的文章对你有所帮助"><span class="nav-number">1.0.1.</span> <span class="nav-text">朋友总说我写的博客老长老长了,谁会有耐心去阅读呢 ? 而我觉得我把全部的知识概要罗列出来,每一个路过的人至少他不用费心竭力的去网上各种搜各种找,然后还外带各种坑,学习起来太费劲 ! 也不系统 ! 如果是一个真正想进入互联网行业,想成为一个真正的工程师的人,他应该不会觉得长的.希望我的文章对你有所帮助 !</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS格式"><span class="nav-number">2.</span> <span class="nav-text">CSS格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字属性"><span class="nav-number">3.</span> <span class="nav-text">文字属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字属性的缩写"><span class="nav-number">4.</span> <span class="nav-text">文字属性的缩写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本属性"><span class="nav-number">5.</span> <span class="nav-text">文本属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#颜色的属性"><span class="nav-number">6.</span> <span class="nav-text">颜色的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签选择器"><span class="nav-number">7.</span> <span class="nav-text">标签选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#id选择器"><span class="nav-number">8.</span> <span class="nav-text">id选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类选择器"><span class="nav-number">9.</span> <span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#id选择器和class选择器的区别"><span class="nav-number">10.</span> <span class="nav-text">id选择器和class选择器的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后代选择器"><span class="nav-number">11.</span> <span class="nav-text">后代选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子元素选择器"><span class="nav-number">12.</span> <span class="nav-text">子元素选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后代选择器和子元素选择器"><span class="nav-number">13.</span> <span class="nav-text">后代选择器和子元素选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#区别"><span class="nav-number">13.0.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#共同点"><span class="nav-number">13.0.2.</span> <span class="nav-text">共同点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交集选择器"><span class="nav-number">14.</span> <span class="nav-text">交集选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并集选择器"><span class="nav-number">15.</span> <span class="nav-text">并集选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#兄弟选择器"><span class="nav-number">16.</span> <span class="nav-text">兄弟选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#相邻兄弟选择器-CSS2"><span class="nav-number">16.0.1.</span> <span class="nav-text">相邻兄弟选择器 CSS2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通用兄弟选择器"><span class="nav-number">16.0.2.</span> <span class="nav-text">通用兄弟选择器=</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#序选择器"><span class="nav-number">17.</span> <span class="nav-text">序选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3中新增的选择器最具代表的就是序选择器"><span class="nav-number">17.0.1.</span> <span class="nav-text">CSS3中新增的选择器最具代表的就是序选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同级别中的第几个"><span class="nav-number">17.0.2.</span> <span class="nav-text">同级别中的第几个</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同级别同类型中的第几个"><span class="nav-number">17.0.3.</span> <span class="nav-text">同级别同类型中的第几个</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性选择器"><span class="nav-number">18.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性选择器2"><span class="nav-number">19.</span> <span class="nav-text">属性选择器2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性取值是以什么开头的"><span class="nav-number">19.0.1.</span> <span class="nav-text">属性取值是以什么开头的</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通配符选择器"><span class="nav-number">20.</span> <span class="nav-text">通配符选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS三大特性之继承性"><span class="nav-number">21.</span> <span class="nav-text">CSS三大特性之继承性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是继承性"><span class="nav-number">21.0.1.</span> <span class="nav-text">什么是继承性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS三大特性之层叠性"><span class="nav-number">22.</span> <span class="nav-text">CSS三大特性之层叠性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是层叠性"><span class="nav-number">22.0.1.</span> <span class="nav-text">什么是层叠性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS三大特性之优先级"><span class="nav-number">23.</span> <span class="nav-text">CSS三大特性之优先级</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是优先级"><span class="nav-number">23.0.1.</span> <span class="nav-text">什么是优先级</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优先级之-important"><span class="nav-number">24.</span> <span class="nav-text">优先级之 important</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优先级之权重问题"><span class="nav-number">25.</span> <span class="nav-text">优先级之权重问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#权重的计算规则"><span class="nav-number">25.0.1.</span> <span class="nav-text">权重的计算规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#div和span标签"><span class="nav-number">26.</span> <span class="nav-text">div和span标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#div"><span class="nav-number">26.0.1.</span> <span class="nav-text">div</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#span"><span class="nav-number">26.0.2.</span> <span class="nav-text">span</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#div和span有什么区别"><span class="nav-number">26.0.3.</span> <span class="nav-text">div和span有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#容器级的标签"><span class="nav-number">26.0.4.</span> <span class="nav-text">容器级的标签</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS元素的显示模式"><span class="nav-number">27.</span> <span class="nav-text">CSS元素的显示模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#块级标签-特点-独占一行"><span class="nav-number">27.0.1.</span> <span class="nav-text">块级标签  特点:独占一行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#行内标签-特点-不会独占一行"><span class="nav-number">27.0.2.</span> <span class="nav-text">行内标签  特点:不会独占一行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#块级标签和行内标签的区别"><span class="nav-number">27.0.3.</span> <span class="nav-text">块级标签和行内标签的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS显示模式转换"><span class="nav-number">28.</span> <span class="nav-text">CSS显示模式转换</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">西巴撸</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"keeponcode"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("hCS32BdMw43hQACJYKDrXVny-gzGzoHsz", "Ja18UTWNr1AELp5Ba20h4Cyb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
