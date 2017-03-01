@@ -1,0 +1,855 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="面向对象编程," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="知道大家被前面面向对象的概念弄的都有点不想学编程了是吧,概念这种东西怎么说呢,能理解最好,不能理解就得结合案例和长时间的慢慢消化才行,总之不想当司机的厨师不是一个好程序猿.在中国现在浮躁的社会环境下,如果你不能静下心来学点东西,那你可能再过几年又面临换行或者到处找工作的局面,只有基础只是打的坚实,才能理解内部的真正的原理,才能走的更高更远.下面给大家准备了两个小例子,如果把前面的概念比作是白大米">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-面向对象鸡汤">
+<meta property="og:url" content="git@github.com:anearseeyou/anearseeyou.git/2016/08/01/JavaScript-面向对象鸡汤/index.html">
+<meta property="og:site_name" content="Keep on coding">
+<meta property="og:description" content="知道大家被前面面向对象的概念弄的都有点不想学编程了是吧,概念这种东西怎么说呢,能理解最好,不能理解就得结合案例和长时间的慢慢消化才行,总之不想当司机的厨师不是一个好程序猿.在中国现在浮躁的社会环境下,如果你不能静下心来学点东西,那你可能再过几年又面临换行或者到处找工作的局面,只有基础只是打的坚实,才能理解内部的真正的原理,才能走的更高更远.下面给大家准备了两个小例子,如果把前面的概念比作是白大米">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-87bf53645c129bd3.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-5b55dc5474d79b26.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-03-01T02:37:33.441Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript-面向对象鸡汤">
+<meta name="twitter:description" content="知道大家被前面面向对象的概念弄的都有点不想学编程了是吧,概念这种东西怎么说呢,能理解最好,不能理解就得结合案例和长时间的慢慢消化才行,总之不想当司机的厨师不是一个好程序猿.在中国现在浮躁的社会环境下,如果你不能静下心来学点东西,那你可能再过几年又面临换行或者到处找工作的局面,只有基础只是打的坚实,才能理解内部的真正的原理,才能走的更高更远.下面给大家准备了两个小例子,如果把前面的概念比作是白大米">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3359912-87bf53645c129bd3.gif?imageMogr2/auto-orient/strip">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6389887927219914000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="git@github.com:anearseeyou/anearseeyou.git/2016/08/01/JavaScript-面向对象鸡汤/"/>
+
+
+
+
+
+  <title> JavaScript-面向对象鸡汤 | Keep on coding </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Keep on coding</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">We can't stop | Just do it.</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="git@github.com:anearseeyou/anearseeyou.git/2016/08/01/JavaScript-面向对象鸡汤/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="西巴撸">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://olrw5apal.bkt.clouddn.com/background.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Keep on coding">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Keep on coding" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript-面向对象鸡汤
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-01T10:31:27+08:00">
+                2016-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术控/" itemprop="url" rel="index">
+                    <span itemprop="name">技术控</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术控/程序猿/" itemprop="url" rel="index">
+                    <span itemprop="name">程序猿</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/01/JavaScript-面向对象鸡汤/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/JavaScript-面向对象鸡汤/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/08/01/JavaScript-面向对象鸡汤/" class="leancloud_visitors" data-flag-title="JavaScript-面向对象鸡汤">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h5 id="知道大家被前面面向对象的概念弄的都有点不想学编程了是吧-概念这种东西怎么说呢-能理解最好-不能理解就得结合案例和长时间的慢慢消化才行-总之不想当司机的厨师不是一个好程序猿-在中国现在浮躁的社会环境下-如果你不能静下心来学点东西-那你可能再过几年又面临换行或者到处找工作的局面-只有基础只是打的坚实-才能理解内部的真正的原理-才能走的更高更远"><a href="#知道大家被前面面向对象的概念弄的都有点不想学编程了是吧-概念这种东西怎么说呢-能理解最好-不能理解就得结合案例和长时间的慢慢消化才行-总之不想当司机的厨师不是一个好程序猿-在中国现在浮躁的社会环境下-如果你不能静下心来学点东西-那你可能再过几年又面临换行或者到处找工作的局面-只有基础只是打的坚实-才能理解内部的真正的原理-才能走的更高更远" class="headerlink" title="知道大家被前面面向对象的概念弄的都有点不想学编程了是吧,概念这种东西怎么说呢,能理解最好,不能理解就得结合案例和长时间的慢慢消化才行,总之不想当司机的厨师不是一个好程序猿.在中国现在浮躁的社会环境下,如果你不能静下心来学点东西,那你可能再过几年又面临换行或者到处找工作的局面,只有基础只是打的坚实,才能理解内部的真正的原理,才能走的更高更远."></a>知道大家被前面面向对象的概念弄的都有点不想学编程了是吧,概念这种东西怎么说呢,能理解最好,不能理解就得结合案例和长时间的慢慢消化才行,总之不想当司机的厨师不是一个好程序猿.在中国现在浮躁的社会环境下,如果你不能静下心来学点东西,那你可能再过几年又面临换行或者到处找工作的局面,只有基础只是打的坚实,才能理解内部的真正的原理,才能走的更高更远.</h5><h4 id="下面给大家准备了两个小例子-如果把前面的概念比作是白大米-白馒头的话-那现在就给大家来点鸡汤喝喝"><a href="#下面给大家准备了两个小例子-如果把前面的概念比作是白大米-白馒头的话-那现在就给大家来点鸡汤喝喝" class="headerlink" title="下面给大家准备了两个小例子,如果把前面的概念比作是白大米,白馒头的话,那现在就给大家来点鸡汤喝喝"></a><p style="color:red">下面给大家准备了两个小例子,如果把前面的概念比作是白大米,白馒头的话,那现在就给大家来点鸡汤喝喝</p></h4><hr>
+<h2 id="小案例一-—-gt-Tab选项卡切换"><a href="#小案例一-—-gt-Tab选项卡切换" class="headerlink" title="小案例一     —-&gt; Tab选项卡切换"></a>小案例一     —-&gt; Tab选项卡切换</h2><h4 id="用面向对象编程写的-如果你前面的真的掌握了的话-那你看懂这个案例应该不难"><a href="#用面向对象编程写的-如果你前面的真的掌握了的话-那你看懂这个案例应该不难" class="headerlink" title="用面向对象编程写的 如果你前面的真的掌握了的话 那你看懂这个案例应该不难"></a>用面向对象编程写的 如果你前面的真的掌握了的话 那你看懂这个案例应该不难</h4><h4 id="lt-———-HTML-———–-gt"><a href="#lt-———-HTML-———–-gt" class="headerlink" title="&lt; ! ———- HTML  ———– &gt;"></a>&lt; ! ———- HTML  ———– &gt;</h4><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"tab-top"</span> <span class="attr">id</span>=<span class="string">"tab_top"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"current"</span>&gt;</span>公告<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>规则<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>论坛<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>公益<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>安全<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab-bottom"</span> <span class="attr">id</span>=<span class="string">"tab_bottom"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab-content selected"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>数据七夕:金牛爱送玫瑰<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>阿里打造"互联网监管"<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>10万家店60万新品<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>全球最大网上时装周<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab-content"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>“全额返现”要管控啦<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>淘宝新规发布汇总(7月)<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>炒信规则调整意见反馈<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>质量相关规则近期变更<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab-content"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>阿里建商家全链路服务<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>个性化的消费时代来临<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>跨境贸易是中小企业机<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>美妆行业虚假信息管控<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab-content"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>接次文件，毁了一家店<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>账号安全神器阿里钱盾<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>新版阿里110上线了<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>卖家学违禁避免被处罚<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab-content"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>为了公益high起来<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>魔豆妈妈在线申请<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="lt-———-Style-—————-gt"><a href="#lt-———-Style-—————-gt" class="headerlink" title="&lt; ! ——— Style ————— &gt;"></a>&lt; ! ——— Style ————— &gt;</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">        * &#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">            border: 0;</div><div class="line">            list-style-type: none;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .tab &#123;</div><div class="line">            width: 498px;</div><div class="line">            height: 130px;</div><div class="line">            border: 1px solid #999;</div><div class="line">            margin: 100px auto;</div><div class="line">            overflow: hidden;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .tab .tab-top &#123;</div><div class="line">            width: 501px;</div><div class="line">            height: 33px;</div><div class="line">            background: #eee;</div><div class="line">            position: relative;</div><div class="line">            left: -1px;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .tab .tab-top li &#123;</div><div class="line">            float: left;</div><div class="line">            width: 98px;</div><div class="line">            height: 33px;</div><div class="line">            text-align: center;</div><div class="line">            line-height: 33px;</div><div class="line">            cursor: pointer;</div><div class="line">            border-bottom: 1px solid #999;</div><div class="line">            padding: 0 1px;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .tab .tab-top li.current &#123;</div><div class="line">            background: #fff;</div><div class="line">            border-bottom: 0;</div><div class="line">            border-left: 1px solid #9d9d9d;</div><div class="line">            border-right: 1px solid #9d9d9d;</div><div class="line">            padding: 0;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .tab .tab-top li:hover &#123;</div><div class="line">            font-weight: 700;</div><div class="line">            color: #f40;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .tab-bottom .tab-content &#123;</div><div class="line">            display: none;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .tab-bottom .tab-content a &#123;</div><div class="line">            text-decoration: none;</div><div class="line">            color: #000;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .tab-bottom .tab-content a:hover &#123;</div><div class="line">            color: #f40;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .tab-bottom .tab-content ul li &#123;</div><div class="line">            margin-top: 20px;</div><div class="line">            width: 220px;</div><div class="line">            float: left;</div><div class="line">            text-align: center;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .tab-bottom .selected &#123;</div><div class="line">            display: block;</div><div class="line">        &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h4 id="lt-———-JavaScript-——-gt"><a href="#lt-———-JavaScript-——-gt" class="headerlink" title="&lt; ! ——— JavaScript  ——- &gt;"></a>&lt; ! ——— JavaScript  ——- &gt;</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">$</span>(<span class="params">id</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">document</span>.getElementById(id);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">TabFn</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">            <span class="comment">// 获得属性</span></div><div class="line">            <span class="keyword">this</span>.topLis = $(<span class="string">'tab_top'</span>).getElementsByTagName(<span class="string">'li'</span>);</div><div class="line">            <span class="keyword">this</span>.tabContent = $(<span class="string">'tab_bottom'</span>).getElementsByClassName(<span class="string">'tab-content'</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        TabFn.prototype = &#123;</div><div class="line"></div><div class="line">            <span class="comment">// 1. 初始化方法</span></div><div class="line">            init: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">                <span class="comment">// 1.1 设置索引</span></div><div class="line">                <span class="keyword">this</span>.setIndex();</div><div class="line"></div><div class="line">                <span class="comment">// 1.2 监听事件</span></div><div class="line">                <span class="keyword">this</span>.bindEvent();</div><div class="line">            &#125;,</div><div class="line"></div><div class="line"></div><div class="line">            <span class="comment">// 2. 索引</span></div><div class="line">            setIndex: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.topLis.length; i++) &#123;</div><div class="line">                    <span class="keyword">var</span> li = <span class="keyword">this</span>.topLis[i];</div><div class="line">                    li.index = i;</div><div class="line">                &#125;</div><div class="line">            &#125;,</div><div class="line"></div><div class="line"></div><div class="line">            <span class="comment">// 3. 监听</span></div><div class="line">            bindEvent: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.topLis.length; i++) &#123;</div><div class="line">                    <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">                    <span class="keyword">this</span>.topLis[i].onmouseover = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                        self.handler(<span class="keyword">this</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;,</div><div class="line"></div><div class="line"></div><div class="line">            <span class="comment">// 4. 排他</span></div><div class="line">            handler: <span class="function"><span class="keyword">function</span> (<span class="params">that</span>) </span>&#123;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="keyword">this</span>.topLis.length; j++) &#123;</div><div class="line">                    <span class="keyword">this</span>.topLis[j].className = <span class="string">''</span></div><div class="line">                    <span class="keyword">this</span>.tabContent[j].style.display = <span class="string">'none'</span>;</div><div class="line">                &#125;</div><div class="line">                that.className = <span class="string">'current'</span>;</div><div class="line">                <span class="keyword">this</span>.tabContent[that.index].style.display = <span class="string">'block'</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">// 5. 实例化对象</span></div><div class="line">        <span class="keyword">var</span> tab = <span class="keyword">new</span> TabFn();</div><div class="line">        tab.init();</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="lt-———-效果展示-———-gt"><a href="#lt-———-效果展示-———-gt" class="headerlink" title="&lt; ! ——— 效果展示  ———- &gt;"></a>&lt; ! ——— 效果展示  ———- &gt;</h4><p><img src="http://upload-images.jianshu.io/upload_images/3359912-87bf53645c129bd3.gif?imageMogr2/auto-orient/strip" alt="**Tab选项卡**"></p>
+<h2 id="小案例二-—-gt-五彩人生"><a href="#小案例二-—-gt-五彩人生" class="headerlink" title="小案例二     —-&gt; 五彩人生"></a>小案例二     —-&gt; 五彩人生</h2><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<h4 id="lt-———-HTML-———–-gt-1"><a href="#lt-———-HTML-———–-gt-1" class="headerlink" title="&lt; ! ———- HTML  ———– &gt;"></a>&lt; ! ———- HTML  ———– &gt;</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"ball"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="lt-———-Style-—————-gt-1"><a href="#lt-———-Style-—————-gt-1" class="headerlink" title="&lt; ! ——— Style ————— &gt;"></a>&lt; ! ——— Style ————— &gt;</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">        * &#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">            border: 0;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        html, body &#123;</div><div class="line">            width: 100%;</div><div class="line">            height: 100%;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        #ball &#123;</div><div class="line">            width: 100%;</div><div class="line">            height: 100%;</div><div class="line">            background-color: #000;</div><div class="line">        &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h4 id="lt-———-JavaScript-——-gt-1"><a href="#lt-———-JavaScript-——-gt-1" class="headerlink" title="&lt; ! ——— JavaScript  ——- &gt;"></a>&lt; ! ——— JavaScript  ——- &gt;</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Underscore是一个类库,上面有好多方法,网上可以下载到</span></div><div class="line">&lt;script src=<span class="string">"js/Underscore-min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"><span class="comment">// 外链一个面向对象文件</span></div><div class="line">&lt;script src=<span class="string">"js/ColorBall.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 1.构造函数</div><div class="line"> * @param option 可选参数</div><div class="line"> * @constructor</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ColorBall</span>(<span class="params">option</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>._init(option);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 2.构造函数的原型库</div><div class="line"> * @type &#123;&#123;constructor: ColorBall&#125;&#125;  构造器:构造函数</div><div class="line"> */</div><div class="line"></div><div class="line">ColorBall.prototype = &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 获得当前构造函数</span></div><div class="line">    <span class="keyword">constructor</span>: ColorBall,</div><div class="line"></div><div class="line">    // 1. 添加属性</div><div class="line">    _init: function (option) &#123;</div><div class="line">        <span class="keyword">var</span> option = option || &#123;&#125;;</div><div class="line">        <span class="comment">// 1.1 必要的属性</span></div><div class="line">        <span class="keyword">this</span>.parentId = option.parentId;</div><div class="line">        <span class="keyword">this</span>.x = option.x || <span class="number">0</span>;</div><div class="line">        <span class="keyword">this</span>.y = option.y || <span class="number">0</span>;</div><div class="line">        <span class="keyword">this</span>.r = <span class="number">60</span>;</div><div class="line">        <span class="keyword">this</span>.bgColor = option.bgColor || <span class="string">'green'</span>;</div><div class="line"></div><div class="line">        <span class="comment">// 1.2 变化的属性</span></div><div class="line">        <span class="keyword">this</span>.dX = _.random(<span class="number">-5</span>, <span class="number">5</span>);</div><div class="line">        <span class="keyword">this</span>.dY = _.random(<span class="number">-5</span>, <span class="number">5</span>);</div><div class="line">        <span class="keyword">this</span>.dR = _.random(<span class="number">1</span>, <span class="number">3</span>);</div><div class="line"></div><div class="line">        <span class="comment">// 1.3 把实例化的小球装入数组</span></div><div class="line">        ballArr.push(<span class="keyword">this</span>);</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="comment">// 2. 绘制小球</span></div><div class="line">    render: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">// 2.1 创建节点</span></div><div class="line">        <span class="keyword">var</span> parentNode = <span class="built_in">document</span>.getElementById(<span class="keyword">this</span>.parentId);</div><div class="line">        <span class="keyword">var</span> childNode = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">        parentNode.appendChild(childNode);</div><div class="line"></div><div class="line">        <span class="comment">// 2.2 设置定位</span></div><div class="line">        parentNode.style.position = <span class="string">'relative'</span>;</div><div class="line">        childNode.style.position = <span class="string">'absolute'</span>;</div><div class="line"></div><div class="line">        <span class="comment">// 2.3 设置属性</span></div><div class="line">        childNode.style.left = <span class="keyword">this</span>.x + <span class="string">'px'</span>;</div><div class="line">        childNode.style.top = <span class="keyword">this</span>.y + <span class="string">'px'</span>;</div><div class="line">        childNode.style.width = <span class="keyword">this</span>.r + <span class="string">'px'</span>;</div><div class="line">        childNode.style.height = <span class="keyword">this</span>.r + <span class="string">'px'</span>;</div><div class="line">        childNode.style.borderRadius = <span class="string">'50%'</span>;</div><div class="line">        childNode.style.backgroundColor = <span class="keyword">this</span>.bgColor;</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="comment">// 3. 小球开始运动</span></div><div class="line">    update: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">// 3.1 小球位置的变化轨迹</span></div><div class="line">        <span class="keyword">this</span>.x += <span class="keyword">this</span>.dX;</div><div class="line">        <span class="keyword">this</span>.y += <span class="keyword">this</span>.dY;</div><div class="line">        <span class="keyword">this</span>.r -= <span class="keyword">this</span>.dR;</div><div class="line"></div><div class="line">        <span class="comment">// 3.2 判断半径值</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.r &lt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">this</span>.r = <span class="number">0</span>;</div><div class="line"></div><div class="line">            <span class="comment">// 如果小球的半径小于0的话 就把小球移除数组</span></div><div class="line">            ballArr = _.without(ballArr, <span class="keyword">this</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">// 1. 获取标签</span></div><div class="line">    <span class="keyword">var</span> ball = <span class="built_in">document</span>.getElementById(<span class="string">'ball'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 2. 定义小球数组和颜色数组</span></div><div class="line">    <span class="keyword">var</span> ballArr = [];</div><div class="line">    <span class="keyword">var</span> colorArr = [<span class="string">'pink'</span>, <span class="string">'red'</span>, <span class="string">'purple'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>, <span class="string">'orange'</span>, <span class="string">'skyblue'</span>, <span class="string">'white'</span>];</div><div class="line"></div><div class="line">    <span class="comment">// 3. 创建小球装入数组</span></div><div class="line">    ball.onmousemove = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> event = event || <span class="built_in">window</span>.event;</div><div class="line">        <span class="keyword">new</span> ColorBall(&#123;</div><div class="line">            <span class="attr">parentId</span>: <span class="string">'ball'</span>,</div><div class="line">            <span class="attr">x</span>: event.clientX,</div><div class="line">            <span class="attr">y</span>: event.clientY,</div><div class="line">            <span class="attr">bgColor</span>: colorArr[_.random(<span class="number">0</span>, colorArr.length - <span class="number">1</span>)]</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 4. 开始定时器</span></div><div class="line">    setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">// 4.1 先把创建的div清屏</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; ball.children.length; i++) &#123;</div><div class="line">            ball.removeChild(ball.children[i]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 4.2 绘制小球和小球的动画</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; ballArr.length; i++) &#123;</div><div class="line">            ballArr[i].render();</div><div class="line">            ballArr[i].update();</div><div class="line">        &#125;</div><div class="line">    &#125;, <span class="number">50</span>);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h4 id="lt-———-效果展示-———-gt-1"><a href="#lt-———-效果展示-———-gt-1" class="headerlink" title="&lt; ! ——— 效果展示  ———- &gt;"></a>&lt; ! ——— 效果展示  ———- &gt;</h4><p><img src="http://upload-images.jianshu.io/upload_images/3359912-5b55dc5474d79b26.gif?imageMogr2/auto-orient/strip" alt="**五彩小球**"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面向对象编程/" rel="tag"># 面向对象编程</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/21/JavaScript-面向对象编程六/" rel="next" title="JavaScript - 面向对象编程六">
+                <i class="fa fa-chevron-left"></i> JavaScript - 面向对象编程六
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/01/JavaScript-面向对象鸡汤/"
+           data-title="JavaScript-面向对象鸡汤" data-url="git@github.com:anearseeyou/anearseeyou.git/2016/08/01/JavaScript-面向对象鸡汤/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://olrw5apal.bkt.clouddn.com/background.jpg"
+               alt="西巴撸" />
+          <p class="site-author-name" itemprop="name">西巴撸</p>
+          <p class="site-description motion-element" itemprop="description">Fucking the code</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#知道大家被前面面向对象的概念弄的都有点不想学编程了是吧-概念这种东西怎么说呢-能理解最好-不能理解就得结合案例和长时间的慢慢消化才行-总之不想当司机的厨师不是一个好程序猿-在中国现在浮躁的社会环境下-如果你不能静下心来学点东西-那你可能再过几年又面临换行或者到处找工作的局面-只有基础只是打的坚实-才能理解内部的真正的原理-才能走的更高更远"><span class="nav-number">1.</span> <span class="nav-text">知道大家被前面面向对象的概念弄的都有点不想学编程了是吧,概念这种东西怎么说呢,能理解最好,不能理解就得结合案例和长时间的慢慢消化才行,总之不想当司机的厨师不是一个好程序猿.在中国现在浮躁的社会环境下,如果你不能静下心来学点东西,那你可能再过几年又面临换行或者到处找工作的局面,只有基础只是打的坚实,才能理解内部的真正的原理,才能走的更高更远.</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下面给大家准备了两个小例子-如果把前面的概念比作是白大米-白馒头的话-那现在就给大家来点鸡汤喝喝"><span class="nav-number"></span> <span class="nav-text">下面给大家准备了两个小例子,如果把前面的概念比作是白大米,白馒头的话,那现在就给大家来点鸡汤喝喝</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小案例一-—-gt-Tab选项卡切换"><span class="nav-number"></span> <span class="nav-text">小案例一     —-> Tab选项卡切换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#用面向对象编程写的-如果你前面的真的掌握了的话-那你看懂这个案例应该不难"><span class="nav-number"></span> <span class="nav-text">用面向对象编程写的 如果你前面的真的掌握了的话 那你看懂这个案例应该不难</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-HTML-———–-gt"><span class="nav-number"></span> <span class="nav-text">< ! ———- HTML  ———– ></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-Style-—————-gt"><span class="nav-number"></span> <span class="nav-text">< ! ——— Style ————— ></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-JavaScript-——-gt"><span class="nav-number"></span> <span class="nav-text">< ! ——— JavaScript  ——- ></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-效果展示-———-gt"><span class="nav-number"></span> <span class="nav-text">< ! ——— 效果展示  ———- ></span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小案例二-—-gt-五彩人生"><span class="nav-number"></span> <span class="nav-text">小案例二     —-> 五彩人生</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-HTML-———–-gt-1"><span class="nav-number"></span> <span class="nav-text">< ! ———- HTML  ———– ></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-Style-—————-gt-1"><span class="nav-number"></span> <span class="nav-text">< ! ——— Style ————— ></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-JavaScript-——-gt-1"><span class="nav-number"></span> <span class="nav-text">< ! ——— JavaScript  ——- ></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-效果展示-———-gt-1"><span class="nav-number"></span> <span class="nav-text">< ! ——— 效果展示  ———- ></span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">西巴撸</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"keeponcode"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("hCS32BdMw43hQACJYKDrXVny-gzGzoHsz", "Ja18UTWNr1AELp5Ba20h4Cyb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
