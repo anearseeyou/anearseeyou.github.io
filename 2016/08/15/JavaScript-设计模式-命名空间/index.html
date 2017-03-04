@@ -1,0 +1,994 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="设计模式 命名空间," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本小节主要讲解三种常用的设计模式和命名空间,第一种是工厂模式,第二种是单利模式,第三种是观察者模式
+设计模式概述是为了解决在开发中可能遇到的需求(相似),而提出的一套解决方法.设计模式要求：
+在开发中整个系统需要一套设计模式（架构师）
+来源：建筑（建房子）领域
+设计模式的四人帮： Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides
+设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript - 设计模式 - 命名空间">
+<meta property="og:url" content="git@github.com:anearseeyou/anearseeyou.git/2016/08/15/JavaScript-设计模式-命名空间/index.html">
+<meta property="og:site_name" content="Keep on coding">
+<meta property="og:description" content="本小节主要讲解三种常用的设计模式和命名空间,第一种是工厂模式,第二种是单利模式,第三种是观察者模式
+设计模式概述是为了解决在开发中可能遇到的需求(相似),而提出的一套解决方法.设计模式要求：
+在开发中整个系统需要一套设计模式（架构师）
+来源：建筑（建房子）领域
+设计模式的四人帮： Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides
+设计">
+<meta property="og:updated_time" content="2017-03-04T04:02:04.176Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript - 设计模式 - 命名空间">
+<meta name="twitter:description" content="本小节主要讲解三种常用的设计模式和命名空间,第一种是工厂模式,第二种是单利模式,第三种是观察者模式
+设计模式概述是为了解决在开发中可能遇到的需求(相似),而提出的一套解决方法.设计模式要求：
+在开发中整个系统需要一套设计模式（架构师）
+来源：建筑（建房子）领域
+设计模式的四人帮： Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides
+设计">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6389887927219914000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="git@github.com:anearseeyou/anearseeyou.git/2016/08/15/JavaScript-设计模式-命名空间/"/>
+
+
+
+
+
+  <title> JavaScript - 设计模式 - 命名空间 | Keep on coding </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Keep on coding</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">We can't stop | Just do it.</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="git@github.com:anearseeyou/anearseeyou.git/2016/08/15/JavaScript-设计模式-命名空间/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="西巴撸">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://olrw5apal.bkt.clouddn.com/background.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Keep on coding">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Keep on coding" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript - 设计模式 - 命名空间
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-15T22:00:45+08:00">
+                2016-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术控/" itemprop="url" rel="index">
+                    <span itemprop="name">技术控</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术控/程序猿/" itemprop="url" rel="index">
+                    <span itemprop="name">程序猿</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/15/JavaScript-设计模式-命名空间/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/15/JavaScript-设计模式-命名空间/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/08/15/JavaScript-设计模式-命名空间/" class="leancloud_visitors" data-flag-title="JavaScript - 设计模式 - 命名空间">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h4 id="本小节主要讲解三种常用的设计模式和命名空间-第一种是工厂模式-第二种是单利模式-第三种是观察者模式"><a href="#本小节主要讲解三种常用的设计模式和命名空间-第一种是工厂模式-第二种是单利模式-第三种是观察者模式" class="headerlink" title="本小节主要讲解三种常用的设计模式和命名空间,第一种是工厂模式,第二种是单利模式,第三种是观察者模式"></a>本小节主要讲解三种常用的设计模式和命名空间,第一种是工厂模式,第二种是单利模式,第三种是观察者模式</h4><hr>
+<h2 id="设计模式概述"><a href="#设计模式概述" class="headerlink" title="设计模式概述"></a>设计模式概述</h2><h4 id="是为了解决在开发中可能遇到的需求-相似-而提出的一套解决方法"><a href="#是为了解决在开发中可能遇到的需求-相似-而提出的一套解决方法" class="headerlink" title="是为了解决在开发中可能遇到的需求(相似),而提出的一套解决方法."></a>是为了解决在开发中可能遇到的需求(相似),而提出的一套解决方法.</h4><h2 id="设计模式要求："><a href="#设计模式要求：" class="headerlink" title="设计模式要求："></a>设计模式要求：</h2><ul>
+<li><strong>在开发中整个系统需要一套设计模式（架构师）</strong></li>
+<li><strong>来源：建筑（建房子）领域</strong></li>
+<li><strong>设计模式的四人帮： Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides</strong></li>
+<li><strong>设计模式：总共有23种．</strong></li>
+<li><strong>设计模式类型：单利（例）模式　｜观察者模式　｜　代理模式　｜工厂模式　｜适配器模式　｜桥接模式 | …. </strong></li>
+<li><strong>设计模式的书：＜设计模式＞＜大话设计模式｜大话数据结构＞＜23种常见的设计模式＞</strong></li>
+</ul>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><h4 id="批量创建大量的同类型的对象"><a href="#批量创建大量的同类型的对象" class="headerlink" title="批量创建大量的同类型的对象"></a>批量创建大量的同类型的对象</h4><h4 id="优点"><a href="#优点" class="headerlink" title="优点 :"></a>优点 :</h4><ul>
+<li><strong>可以通过统一的借口来创建对象,根据传入的参数不同来创建不同的对象,易于扩展和维护,稳定性更好</strong></li>
+</ul>
+<h4 id="核心过程"><a href="#核心过程" class="headerlink" title="核心过程 :"></a>核心过程 :</h4><ul>
+<li><strong>提供一个父构造函数</strong></li>
+<li><strong>设置这个父构造函数的原型对象(属性|方法)</strong></li>
+<li><strong>在父构造函数身上添加静态工厂方法</strong><blockquote>
+<p><strong>1.需要接收传入的参数(要生产的产品的类型)<br>2.判断 是否支持生产<br>3.设置子构造函数的原型对象<br>4.把新创建的对象返回</strong></p>
+</blockquote>
+</li>
+<li><strong>定制合作伙伴</strong></li>
+<li><p><strong>直接使用父构造函数的静态工厂方法来创建指定的产品对象</strong></p>
+</li>
+<li><p><strong>示例代码 :</strong></p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//1. 提供一个父构造函数</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">PhoneMake</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">    <span class="comment">//2. 设置这个父构造函数的原型对象(属性|方法)</span></div><div class="line">    PhoneMake.prototype.logDes = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"我们的口号是:"</span> + <span class="keyword">this</span>.des);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//3. 在父构造函数身上添加静态工厂方法</span></div><div class="line">    PhoneMake.factory = <span class="function"><span class="keyword">function</span>(<span class="params">typeStr</span>)</span>&#123;</div><div class="line">        <span class="comment">// 3.1 需要接收传入的参数(要生产的产品的类型)</span></div><div class="line">        <span class="keyword">var</span> productType =  typeStr;</div><div class="line"></div><div class="line">        <span class="comment">//var Dog = PhoneMake[productType];</span></div><div class="line">        <span class="comment">//3.2 判断 是否支持生产</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> PhoneMake[productType]  != <span class="string">"function"</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="comment">//抛出一个异常</span></div><div class="line">            <span class="keyword">throw</span> <span class="string">"对不起,我们工厂和这个品牌没有商务合作,不能生产!"</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//3.3 设置子构造函数的原型对象</span></div><div class="line">         <span class="comment">//为了获得构造函数原型对象的方法</span></div><div class="line">        PhoneMake[productType].prototype = <span class="keyword">new</span> PhoneMake(); </div><div class="line"></div><div class="line">        <span class="comment">//3.4 设置子构造函数的原型对象</span></div><div class="line">       <span class="keyword">var</span> newProduct = <span class="keyword">new</span> PhoneMake[productType]();</div><div class="line"></div><div class="line">        <span class="comment">//3.5 把新创建的对象返回</span></div><div class="line">        <span class="keyword">return</span> newProduct;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//4. 定制合作伙伴</span></div><div class="line">    PhoneMake.iphone = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.des = <span class="string">"最安全最稳定的系统,最垃圾的体验"</span></div><div class="line">    &#125;</div><div class="line">    PhoneMake.oppo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.des = <span class="string">"充电两小时,通话五分钟"</span></div><div class="line">    &#125;</div><div class="line">    PhoneMake.vivo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.des = <span class="string">"照亮你的美,你本来就很美"</span></div><div class="line">    &#125;</div><div class="line">    PhoneMake.meizu = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.des = <span class="string">"我就是我,不一样的魅族"</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//5. 直接使用父构造函数的静态工厂方法来创建指定的产品对象</span></div><div class="line">    <span class="keyword">var</span> iphone = PhoneMake.factory(<span class="string">"iphone"</span>);</div><div class="line">    <span class="keyword">var</span> vivo = PhoneMake.factory(<span class="string">"vivo"</span>);</div><div class="line">    <span class="keyword">var</span> oppo = PhoneMake.factory(<span class="string">"oppo"</span>);</div><div class="line">    <span class="keyword">var</span> meizu = PhoneMake.factory(<span class="string">"meizu"</span>);</div><div class="line">    <span class="keyword">var</span> xiaomi = PhoneMake.factory(<span class="string">"xiaomi"</span>);</div><div class="line"></div><div class="line">    iphone.logDes();</div><div class="line">    vivo.logDes();</div><div class="line">    oppo.logDes();</div><div class="line">    meizu.logDes();</div><div class="line"></div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="单利模式"><a href="#单利模式" class="headerlink" title="单利模式"></a>单利模式</h2><h4 id="在整个程序的运行过程中-一个类只有一个实例对象"><a href="#在整个程序的运行过程中-一个类只有一个实例对象" class="headerlink" title="在整个程序的运行过程中,一个类只有一个实例对象"></a>在整个程序的运行过程中,一个类只有一个实例对象</h4><h4 id="js中的单利模式"><a href="#js中的单利模式" class="headerlink" title="js中的单利模式"></a>js中的单利模式</h4><ul>
+<li><strong>js没有类(ES6才有的) ,js实现单利模式(限定讨论的范围)</strong><blockquote>
+<p><strong>1.字面量<br>2.内置构造函数(Array Date Function Object)<br>3.工厂函数<br>4.自定义构造函数(单利模式)</strong></p>
+</blockquote>
+</li>
+<li><strong>js是什么样的语言</strong><blockquote>
+<p><strong>1.弱类型,脚本,轻量级,面向对象,基于原型(对象),解释行语言.函数式.<br>2.js到底是不是一门面向对象(类)的语言?<br>3.js是一门支持面向对象的语言.(封装|继承|多态)</strong></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="单利模式实现之后的表现"><a href="#单利模式实现之后的表现" class="headerlink" title="单利模式实现之后的表现"></a>单利模式实现之后的表现</h4><p><code>var p1 = new 构造函数()</code><br><code>var p2 = new 构造函数()</code><br><code>p1 == p2</code></p>
+<ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//首先创建一个空的对象</span></div><div class="line">        <span class="comment">//默认把新的对象赋值给this</span></div><div class="line">        <span class="comment">//把新对象返回</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> p1 = <span class="keyword">new</span> Person();</div><div class="line">    <span class="keyword">var</span> p2 = <span class="keyword">new</span> Person();</div><div class="line">    <span class="built_in">console</span>.log(p1 == p2);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="单利模式的实现方式01-—-gt-全局变量"><a href="#单利模式的实现方式01-—-gt-全局变量" class="headerlink" title="单利模式的实现方式01 —-&gt; 全局变量"></a>单利模式的实现方式01 —-&gt; 全局变量</h2><h4 id="全局变量来保存对象实现单利模式"><a href="#全局变量来保存对象实现单利模式" class="headerlink" title="全局变量来保存对象实现单利模式"></a>全局变量来保存对象实现单利模式</h4><ul>
+<li><strong>提供一个全局的变量</strong></li>
+<li><strong>提供一个构造函数Person</strong></li>
+<li><strong>在构造函数内部先判断全局变量是否有值,如果有那么就直接返回</strong></li>
+<li><strong>如果没有,那么就把this赋值给全局变量</strong></li>
+<li><strong>通过this设置属性和方法</strong></li>
+</ul>
+<h4 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h4><ul>
+<li><strong>使用一个全局变量来保存单利对象,该全局变量在整个作用域中都可以被访问或者是修改,可能会轻易的被覆盖或者是修改.</strong></li>
+<li><p><strong>修改之后,创建出来的实例对象就不再是之前的那个单利对象了.</strong></p>
+<ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> instance;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(instance)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"对象已经被创建,直接把之前创建好的对象返回"</span>);</div><div class="line">            <span class="keyword">return</span> instance;</div><div class="line">        &#125;</div><div class="line">        instance = <span class="keyword">this</span>;</div><div class="line">        <span class="keyword">this</span>.name = <span class="string">"奥特曼"</span>;</div><div class="line">        <span class="keyword">this</span>.age = <span class="number">1000</span>;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"第一次创建对象,创建对象之后并返回"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> p1 = <span class="keyword">new</span> Person();</div><div class="line">    <span class="keyword">var</span> p2 = <span class="keyword">new</span> Person();</div><div class="line">    <span class="built_in">console</span>.log(p1 == p2);</div><div class="line">    <span class="keyword">var</span> p3 = <span class="keyword">new</span> Person();</div><div class="line"></div><div class="line">    instance = <span class="string">"demo"</span>;</div><div class="line">    <span class="keyword">var</span> p4 = <span class="keyword">new</span> Person();</div><div class="line">    <span class="built_in">console</span>.log(p4);</div><div class="line">    <span class="built_in">console</span>.log(p4 == p1);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="单利模式的实现方式02-—-gt-静态属性"><a href="#单利模式的实现方式02-—-gt-静态属性" class="headerlink" title="单利模式的实现方式02 —-&gt; 静态属性"></a>单利模式的实现方式02 —-&gt; 静态属性</h2><h4 id="静态成员-直接添加到构造函数身上的属性或者是方法"><a href="#静态成员-直接添加到构造函数身上的属性或者是方法" class="headerlink" title="静态成员:直接添加到构造函数身上的属性或者是方法"></a>静态成员:直接添加到构造函数身上的属性或者是方法</h4><h4 id="存在的问题-1"><a href="#存在的问题-1" class="headerlink" title="存在的问题"></a>存在的问题</h4><ul>
+<li><p><strong>构造函数的静态属性其实也可能被修改,因此这种方法也不安全</strong></p>
+</li>
+<li><p><strong>示例代码 :</strong></p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//判断对象是否已经被创建</span></div><div class="line">        <span class="keyword">if</span> (Person.instance)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"之前已经创建过对象,直接返回"</span>);</div><div class="line">            <span class="keyword">return</span> Person.instance;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.name = <span class="string">"大黄蜂"</span></div><div class="line">        Person.instance  = <span class="keyword">this</span>;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"第一次创建"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> p1 = <span class="keyword">new</span> Person();</div><div class="line">    <span class="keyword">var</span> p2 = <span class="keyword">new</span> Person();</div><div class="line">    <span class="built_in">console</span>.log(p1 == p2);</div><div class="line"></div><div class="line"></div><div class="line">    instance = <span class="string">"demo"</span>;</div><div class="line">    <span class="keyword">var</span> p3 = <span class="keyword">new</span> Person();</div><div class="line">    <span class="built_in">console</span>.log(p1 == p3);</div><div class="line"></div><div class="line">    Person.instance = <span class="string">"123"</span>;</div><div class="line">    <span class="keyword">var</span> p4 = <span class="keyword">new</span> Person();</div><div class="line">    <span class="built_in">console</span>.log(p4 == p1);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="单利模式的实现方式03-—-gt-惰性函数"><a href="#单利模式的实现方式03-—-gt-惰性函数" class="headerlink" title="单利模式的实现方式03 —-&gt; 惰性函数"></a>单利模式的实现方式03 —-&gt; 惰性函数</h2><h4 id="核心过程-1"><a href="#核心过程-1" class="headerlink" title="核心过程"></a>核心过程</h4><ul>
+<li><strong>提供一个构造函数</strong></li>
+<li><strong>在构造函数内部声明一个私有的变量</strong></li>
+<li><strong>使用惰性函数定义更新构造函数的实现(直接把instance返回)</strong></li>
+<li><strong>设置原型对象[新构造函数的原型对象 = 旧构造函数的原型对象]<br>构造函数,prototype == 对象.<strong>proto</strong></strong></li>
+<li><strong>使用新的构造函数创建实例对象,并且赋值给instance</strong></li>
+<li><strong>修正对象的构造函数指向</strong></li>
+<li><p><strong>通过instance设置实例属性和方法</strong></p>
+</li>
+<li><p><strong>示例代码 :</strong></p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">// 01 提供一个构造函数</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//this01</span></div><div class="line">        <span class="comment">//02 在构造函数内部声明一个私有的变量</span></div><div class="line">        <span class="keyword">var</span> instance;</div><div class="line">        <span class="comment">//03 使用惰性函数定义更新构造函数的实现(直接把instance返回)</span></div><div class="line">        Person = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="comment">//内部默认会创建一个空的对象 this02</span></div><div class="line">            <span class="keyword">return</span> instance;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//04 设置原型对象[新构造函数的原型对象 = 旧构造函数的原型对象]</span></div><div class="line">        <span class="comment">//原型链继承:Man.prototype = new Person();</span></div><div class="line">        <span class="comment">//原型式继承:Man.prototype = Person.prototype;</span></div><div class="line">        <span class="comment">//Person.prototype = this.__proto__;  //非标准(代码中不要出现)</span></div><div class="line">        Person.prototype = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">        <span class="comment">//05 使用新的构造函数创建实例对象,并且赋值给instance</span></div><div class="line">        instance = <span class="keyword">new</span> Person();</div><div class="line">        <span class="comment">//instance = this;</span></div><div class="line">        <span class="comment">//06 修正对象的构造函数指向</span></div><div class="line">        instance.constructor = Person;</div><div class="line">        <span class="comment">// 07 通过instance设置实例属性和方法</span></div><div class="line">        instance.name = <span class="string">"我很好听"</span>;</div><div class="line">        <span class="comment">// 08 把instance返回</span></div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    Person.prototype.des = <span class="string">"描述信息"</span>;</div><div class="line">    <span class="keyword">var</span> p1 = <span class="keyword">new</span> Person();</div><div class="line">    Person.prototype.hi = <span class="string">"hi"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> p2 = <span class="keyword">new</span> Person();</div><div class="line">    <span class="built_in">console</span>.log(p1 == p2);</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(p1.constructor == Person);  <span class="comment">//true</span></div><div class="line">    <span class="built_in">console</span>.log(p1.des);</div><div class="line">    <span class="built_in">console</span>.log(p1.hi);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="单利模式的实现方式04-—-gt-全局变量-即时函数"><a href="#单利模式的实现方式04-—-gt-全局变量-即时函数" class="headerlink" title="单利模式的实现方式04 —-&gt; 全局变量 + 即时函数"></a>单利模式的实现方式04 —-&gt; 全局变量 + 即时函数</h2><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> Person;</div><div class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> instance;</div><div class="line"></div><div class="line">        Person = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">if</span>(instance)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">return</span> instance;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">this</span>.name = <span class="string">"momo"</span>;</div><div class="line">            instance = <span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;)();</div><div class="line"></div><div class="line">    <span class="keyword">var</span> p1 = <span class="keyword">new</span> Person();</div><div class="line">    <span class="keyword">var</span> p2 = <span class="keyword">new</span> Person();</div><div class="line">    <span class="built_in">console</span>.log(p1 == p2);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><h4 id="观察者模式举例说明"><a href="#观察者模式举例说明" class="headerlink" title="观察者模式举例说明"></a>观察者模式举例说明</h4><ul>
+<li><p><strong>男生A和男生B同时都喜欢女生C,他们想时时监视女生C的动向,动态,所以他们找了女生C的闺蜜作为观察者帮他们监视实时动态.这样不管女生C有什么最新的动态都会被男生A和男生B监听到,开发中就是男生多了点,动态多了点,核心内容就是这样</strong></p>
+</li>
+<li><p><strong>要求:</strong></p>
+<blockquote>
+<p><strong>女神:rose(发布者)<br>男生:jack(订阅者)<br>男生:tom(订阅者)</strong></p>
+</blockquote>
+</li>
+<li><p><strong>过程:</strong></p>
+<blockquote>
+<p><strong>创建或者是设置一个发布者<br>创建订阅者对象<br>注册订阅者<br>测试(发状态)</strong></p>
+</blockquote>
+</li>
+<li><p><strong>示例代码1 : 一个发布者,两个订阅者,关注的是一个状态</strong> </p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//01 创建或者是设置一个发布者</span></div><div class="line">    <span class="keyword">var</span> rose = &#123;</div><div class="line">        <span class="attr">user</span>:[],</div><div class="line">        <span class="attr">addUser</span>:<span class="function"><span class="keyword">function</span>(<span class="params">fn</span>)</span>&#123;</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> fn != <span class="string">"function"</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="string">"不支持该操作!"</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">this</span>.user.push(fn);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">removeUser</span>:<span class="function"><span class="keyword">function</span>(<span class="params">fn</span>)</span>&#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.user.length; i++) &#123;</div><div class="line">                <span class="keyword">if</span>(<span class="keyword">this</span>.user[i] == fn)</div><div class="line">                &#123;</div><div class="line">                    <span class="built_in">console</span>.log(fn + <span class="string">"取消了订阅"</span>);</div><div class="line">                    <span class="keyword">this</span>.user.splice(i,<span class="number">1</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">eat</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.user.length; i++) &#123;</div><div class="line">               <span class="keyword">this</span>.user[i]();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">// 02 创建订阅者对象</span></div><div class="line">    <span class="keyword">var</span> jack = &#123;</div><div class="line">        <span class="attr">eat_jack</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"我陪你去吃拉面吧  ---jack"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> tom = &#123;</div><div class="line">        <span class="attr">eat_tom</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"我陪你去吃寿司吧  ---tom"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 03 注册订阅者</span></div><div class="line">    rose.addUser(jack.eat_jack);</div><div class="line">    rose.addUser(tom.eat_tom);</div><div class="line"></div><div class="line">    <span class="comment">//04 发布者状态改变</span></div><div class="line">    rose.eat();</div><div class="line">    rose.removeUser(jack.eat_jack);</div><div class="line">    rose.eat();</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码2 : 多个状态</strong> </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//01 创建或者是设置一个发布者</span></div><div class="line">    <span class="keyword">var</span> publisher = &#123;</div><div class="line">        <span class="attr">addUser</span>:<span class="function"><span class="keyword">function</span>(<span class="params">fn,type</span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> type = type || <span class="string">"eat"</span>;</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> fn != <span class="string">"function"</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="string">"不支持该操作!"</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">this</span>.user[type].push(fn);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">removeUser</span>:<span class="function"><span class="keyword">function</span>(<span class="params">fn,type</span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> type = type || <span class="string">"eat"</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.user[type].length; i++) &#123;</div><div class="line">                <span class="keyword">if</span>(<span class="keyword">this</span>.user[type][i] == fn)</div><div class="line">                &#123;</div><div class="line">                    <span class="built_in">console</span>.log(fn + <span class="string">"取消了订阅"</span>);</div><div class="line">                    <span class="keyword">this</span>.user[type].splice(i,<span class="number">1</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">eat</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.user[<span class="string">"eat"</span>].length; i++) &#123;</div><div class="line">               <span class="keyword">this</span>.user[<span class="string">"eat"</span>][i]();</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">sleep</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.user[<span class="string">"sleep"</span>].length; i++) &#123;</div><div class="line">                <span class="comment">//console.log(this.user,"++++");</span></div><div class="line">                <span class="keyword">this</span>.user[<span class="string">"sleep"</span>][i]();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> rose = &#123;&#125;;</div><div class="line">    <span class="comment">//封装一个函数用来快速的让某个指定对象成为发布者</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">makePublisher</span>(<span class="params">o</span>)</span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> publisher)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span> (publisher.hasOwnProperty(i) &amp;&amp; <span class="keyword">typeof</span> publisher[i] == <span class="string">"function"</span> )&#123;</div><div class="line">                o[i] = publisher[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        o.user = &#123;</div><div class="line">            <span class="attr">eat</span>:[],</div><div class="line">            <span class="attr">sleep</span>:[]</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    makePublisher(rose);</div><div class="line"></div><div class="line">    <span class="comment">// 02 创建订阅者对象</span></div><div class="line">    <span class="keyword">var</span> jack = &#123;</div><div class="line">        <span class="attr">eat_jack</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"我陪你去吃拉面吧  ---jack"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">sleep_jack</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"晚安 rose  ---jack"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 03 注册订阅者</span></div><div class="line">    rose.addUser(jack.eat_jack,<span class="string">"eat"</span>);        <span class="comment">//关注rose肚子饿不饿</span></div><div class="line">    rose.addUser(jack.sleep_jack,<span class="string">"sleep"</span>);     <span class="comment">//关注rose困不困</span></div><div class="line"></div><div class="line">    rose.eat();</div><div class="line">    rose.sleep();</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码3 : 通用性处理</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//01 创建或者是设置一个发布者</span></div><div class="line">    <span class="keyword">var</span> publisher = &#123;</div><div class="line">        <span class="attr">addUser</span>:<span class="function"><span class="keyword">function</span>(<span class="params">fn,type</span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> type = type || <span class="string">"eat"</span>;</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.user[type] == <span class="literal">undefined</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">this</span>.user[type] = [];</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> fn != <span class="string">"function"</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="string">"不支持该操作!"</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">this</span>.user[type].push(fn);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">removeUser</span>:<span class="function"><span class="keyword">function</span>(<span class="params">fn,type</span>)</span>&#123;</div><div class="line">            <span class="keyword">this</span>.publish(type,fn);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">publish</span>:<span class="function"><span class="keyword">function</span>(<span class="params">type,fn</span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> type = type || <span class="string">"eat"</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.user[type].length; i++) &#123;</div><div class="line">                <span class="comment">//判断当前是要取消订阅还是要发布状态</span></div><div class="line">                <span class="keyword">if</span> (<span class="keyword">typeof</span> fn == <span class="string">"function"</span>)</div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">if</span>(<span class="keyword">this</span>.user[type][i] == fn)</div><div class="line">                    &#123;</div><div class="line">                        <span class="built_in">console</span>.log(fn + <span class="string">"取消了订阅"</span>);</div><div class="line">                        <span class="keyword">this</span>.user[type].splice(i,<span class="number">1</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;<span class="keyword">else</span></div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">this</span>.user[type][i]();</div><div class="line">                &#125;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> rose = &#123;</div><div class="line">        <span class="attr">eat</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">this</span>.publish(<span class="string">"eat"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">sleep</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">this</span>.publish(<span class="string">"sleep"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">read</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">this</span>.publish(<span class="string">"read"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">makePublisher</span>(<span class="params">o</span>)</span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> publisher)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span> (publisher.hasOwnProperty(i) &amp;&amp; <span class="keyword">typeof</span> publisher[i] == <span class="string">"function"</span> )&#123;</div><div class="line">                o[i] = publisher[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        o.user = &#123;</div><div class="line">            <span class="attr">eat</span>:[],</div><div class="line">            <span class="attr">sleep</span>:[]</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    makePublisher(rose);</div><div class="line"></div><div class="line">    <span class="keyword">var</span> jack = &#123;</div><div class="line">        <span class="attr">eat_jack</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"我陪你去吃拉面吧  ---jack"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">sleep_jack</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"晚安 rose  ---jack"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> tom = &#123;</div><div class="line">        <span class="attr">eat_tom</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"我买给你吧  ---tom"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">sleep_tom</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"今晚的太阳很好看 ---tom"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">read_tom</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"你也在学习js吗?"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    rose.addUser(jack.eat_jack,<span class="string">"eat"</span>);</div><div class="line">    rose.addUser(tom.sleep_tom,<span class="string">"sleep"</span>);</div><div class="line">    rose.addUser(tom.read_tom,<span class="string">"read"</span>);</div><div class="line">    rose.eat();</div><div class="line">    rose.sleep();</div><div class="line">    rose.read();</div><div class="line"></div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码4 : 订阅者成为发布者</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//01 创建或者是设置一个发布者</span></div><div class="line">    <span class="keyword">var</span> publisher = &#123;</div><div class="line">        <span class="attr">addUser</span>:<span class="function"><span class="keyword">function</span>(<span class="params">fn,type</span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> type = type || <span class="string">"eat"</span>;</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.user[type] == <span class="literal">undefined</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">this</span>.user[type] = [];</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> fn != <span class="string">"function"</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="string">"不支持该操作!"</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">this</span>.user[type].push(fn);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">removeUser</span>:<span class="function"><span class="keyword">function</span>(<span class="params">fn,type</span>)</span>&#123;</div><div class="line">            <span class="keyword">this</span>.publish(type,fn);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">publish</span>:<span class="function"><span class="keyword">function</span>(<span class="params">type,fn</span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> type = type || <span class="string">"eat"</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.user[type].length; i++) &#123;</div><div class="line">                <span class="comment">//判断当前是要取消订阅还是要发布状态</span></div><div class="line">                <span class="keyword">if</span> (<span class="keyword">typeof</span> fn == <span class="string">"function"</span>)</div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">if</span>(<span class="keyword">this</span>.user[type][i] == fn)</div><div class="line">                    &#123;</div><div class="line">                        <span class="built_in">console</span>.log(fn + <span class="string">"取消了订阅"</span>);</div><div class="line">                        <span class="keyword">this</span>.user[type].splice(i,<span class="number">1</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;<span class="keyword">else</span></div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">this</span>.user[type][i]();</div><div class="line">                &#125;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> rose = &#123;</div><div class="line">        <span class="attr">eat</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">this</span>.publish(<span class="string">"eat"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">sleep</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">this</span>.publish(<span class="string">"sleep"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">read</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">this</span>.publish(<span class="string">"read"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">lol_rose</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"你怎么又在打游戏?还是游戏比较重要一些?"</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">makePublisher</span>(<span class="params">o</span>)</span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> publisher)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span> (publisher.hasOwnProperty(i) &amp;&amp; <span class="keyword">typeof</span> publisher[i] == <span class="string">"function"</span> )&#123;</div><div class="line">                o[i] = publisher[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        o.user = &#123;</div><div class="line">            <span class="attr">eat</span>:[],</div><div class="line">            <span class="attr">sleep</span>:[]</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    makePublisher(rose);</div><div class="line"></div><div class="line">    <span class="keyword">var</span> jack = &#123;</div><div class="line">        <span class="attr">eat_jack</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"我陪你去吃拉面吧  ---jack"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">sleep_jack</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"晚安 rose  ---jack"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">statusLol</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">this</span>.publish(<span class="string">"lol"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> tom = &#123;</div><div class="line">        <span class="attr">eat_tom</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"我买给你吧  ---tom"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">sleep_tom</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"今晚的太阳很好看 ---tom"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">read_tom</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"你也在学习js吗?"</span>);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">lol_rose</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"好兄弟,终于来啦"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    rose.addUser(jack.eat_jack,<span class="string">"eat"</span>);</div><div class="line"></div><div class="line">    rose.addUser(tom.sleep_tom,<span class="string">"sleep"</span>);</div><div class="line">    rose.addUser(tom.read_tom,<span class="string">"read"</span>);</div><div class="line">    rose.eat();</div><div class="line">    rose.sleep();</div><div class="line">    rose.read();</div><div class="line"></div><div class="line">    <span class="comment">//设置jack成为发布者,状态(lol)</span></div><div class="line">    makePublisher(jack);</div><div class="line">    jack.addUser(rose.lol_rose,<span class="string">"lol"</span>);</div><div class="line">    jack.addUser(tom.lol_rose,<span class="string">"lol"</span>);</div><div class="line">    jack.statusLol();</div><div class="line"></div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="备忘模式-函数结构缓存"><a href="#备忘模式-函数结构缓存" class="headerlink" title="备忘模式(函数结构缓存)"></a>备忘模式(函数结构缓存)</h2><h4 id="特定场合"><a href="#特定场合" class="headerlink" title="特定场合:"></a>特定场合:</h4><ul>
+<li><strong>计算的函数f()</strong></li>
+<li><strong>某些参数需要进行大规模反复的计算,可以考虑吧计算的结果保存起来</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">f(n) ..... =&gt;1000m</div><div class="line">代码中某些参数可能会反复计算</div><div class="line">f(10) ===&gt;ssddd</div><div class="line">f(10) ===&gt;ssddd</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="使用一个缓存对象cacheObj-key-value"><a href="#使用一个缓存对象cacheObj-key-value" class="headerlink" title="使用一个缓存对象cacheObj{key-value}"></a>使用一个缓存对象cacheObj{key-value}</h4><ul>
+<li><p><strong>思路:</strong></p>
+<blockquote>
+<p><strong>1.提供一个全局的对象(缓存对象),key-value<br>2.当我们传递参数需要进行计算(逻辑)的时候,先检查缓存对象中是否有对应的结果<br>3.如果有缓存数据,那么就直接使用(可以节省时间,提高效率)<br>4.如果没有缓存数据,那么这个时候再执行计算操作,处理得到结果之后,把这个数据保存起来<br>5.函数的参数作为缓存对象的key,把函数计算的结果作为这个key对应的值</strong></p>
+</blockquote>
+</li>
+<li><p><strong>示例代码 :</strong></p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> cache = &#123;&#125;;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">str</span>)</span>&#123;</div><div class="line">        <span class="comment">//.....</span></div><div class="line">        <span class="keyword">if</span> (cache[str] != <span class="literal">undefined</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"已经存在缓存数据,直接返回"</span>);</div><div class="line">            <span class="keyword">return</span> cache[str];</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//....如果缓存中有数据,那么函数体后面的代码就不再执行(节省时间)</span></div><div class="line"></div><div class="line">        <span class="comment">//执行耗时操作...</span></div><div class="line">        <span class="keyword">var</span> result = str + <span class="string">" hello world!"</span>;</div><div class="line">        cache[str] = result;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"第一次调用函数传入参数,返回结果"</span>);</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(f1(<span class="string">"demo"</span>));   <span class="comment">//</span></div><div class="line">    <span class="built_in">console</span>.log(f1(<span class="string">"demo"</span>));   <span class="comment">//</span></div><div class="line">    <span class="built_in">console</span>.log(f1(<span class="string">"demo"</span>));</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">str</span>)</span>&#123;</div><div class="line">        <span class="comment">//.....</span></div><div class="line">        <span class="keyword">if</span> (f1.cache[str] != <span class="literal">undefined</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"已经存在缓存数据,直接返回"</span>);</div><div class="line">            <span class="keyword">return</span> f1.cache[str];</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//....如果缓存中有数据,那么函数体后面的代码就不再执行(节省时间)</span></div><div class="line"></div><div class="line">        <span class="comment">//执行耗时操作...</span></div><div class="line">        <span class="keyword">var</span> result = str + <span class="string">" hello world!"</span>;</div><div class="line">        f1.cache[str] = result;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"第一次调用函数传入参数,返回结果"</span>);</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    f1.cache = &#123;&#125;;</div><div class="line">    <span class="built_in">console</span>.log(f1(<span class="string">"test"</span>));  <span class="comment">//</span></div><div class="line">    <span class="built_in">console</span>.log(f1(<span class="string">"test"</span>));   <span class="comment">//</span></div><div class="line">    <span class="built_in">console</span>.log(f1(<span class="string">"test"</span>));</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="命名空间模式"><a href="#命名空间模式" class="headerlink" title="命名空间模式:"></a>命名空间模式:</h2><h4 id="写法-就是把所有的东西都写在一个对象里面"><a href="#写法-就是把所有的东西都写在一个对象里面" class="headerlink" title="写法:就是把所有的东西都写在一个对象里面."></a>写法:就是把所有的东西都写在一个对象里面.</h4><h4 id="命名-命名空间的名称一般是项目的名称或者是简写-要求所有的字符都大写"><a href="#命名-命名空间的名称一般是项目的名称或者是简写-要求所有的字符都大写" class="headerlink" title="命名:命名空间的名称一般是项目的名称或者是简写,要求所有的字符都大写"></a>命名:命名空间的名称一般是项目的名称或者是简写,要求所有的字符都大写</h4><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//01 普通的变量</span></div><div class="line">    <span class="keyword">var</span> a = <span class="string">"a"</span>;</div><div class="line">    <span class="keyword">var</span> b = <span class="string">"b"</span>;</div><div class="line"></div><div class="line">    <span class="comment">//02 对象</span></div><div class="line">    <span class="keyword">var</span> obj = &#123;</div><div class="line">        <span class="attr">name</span>:<span class="string">"xxx"</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">func</span> (<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"func"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = <span class="string">"默认的名称"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">func</span> (<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"func"</span>);</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> MOMO = &#123;&#125;;</div><div class="line">    <span class="comment">//01 普通的变量</span></div><div class="line">    MOMO.a = <span class="string">"a"</span>;</div><div class="line">    MOMO.b = <span class="string">"b"</span>;</div><div class="line"></div><div class="line">    <span class="comment">//02 对象</span></div><div class="line">    MOMO.obj = &#123;</div><div class="line">        <span class="attr">name</span>:<span class="string">"zahngsan"</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    MOMO.func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"func"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    MOMO.Person = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = <span class="string">"默认的名称"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">new</span>  MOMO.Person());</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"><span class="comment">//    var MOMO =&#123;&#125;;</span></div><div class="line"><span class="comment">//    MOMO.obj = &#123;</span></div><div class="line"><span class="comment">//        name:"张三"</span></div><div class="line"><span class="comment">//    &#125;;</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//    MOMO.obj = "demodede";</span></div><div class="line"></div><div class="line">    <span class="comment">//在使用或者是对属性进行赋值之前,会先做一个检查(检查改属性或者是方法是否存在)</span></div><div class="line">    <span class="comment">//var MOMO = &#123;&#125;;  不推荐</span></div><div class="line"></div><div class="line">    <span class="comment">//02 更安全的处理方式:麻烦</span></div><div class="line"><span class="comment">//    if (MOMO == undefined)</span></div><div class="line"><span class="comment">//    &#123;</span></div><div class="line"><span class="comment">//        var MOMO = &#123;&#125;;</span></div><div class="line"><span class="comment">//    &#125;</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span> MOMO = MOMO || &#123;&#125;;      <span class="comment">//逻辑或 如果MOMO为真那么返回MOMO,否则就返回&#123;&#125;</span></div><div class="line">    <span class="comment">//if (MOMO.name == undefined)</span></div><div class="line">    <span class="keyword">if</span> ( <span class="keyword">typeof</span> MOMO.name == <span class="string">'undefined'</span>)</div><div class="line">&#123;</div><div class="line">    MOMO.name = <span class="string">"测试的名称"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ( <span class="keyword">typeof</span> MOMO.age == <span class="string">'undefined'</span>)</div><div class="line">    &#123;</div><div class="line">        MOMO.age = <span class="number">20</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//100属性</span></div><div class="line"></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="通用的命名空间函数"><a href="#通用的命名空间函数" class="headerlink" title="通用的命名空间函数"></a>通用的命名空间函数</h2><h4 id="在命名空间上面提供一个方法-nameSpace"><a href="#在命名空间上面提供一个方法-nameSpace" class="headerlink" title="在命名空间上面提供一个方法(nameSpace)"></a>在命名空间上面提供一个方法(nameSpace)</h4><ul>
+<li><strong>得到调用函数传入的字符串</strong></li>
+<li><strong>把字符串转换为字符串数组</strong></li>
+<li><strong>把MOMO最外层去掉(删除)</strong></li>
+<li><strong>遍历</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> MOMO = MOMO || &#123;&#125;;</div><div class="line">    MOMO.namespace = <span class="function"><span class="keyword">function</span>(<span class="params">stringParam</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> str = stringParam;</div><div class="line">        <span class="keyword">var</span> parts = str.split(<span class="string">"."</span>);   <span class="comment">//根据字符串切割字符串变成一个数组</span></div><div class="line">        <span class="keyword">var</span> parent = MOMO;</div><div class="line"></div><div class="line">        <span class="built_in">console</span>.log(parts);</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(parts[<span class="number">0</span>] == <span class="string">"MOMO"</span>)</div><div class="line">        &#123;</div><div class="line">            parts = parts.slice(<span class="number">1</span>)    <span class="comment">//作用:删除第一个元素返回一个新的数组</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; parts.length; i++) &#123;</div><div class="line">            <span class="comment">//MOMO.name</span></div><div class="line">            <span class="comment">//name.des</span></div><div class="line">            <span class="comment">//des.abc</span></div><div class="line">            <span class="keyword">if</span> (parent[parts[i]] == <span class="literal">undefined</span>)</div><div class="line">            &#123;</div><div class="line">                parent[parts[i]] = &#123;&#125;;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">//更新父节点</span></div><div class="line">            parent = parent[parts[i]];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    MOMO.namespace(<span class="string">"MOMO.name.des.abc"</span>);</div><div class="line">    <span class="built_in">console</span>.log(MOMO);</div><div class="line"></div><div class="line">    MOMO.namespace(<span class="string">"MOMO.a.b.c.d.e.f.d.g.h.j.k.s.d.g.h.j.a.s.d.f.we.r"</span>);</div><div class="line">    <span class="built_in">console</span>.log(MOMO);</div><div class="line">    MOMO.namespace(<span class="string">"abc.des.abc"</span>);</div><div class="line">    <span class="built_in">console</span>.log(MOMO);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<hr>
+<h4 id="截至今日-面向对象和JavaScript进阶内容已经全部更新完毕-内容是比较详细的-只要跟着每一篇的博文仔细学习-比你看网上的垃圾视频强多了-理论和实践相结合-更多的是得动手去敲-以后还请大家多多关注更新-日后定会上一些新颖的东西和大家见面"><a href="#截至今日-面向对象和JavaScript进阶内容已经全部更新完毕-内容是比较详细的-只要跟着每一篇的博文仔细学习-比你看网上的垃圾视频强多了-理论和实践相结合-更多的是得动手去敲-以后还请大家多多关注更新-日后定会上一些新颖的东西和大家见面" class="headerlink" title="截至今日,面向对象和JavaScript进阶内容已经全部更新完毕! 内容是比较详细的,只要跟着每一篇的博文仔细学习,比你看网上的垃圾视频强多了 ! 理论和实践相结合 更多的是得动手去敲,以后还请大家多多关注更新,日后定会上一些新颖的东西和大家见面 !"></a>截至今日,面向对象和JavaScript进阶内容已经全部更新完毕! 内容是比较详细的,只要跟着每一篇的博文仔细学习,比你看网上的垃圾视频强多了 ! 理论和实践相结合 更多的是得动手去敲,以后还请大家多多关注更新,日后定会上一些新颖的东西和大家见面 !</h4><hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/设计模式-命名空间/" rel="tag"># 设计模式 命名空间</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/01/JavaScript-闭包-函数回调-即时函数/" rel="next" title="JavaScript - 闭包 - 函数回调 - 即时函数">
+                <i class="fa fa-chevron-left"></i> JavaScript - 闭包 - 函数回调 - 即时函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/15/JavaScript-设计模式-命名空间/"
+           data-title="JavaScript - 设计模式 - 命名空间" data-url="git@github.com:anearseeyou/anearseeyou.git/2016/08/15/JavaScript-设计模式-命名空间/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://olrw5apal.bkt.clouddn.com/background.jpg"
+               alt="西巴撸" />
+          <p class="site-author-name" itemprop="name">西巴撸</p>
+          <p class="site-description motion-element" itemprop="description">Fucking the code</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本小节主要讲解三种常用的设计模式和命名空间-第一种是工厂模式-第二种是单利模式-第三种是观察者模式"><span class="nav-number">1.</span> <span class="nav-text">本小节主要讲解三种常用的设计模式和命名空间,第一种是工厂模式,第二种是单利模式,第三种是观察者模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计模式概述"><span class="nav-number"></span> <span class="nav-text">设计模式概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#是为了解决在开发中可能遇到的需求-相似-而提出的一套解决方法"><span class="nav-number">1.</span> <span class="nav-text">是为了解决在开发中可能遇到的需求(相似),而提出的一套解决方法.</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计模式要求："><span class="nav-number"></span> <span class="nav-text">设计模式要求：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂模式"><span class="nav-number"></span> <span class="nav-text">工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#批量创建大量的同类型的对象"><span class="nav-number">1.</span> <span class="nav-text">批量创建大量的同类型的对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">2.</span> <span class="nav-text">优点 :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#核心过程"><span class="nav-number">3.</span> <span class="nav-text">核心过程 :</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单利模式"><span class="nav-number"></span> <span class="nav-text">单利模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在整个程序的运行过程中-一个类只有一个实例对象"><span class="nav-number">1.</span> <span class="nav-text">在整个程序的运行过程中,一个类只有一个实例对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js中的单利模式"><span class="nav-number">2.</span> <span class="nav-text">js中的单利模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单利模式实现之后的表现"><span class="nav-number">3.</span> <span class="nav-text">单利模式实现之后的表现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单利模式的实现方式01-—-gt-全局变量"><span class="nav-number"></span> <span class="nav-text">单利模式的实现方式01 —-> 全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局变量来保存对象实现单利模式"><span class="nav-number">1.</span> <span class="nav-text">全局变量来保存对象实现单利模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存在的问题"><span class="nav-number">2.</span> <span class="nav-text">存在的问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单利模式的实现方式02-—-gt-静态属性"><span class="nav-number"></span> <span class="nav-text">单利模式的实现方式02 —-> 静态属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态成员-直接添加到构造函数身上的属性或者是方法"><span class="nav-number">1.</span> <span class="nav-text">静态成员:直接添加到构造函数身上的属性或者是方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存在的问题-1"><span class="nav-number">2.</span> <span class="nav-text">存在的问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单利模式的实现方式03-—-gt-惰性函数"><span class="nav-number"></span> <span class="nav-text">单利模式的实现方式03 —-> 惰性函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#核心过程-1"><span class="nav-number">1.</span> <span class="nav-text">核心过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单利模式的实现方式04-—-gt-全局变量-即时函数"><span class="nav-number"></span> <span class="nav-text">单利模式的实现方式04 —-> 全局变量 + 即时函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#观察者模式"><span class="nav-number"></span> <span class="nav-text">观察者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#观察者模式举例说明"><span class="nav-number">1.</span> <span class="nav-text">观察者模式举例说明</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备忘模式-函数结构缓存"><span class="nav-number"></span> <span class="nav-text">备忘模式(函数结构缓存)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特定场合"><span class="nav-number">1.</span> <span class="nav-text">特定场合:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用一个缓存对象cacheObj-key-value"><span class="nav-number">2.</span> <span class="nav-text">使用一个缓存对象cacheObj{key-value}</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名空间模式"><span class="nav-number"></span> <span class="nav-text">命名空间模式:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#写法-就是把所有的东西都写在一个对象里面"><span class="nav-number">1.</span> <span class="nav-text">写法:就是把所有的东西都写在一个对象里面.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命名-命名空间的名称一般是项目的名称或者是简写-要求所有的字符都大写"><span class="nav-number">2.</span> <span class="nav-text">命名:命名空间的名称一般是项目的名称或者是简写,要求所有的字符都大写</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用的命名空间函数"><span class="nav-number"></span> <span class="nav-text">通用的命名空间函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在命名空间上面提供一个方法-nameSpace"><span class="nav-number">1.</span> <span class="nav-text">在命名空间上面提供一个方法(nameSpace)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截至今日-面向对象和JavaScript进阶内容已经全部更新完毕-内容是比较详细的-只要跟着每一篇的博文仔细学习-比你看网上的垃圾视频强多了-理论和实践相结合-更多的是得动手去敲-以后还请大家多多关注更新-日后定会上一些新颖的东西和大家见面"><span class="nav-number">2.</span> <span class="nav-text">截至今日,面向对象和JavaScript进阶内容已经全部更新完毕! 内容是比较详细的,只要跟着每一篇的博文仔细学习,比你看网上的垃圾视频强多了 ! 理论和实践相结合 更多的是得动手去敲,以后还请大家多多关注更新,日后定会上一些新颖的东西和大家见面 !</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">西巴撸</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"keeponcode"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("hCS32BdMw43hQACJYKDrXVny-gzGzoHsz", "Ja18UTWNr1AELp5Ba20h4Cyb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

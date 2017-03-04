@@ -1,0 +1,1005 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="闭包 函数回调 即时函数," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本小节主要讲解闭包,是特别重要的一块内容.希望大家能够用心学习!作用域链的补充内容 —-&amp;gt; 搜索规则如果有忘记的人,翻一下上一篇博客注意点:如果在内层作用域中声明了和外层作用域中同名的变量,那么这个变量是不会把外层的同名变量覆盖的搜索原则:
+在作用域中如果访问(读取|设置)某个变量,先在当前作用域中搜索,如果找到那么就直接使用
+如果没有找到,那么就向上一级作用域中继续搜索,找到则使用,没有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript - 闭包 - 函数回调 - 即时函数">
+<meta property="og:url" content="git@github.com:anearseeyou/anearseeyou.git/2016/08/01/JavaScript-闭包-函数回调-即时函数/index.html">
+<meta property="og:site_name" content="Keep on coding">
+<meta property="og:description" content="本小节主要讲解闭包,是特别重要的一块内容.希望大家能够用心学习!作用域链的补充内容 —-&amp;gt; 搜索规则如果有忘记的人,翻一下上一篇博客注意点:如果在内层作用域中声明了和外层作用域中同名的变量,那么这个变量是不会把外层的同名变量覆盖的搜索原则:
+在作用域中如果访问(读取|设置)某个变量,先在当前作用域中搜索,如果找到那么就直接使用
+如果没有找到,那么就向上一级作用域中继续搜索,找到则使用,没有">
+<meta property="og:updated_time" content="2017-03-04T03:59:55.121Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript - 闭包 - 函数回调 - 即时函数">
+<meta name="twitter:description" content="本小节主要讲解闭包,是特别重要的一块内容.希望大家能够用心学习!作用域链的补充内容 —-&amp;gt; 搜索规则如果有忘记的人,翻一下上一篇博客注意点:如果在内层作用域中声明了和外层作用域中同名的变量,那么这个变量是不会把外层的同名变量覆盖的搜索原则:
+在作用域中如果访问(读取|设置)某个变量,先在当前作用域中搜索,如果找到那么就直接使用
+如果没有找到,那么就向上一级作用域中继续搜索,找到则使用,没有">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6389887927219914000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="git@github.com:anearseeyou/anearseeyou.git/2016/08/01/JavaScript-闭包-函数回调-即时函数/"/>
+
+
+
+
+
+  <title> JavaScript - 闭包 - 函数回调 - 即时函数 | Keep on coding </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Keep on coding</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">We can't stop | Just do it.</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="git@github.com:anearseeyou/anearseeyou.git/2016/08/01/JavaScript-闭包-函数回调-即时函数/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="西巴撸">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://olrw5apal.bkt.clouddn.com/background.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Keep on coding">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Keep on coding" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript - 闭包 - 函数回调 - 即时函数
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-01T11:57:24+08:00">
+                2016-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术控/" itemprop="url" rel="index">
+                    <span itemprop="name">技术控</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术控/程序猿/" itemprop="url" rel="index">
+                    <span itemprop="name">程序猿</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/01/JavaScript-闭包-函数回调-即时函数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/JavaScript-闭包-函数回调-即时函数/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/08/01/JavaScript-闭包-函数回调-即时函数/" class="leancloud_visitors" data-flag-title="JavaScript - 闭包 - 函数回调 - 即时函数">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h2 id="本小节主要讲解闭包-是特别重要的一块内容-希望大家能够用心学习"><a href="#本小节主要讲解闭包-是特别重要的一块内容-希望大家能够用心学习" class="headerlink" title="本小节主要讲解闭包,是特别重要的一块内容.希望大家能够用心学习!"></a><h4>本小节主要讲解闭包,是特别重要的一块内容.希望大家能够用心学习!</h4></h2><h2 id="作用域链的补充内容-—-gt-搜索规则"><a href="#作用域链的补充内容-—-gt-搜索规则" class="headerlink" title="作用域链的补充内容 —-&gt; 搜索规则"></a>作用域链的补充内容 —-&gt; 搜索规则</h2><h5 id="如果有忘记的人-翻一下上一篇博客"><a href="#如果有忘记的人-翻一下上一篇博客" class="headerlink" title="如果有忘记的人,翻一下上一篇博客"></a>如果有忘记的人,翻一下上一篇博客</h5><h4 id="注意点-如果在内层作用域中声明了和外层作用域中同名的变量-那么这个变量是不会把外层的同名变量覆盖的"><a href="#注意点-如果在内层作用域中声明了和外层作用域中同名的变量-那么这个变量是不会把外层的同名变量覆盖的" class="headerlink" title="注意点:如果在内层作用域中声明了和外层作用域中同名的变量,那么这个变量是不会把外层的同名变量覆盖的"></a>注意点:如果在内层作用域中声明了和外层作用域中同名的变量,那么这个变量是不会把外层的同名变量覆盖的</h4><h4 id="搜索原则"><a href="#搜索原则" class="headerlink" title="搜索原则:"></a>搜索原则:</h4><ul>
+<li><strong>在作用域中如果访问(读取|设置)某个变量,先在当前作用域中搜索,如果找到那么就直接使用</strong></li>
+<li><strong>如果没有找到,那么就向上一级作用域中继续搜索,找到则使用,没有找到就重复上面的过程</strong></li>
+<li><strong>直到0级作用域链</strong></li>
+</ul>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h4 id="闭-关闭-封闭的意思-对外界不开方的"><a href="#闭-关闭-封闭的意思-对外界不开方的" class="headerlink" title="闭 : 关闭,封闭的意思,对外界不开方的"></a>闭 : 关闭,封闭的意思,对外界不开方的</h4><h4 id="包-包装起来"><a href="#包-包装起来" class="headerlink" title="包 : 包装起来"></a>包 : 包装起来</h4><h4 id="闭包技术"><a href="#闭包技术" class="headerlink" title="闭包技术"></a>闭包技术</h4><ul>
+<li><strong>作用域规则 : 内层的作用域可以访问外层的的作用域,但反过来不行</strong></li>
+<li><strong>有的时候,我们确实需要访问一个封闭空间里的数据源(外层作用域 —-&gt; 内层作用域)</strong></li>
+<li><strong>就是提供一种间接访问封闭空间中私有数据的方法</strong></li>
+</ul>
+<h4 id="访问数据"><a href="#访问数据" class="headerlink" title="访问数据"></a>访问数据</h4><ul>
+<li><strong>直接返回 return</strong></li>
+<li><strong>闭包 对直接返回的数据进行包装(函数)</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> num = <span class="number">10</span>;</div><div class="line">        <span class="keyword">return</span> num;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//num</span></div><div class="line">    <span class="keyword">var</span> a = f1();</div><div class="line">    <span class="keyword">var</span> b = f1();</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(a);</div><div class="line">    <span class="built_in">console</span>.log(b);</div><div class="line"></div><div class="line">    <span class="comment">//一次性获得数据</span></div><div class="line">    <span class="comment">//1 每次调用函数获得的数据并不是同一份数据</span></div><div class="line">    <span class="comment">//2 只能获取值,但是却不能修改值</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码 : 闭包一般写法</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> num = <span class="number">10</span>;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">param</span>)</span>&#123;</div><div class="line">            num = param;    <span class="comment">//修改函数内部变量的值</span></div><div class="line">            <span class="keyword">return</span> num;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码 : 访问获取数据</strong> </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> num = <span class="number">10</span>;</div><div class="line">        <span class="keyword">var</span> name = <span class="string">"张学友"</span>;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">return</span> [num,name];</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> func = f1();</div><div class="line">    <span class="built_in">console</span>.log(func()[<span class="number">0</span>]);</div><div class="line">    <span class="built_in">console</span>.log(func()[<span class="number">1</span>]);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码 : 闭包基本写法</strong> </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> num = <span class="number">10</span>;</div><div class="line">        <span class="keyword">var</span> name = <span class="string">"xxx"</span>;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">getNum</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">return</span> num;</div><div class="line">            &#125;,</div><div class="line">            <span class="attr">getName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">return</span> name;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> func = f1();</div><div class="line">    <span class="built_in">console</span>.log(func.getName());</div><div class="line">    <span class="built_in">console</span>.log(func.getNum());</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="闭包读取数据和设置数据"><a href="#闭包读取数据和设置数据" class="headerlink" title="闭包读取数据和设置数据"></a>闭包读取数据和设置数据</h2><ul>
+<li><strong>示例代码 : 获取数据</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> name = <span class="string">"卡罗"</span>;</div><div class="line">        <span class="keyword">var</span> age = <span class="number">18</span>;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">getName</span>:<span class="function"><span class="keyword">function</span>(<span class="params">nameValue</span>)</span>&#123;</div><div class="line">                <span class="comment">//判断</span></div><div class="line">                <span class="keyword">if</span> (nameValue != <span class="literal">undefined</span>)</div><div class="line">                &#123;</div><div class="line">                    name = nameValue;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> name;</div><div class="line">            &#125;,</div><div class="line">            <span class="attr">getAge</span>:<span class="function"><span class="keyword">function</span>(<span class="params">ageValue</span>)</span>&#123;</div><div class="line">                age = ageValue;</div><div class="line">                <span class="keyword">return</span> age;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> func = foo();</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(func.getName());     <span class="comment">//</span></div><div class="line">    <span class="built_in">console</span>.log(func.getName(<span class="string">"卡罗尔"</span>));</div><div class="line">    <span class="built_in">console</span>.log(func.getName());</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码 :设置数据</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> name = <span class="string">"卡罗"</span>;</div><div class="line">        <span class="keyword">var</span> age = <span class="number">18</span>;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">getName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">return</span> name;</div><div class="line">            &#125;,</div><div class="line">            <span class="attr">getAge</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">return</span> age;</div><div class="line">            &#125;,</div><div class="line">            <span class="attr">setName</span>:<span class="function"><span class="keyword">function</span>(<span class="params">nameValue</span>)</span>&#123;</div><div class="line">                name = nameValue;</div><div class="line">            &#125;,</div><div class="line">            <span class="attr">setAge</span>:<span class="function"><span class="keyword">function</span>(<span class="params">ageValue</span>) </span>&#123;</div><div class="line">                age = ageValue;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> func = foo();</div><div class="line">    <span class="built_in">console</span>.log(func.getName());</div><div class="line">    func.setName(<span class="string">"卡米尔"</span>);</div><div class="line">    <span class="built_in">console</span>.log(func.getName());</div><div class="line"></div><div class="line">    func.setAge(<span class="number">20</span>);</div><div class="line">    <span class="built_in">console</span>.log(func.getAge());</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h2><h4 id="提供了一种间接访问函数封闭空间中数据的方法"><a href="#提供了一种间接访问函数封闭空间中数据的方法" class="headerlink" title="提供了一种间接访问函数封闭空间中数据的方法"></a>提供了一种间接访问函数封闭空间中数据的方法</h4><ul>
+<li><strong>访问函数内部的变量只能通过指定的借口</strong></li>
+<li><strong>对变量的修改设置操作会更加安全,可以在设置之前对数据进行校验</strong></li>
+<li><strong>延长变量的生命周期
+</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> age = <span class="number">20</span>;</div><div class="line">        <span class="keyword">var</span> author= <span class="string">"今何在"</span>;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">getAge</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">return</span> age;</div><div class="line">            &#125;,</div><div class="line">            <span class="attr">setAge</span>:<span class="function"><span class="keyword">function</span>(<span class="params">ageValue</span>)</span>&#123;</div><div class="line"></div><div class="line">                <span class="comment">//校验处理</span></div><div class="line">                <span class="keyword">if</span> (ageValue &lt;<span class="number">0</span>)</div><div class="line">                &#123;</div><div class="line">                    ageValue = <span class="number">0</span>;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="comment">//其他的处理(异常检测)</span></div><div class="line">                age = ageValue;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> func = f1();</div><div class="line">    func.setAge(<span class="number">22</span>);</div><div class="line">    <span class="built_in">console</span>.log(func.getAge());</div><div class="line"></div><div class="line">    <span class="comment">//设置年龄  -3 (因为人的年龄不能是负值 所以得进行安全校验)</span></div><div class="line">    func.setAge(<span class="number">-3</span>);</div><div class="line">    <span class="built_in">console</span>.log(func.getAge());</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="setTimeout和闭包的执行"><a href="#setTimeout和闭包的执行" class="headerlink" title="setTimeout和闭包的执行"></a>setTimeout和闭包的执行</h2><h4 id="setTimeout-只调用一次函数-延迟函数-一次是隔两秒-至少"><a href="#setTimeout-只调用一次函数-延迟函数-一次是隔两秒-至少" class="headerlink" title="setTimeout(); 只调用一次函数(延迟函数) 一次是隔两秒(至少)"></a>setTimeout(); 只调用一次函数(延迟函数) 一次是隔两秒(至少)</h4><h4 id="每隔一定的时候就调用一次"><a href="#每隔一定的时候就调用一次" class="headerlink" title="每隔一定的时候就调用一次"></a>每隔一定的时候就调用一次</h4><ul>
+<li><strong>参数设置 : </strong><br>第一个参数:函数回调(时间到了之后执行的代码)<br>第二个参数:间隔时间(毫秒)  1秒 = 1000毫秒</li>
+</ul>
+<h4 id="setTimeout的问题"><a href="#setTimeout的问题" class="headerlink" title="setTimeout的问题"></a>setTimeout的问题</h4><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line"></div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(i);</div><div class="line">        &#125;,<span class="number">0</span>);</div><div class="line"></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"----"</span>);</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="解决setTimeout的问题"><a href="#解决setTimeout的问题" class="headerlink" title="解决setTimeout的问题"></a>解决setTimeout的问题</h4><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line"></div><div class="line">        setTimeout((<span class="function"><span class="keyword">function</span> (<span class="params">j</span>) </span>&#123;</div><div class="line"></div><div class="line">            <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="built_in">console</span>.log(j);</div><div class="line">            &#125;</div><div class="line">        &#125;)(i),<span class="number">10</span>);</div><div class="line"></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"+++++++++"</span>);</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="div事件和闭包"><a href="#div事件和闭包" class="headerlink" title="div事件和闭包"></a>div事件和闭包</h2><ul>
+<li><strong>示例代码 : </strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>我是第1个div标签<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>我是第2个div标签<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>我是第3个div标签<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>我是第4个div标签<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>我是第5个div标签<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>我是第6个div标签<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"><span class="keyword">var</span> divs  = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"div"</span>);</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; divs.length; i++) &#123;</div><div class="line">        divs[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            alert(<span class="string">"我是第"</span> + i + <span class="string">"标签"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 每次点击得到的都是第六个标签</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>用闭包解决问题 : </strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> divs  = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"div"</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; divs.length; i++) &#123;</div><div class="line">       (<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</div><div class="line">           divs[a].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">               alert(<span class="string">"我是第"</span> + a + <span class="string">"标签"</span>);</div><div class="line">           &#125;</div><div class="line">       &#125;)(i)</div><div class="line">   &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="函数的特性"><a href="#函数的特性" class="headerlink" title="函数的特性"></a>函数的特性</h2><ul>
+<li><strong>函数本身也是对象(第一型的对象) 凡是可以使用对象的地方都可以使用函数</strong></li>
+<li><strong>函数可以创建作用域</strong></li>
+<li><strong>函数是可以被调用的</strong></li>
+</ul>
+<h2 id="函数的约定和name值"><a href="#函数的约定和name值" class="headerlink" title="函数的约定和name值"></a>函数的约定和name值</h2><ul>
+<li><strong>函数声明</strong></li>
+<li><strong>函数表达式</strong></li>
+<li><p><strong>new 构造函数</strong></p>
+</li>
+<li><p><strong>示例代码 :</strong></p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"></div><div class="line">    <span class="comment">//function funName(参数1,参数2)&#123;函数体&#125;   //函数声明</span></div><div class="line"></div><div class="line">    <span class="comment">//函数表达式(匿名)</span></div><div class="line">    <span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(a + b);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//函数表达式(命名)</span></div><div class="line">    <span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span> <span class="title">name</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(a + b);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//sum.length // 形参的个数</span></div><div class="line">    <span class="built_in">console</span>.log(add.name);   <span class="comment">//add 跟浏览器的实现有关系(在火狐中name的值为空)</span></div><div class="line">    <span class="built_in">console</span>.log(sum.name);   <span class="comment">//name</span></div><div class="line"></div><div class="line">    <span class="comment">//03构造函数创建对象</span></div><div class="line">    <span class="keyword">new</span> <span class="built_in">Function</span>(参数<span class="number">1</span>,参数<span class="number">2</span>,参数<span class="number">3</span>)</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="函数的回调-作为参数传递"><a href="#函数的回调-作为参数传递" class="headerlink" title="函数的回调(作为参数传递)"></a>函数的回调(作为参数传递)</h2><h4 id="函数是第一型对象-因此可以使用对象的地方都可以使用函数"><a href="#函数是第一型对象-因此可以使用对象的地方都可以使用函数" class="headerlink" title="函数是第一型对象(因此可以使用对象的地方都可以使用函数)"></a>函数是第一型对象(因此可以使用对象的地方都可以使用函数)</h4><ul>
+<li><strong>函数可以作为函数的参数</strong></li>
+<li><strong>函数可以作为函数的返回值</strong></li>
+</ul>
+<h4 id="回调函数-回调-当我们把某个函数作为参数传递给另一个函数的时候-这个函数就称为回调函数。"><a href="#回调函数-回调-当我们把某个函数作为参数传递给另一个函数的时候-这个函数就称为回调函数。" class="headerlink" title="回调函数(回调),当我们把某个函数作为参数传递给另一个函数的时候,这个函数就称为回调函数。"></a>回调函数(回调),当我们把某个函数作为参数传递给另一个函数的时候,这个函数就称为回调函数。</h4><h4 id="回调函数的基本模式"><a href="#回调函数的基本模式" class="headerlink" title="回调函数的基本模式"></a>回调函数的基本模式</h4><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">callBack</span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">//处理其他的操作</span></div><div class="line">        callBack();     <span class="comment">//调用回调函数</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"这是一个回调函数"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    func(demo); <span class="comment">//注意调用函数的时候,参数是回调函数的引用(不要加括号);</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="回调函数-关于this丢失的问题"><a href="#回调函数-关于this丢失的问题" class="headerlink" title="回调函数(关于this丢失的问题)"></a>回调函数(关于this丢失的问题)</h4><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//如果回调函数是某个对象的方法,而该对象方法中使用了this指针</span></div><div class="line">    <span class="comment">//那么该方法作为回调函数来使用的时候,需要注意this丢失的问题</span></div><div class="line"></div><div class="line">    <span class="comment">//01 提供一个对象,该对象中永远有showName方法</span></div><div class="line">    <span class="keyword">var</span> obj = &#123;</div><div class="line">        <span class="attr">name</span>:<span class="string">"xxx名字"</span>,</div><div class="line">        <span class="attr">age</span>:<span class="number">30</span>,</div><div class="line">        <span class="attr">showName</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">showAge</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">//02 提供一个函数,该函数接受一个参数(函数引用)</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params">callBack</span>) </span>&#123;</div><div class="line">        callBack();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    demo(obj.showName); <span class="comment">//注意:不要带上括号 打印结果为空(window.name)</span></div><div class="line">    demo(obj.showAge);  <span class="comment">//undefined</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="回调函数-解决this丢失的问题"><a href="#回调函数-解决this丢失的问题" class="headerlink" title="回调函数(解决this丢失的问题)"></a>回调函数(解决this丢失的问题)</h4><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//01 提供一个对象,该对象中永远showName方法</span></div><div class="line">    <span class="keyword">var</span> obj = &#123;</div><div class="line">        <span class="attr">name</span>:<span class="string">"默认的名字"</span>,</div><div class="line">        <span class="attr">age</span>:<span class="number">30</span>,</div><div class="line">        <span class="attr">showName</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">showAge</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="comment">//02 提供一个函数,该函数接受一个参数(函数引用)</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params">callBack,callBack_obj</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> callBack == <span class="string">'function'</span>)</div><div class="line">        &#123;</div><div class="line">            callBack.call(callBack_obj);</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"++++"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    demo(obj.showName,obj); <span class="comment">//注意:不要带上括号</span></div><div class="line">    demo(obj.showAge,obj);  <span class="comment">//undefined</span></div><div class="line"></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="回调函数-兼容字符串方式"><a href="#回调函数-兼容字符串方式" class="headerlink" title="回调函数(兼容字符串方式)"></a>回调函数(兼容字符串方式)</h4><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//01 提供一个对象,该对象中永远showName方法</span></div><div class="line">    <span class="keyword">var</span> obj = &#123;</div><div class="line">        <span class="attr">name</span>:<span class="string">"默认的名字"</span>,</div><div class="line">        <span class="attr">age</span>:<span class="number">30</span>,</div><div class="line">        <span class="attr">showName</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">showAge</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="comment">//02 提供一个函数,该函数接受一个参数(函数引用)</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params">callBack,callBack_obj</span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">//处理第一个参数传递对象方法字符串的形式</span></div><div class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> callBack == <span class="string">'string'</span>)</div><div class="line">        &#123;</div><div class="line">            callBack = callBack_obj[callBack];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> callBack == <span class="string">'function'</span>)</div><div class="line">        &#123;</div><div class="line">            callBack.call(callBack_obj);</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//demo(obj.showName,obj);</span></div><div class="line">    <span class="comment">//demo(obj.showAge,obj);</span></div><div class="line"></div><div class="line">    <span class="comment">//传递字符串和对象来进行调用</span></div><div class="line">    demo(<span class="string">"showName"</span>,obj);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="函数作为返回值-计算器"><a href="#函数作为返回值-计算器" class="headerlink" title="函数作为返回值( 计算器)"></a>函数作为返回值( 计算器)</h2><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"></div><div class="line">    <span class="comment">//使用闭包实现一个计数器(在该示例中setup函数的返回值为一个函数)</span></div><div class="line">    <span class="comment">//通过调用返回值(一个函数),可以操作setup函数中的变量</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span> setup = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> count = <span class="number">0</span>;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> count ++;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> next = setup();</div><div class="line">    <span class="built_in">console</span>.log(next());    <span class="comment">//0</span></div><div class="line">    <span class="built_in">console</span>.log(next());    <span class="comment">//1</span></div><div class="line">    <span class="built_in">console</span>.log(next());    <span class="comment">//2</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="自定义函数-惰性函数"><a href="#自定义函数-惰性函数" class="headerlink" title="自定义函数( 惰性函数 )"></a>自定义函数( 惰性函数 )</h2><h4 id="惰性函数"><a href="#惰性函数" class="headerlink" title="惰性函数"></a>惰性函数</h4><ul>
+<li><strong>某个函数直到第一次使用的时候才被正确的定义,并且其具有向后惰性,执行更少的工作。</strong></li>
+</ul>
+<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><ul>
+<li><strong>函数有一些初始化的准备工作要做,且只需要执行一次的情况。</strong></li>
+</ul>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li><strong>能够更新自己(函数)的实现。</strong></li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点:"></a>缺点:</h4><ul>
+<li><strong>当重新定义自身的时候,已经添加到原始函数的任何属性都会丢失。</strong></li>
+<li><strong>如果函数被赋值给了其他的变量或者是对象方法,那么在使用变量或者是对象方法调用时仍然会执行旧的函数体。</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> demo = <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"foo!"</span>);</div><div class="line">        foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"new foo!"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//函数的调用</span></div><div class="line">    <span class="comment">//foo();  //foo!</span></div><div class="line">    <span class="comment">//foo();  //new foo!</span></div><div class="line"></div><div class="line">    <span class="comment">//总结:该函数的实现特点在于能够更新自身的实现。</span></div><div class="line">    demo(); <span class="comment">//foo!</span></div><div class="line">    demo(); <span class="comment">//foo!</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="惰性定义函数存在的问题"><a href="#惰性定义函数存在的问题" class="headerlink" title="惰性定义函数存在的问题"></a>惰性定义函数存在的问题</h4><ul>
+<li><strong>添加属性</strong></li>
+<li><strong>把函数赋值给新的变量</strong></li>
+<li><strong>以对象的方法调用函数</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//01 声明函数foo</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"foo!"</span>);</div><div class="line">        foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"foo! foo!"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//02 为foo函数对象添加属性</span></div><div class="line">    foo.description = <span class="string">"foo函数的描述信息"</span>;</div><div class="line"></div><div class="line">    <span class="comment">//03 把foo函数赋值给其他的变量</span></div><div class="line">    <span class="keyword">var</span> func = foo;</div><div class="line"></div><div class="line">    <span class="comment">//04 把foo函数赋值给对象中的方法</span></div><div class="line">    <span class="keyword">var</span> obj = &#123;</div><div class="line">        <span class="attr">showFoo</span>:foo</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//05 验证并演示输出</span></div><div class="line">    func(); <span class="comment">//foo!</span></div><div class="line">    func(); <span class="comment">//foo!</span></div><div class="line">    <span class="built_in">console</span>.log(func.description);  <span class="comment">//foo函数的描述信息</span></div><div class="line">    <span class="comment">//总结:01 如果把函数赋值给其他的变量,那么在以其他变量的方式调用时不会更新自身,还是执行旧的函数体</span></div><div class="line"></div><div class="line">    obj.showFoo();  <span class="comment">//foo!</span></div><div class="line">    obj.showFoo();  <span class="comment">//foo!</span></div><div class="line">    <span class="built_in">console</span>.log(obj.showFoo.description);   <span class="comment">//foo函数的描述信息</span></div><div class="line">    <span class="comment">//总结:02 如果把函数赋值给对象的方法,那么在以对象方法形式调用时不会更新自身,还是会执行旧的函数体。</span></div><div class="line"></div><div class="line">    foo();  <span class="comment">//已经更新过foo函数 foo! foo!</span></div><div class="line">    foo();  <span class="comment">//已经更新过foo函数 foo! foo!</span></div><div class="line">    <span class="built_in">console</span>.log(foo.description);   <span class="comment">//undefined</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="即时函数"><a href="#即时函数" class="headerlink" title="即时函数"></a>即时函数</h2><h4 id="在函数定义之后立即执行该函数。"><a href="#在函数定义之后立即执行该函数。" class="headerlink" title="在函数定义之后立即执行该函数。"></a>在函数定义之后立即执行该函数。</h4><h4 id="即时函数模式的组成"><a href="#即时函数模式的组成" class="headerlink" title="即时函数模式的组成:"></a>即时函数模式的组成:</h4><ul>
+<li><strong>使用函数表达式来定义函数(匿名函数,注意不能使用函数声明方式)</strong></li>
+<li><strong>在函数表达式末尾添加一组(),表示立即执行当前函数。</strong></li>
+<li><strong>将整个函数包装在()中,有两种方式</strong></li>
+</ul>
+<h4 id="即时函数的作用"><a href="#即时函数的作用" class="headerlink" title="即时函数的作用"></a>即时函数的作用</h4><ul>
+<li><strong>用来将所有的代码包装到当前的作用域中,并且不会将任何的变量泄露到全局作用域中。</strong></li>
+<li><strong>js中没有代码块作用域,而函数是js中唯一可以创建作用域的。</strong></li>
+<li><strong>即时函数就是利用了函数创建作用域这一点,来实现对一些需要封装且不允许外部访问的操作。</strong></li>
+</ul>
+<h4 id="即时函数的优点"><a href="#即时函数的优点" class="headerlink" title="即时函数的优点"></a>即时函数的优点</h4><ul>
+<li><strong>封装在一起执行的代码,且不会产生全局变量,在即时函数内部定义的所有变量都仅仅只是该函数的局部变量,不会造成全局变量污染问题。</strong></li>
+<li><strong>具有更好的封装性,外部无法访问到该函数内部的数据。</strong></li>
+<li><strong>示例代码 : 即时函数两种写法</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//第一种写法</span></div><div class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">       <span class="built_in">console</span>.log(<span class="string">"即时函数的第一种写法"</span>);</div><div class="line">    &#125;());</div><div class="line"></div><div class="line">    <span class="comment">//第二种写法</span></div><div class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"即时函数的第二种写法"</span>);</div><div class="line">    &#125;)();</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码 : 即时函数可以接受参数并提供返回值</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//01 接受参数</span></div><div class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params">str</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(str);           <span class="comment">//hello</span></div><div class="line">    &#125;)(<span class="string">"hello"</span>);</div><div class="line"></div><div class="line">    <span class="comment">//02 提供返回值并赋值给新的变量</span></div><div class="line">    <span class="keyword">var</span> foo = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">2</span> + <span class="number">1</span>;</div><div class="line">    &#125;)();</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(foo);           <span class="comment">//3</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="即时函数和闭包"><a href="#即时函数和闭包" class="headerlink" title="即时函数和闭包"></a>即时函数和闭包</h4><ul>
+<li><p><strong>相同点：他们都是函数的一种特殊形态，并且可以共存。而且闭包配合即时函数“效果更佳”。</strong></p>
+</li>
+<li><p><strong>不同点：即时函数是定义一个函数，并立即执行。它只能被使用一次，相当于“阅后即焚”。闭包是指一个函数与它捕获的外部变量的合体，按照MDN的说法，闭包就像一个对象—一个具有一个方法(行为)和一个或多个私有字段(状态)的对象。从这个角度看，闭包是符合面向对象的封装思想的。</strong></p>
+</li>
+</ul>
+<h2 id="即时对象初始化"><a href="#即时对象初始化" class="headerlink" title="即时对象初始化"></a>即时对象初始化</h2><h4 id="结构特征"><a href="#结构特征" class="headerlink" title="结构特征"></a>结构特征</h4><ul>
+<li><strong>提供一个对象,在该对象内部提供一个init初始化方法,使用()把对象包装起来(让字面量变成表达式)</strong></li>
+<li><strong>然后随即调用init方法,完成初始化操作。</strong></li>
+</ul>
+<h4 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h4><p><code>({}).init();</code></p>
+<h4 id="模式优点"><a href="#模式优点" class="headerlink" title="模式优点"></a>模式优点</h4><ul>
+<li><strong>在执行一次性的初始化任务时保护全局的命名空间。</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    (&#123;</div><div class="line">        <span class="attr">name</span>:<span class="string">"xxx"</span>,</div><div class="line">        <span class="attr">age</span>:<span class="number">23</span>,</div><div class="line">        <span class="attr">getDescript</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"名字:"</span> + <span class="keyword">this</span>.name + <span class="string">"年龄:"</span> + <span class="keyword">this</span>.age);</div><div class="line">        &#125;,</div><div class="line"></div><div class="line">        <span class="comment">//注意:在对象中访问对象的属性和方法都需要使用this.前缀</span></div><div class="line">        init:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">this</span>.getDescript();</div><div class="line">            <span class="comment">//其他的初始化处理</span></div><div class="line">        &#125;</div><div class="line">    &#125;).init();</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/闭包-函数回调-即时函数/" rel="tag"># 闭包 函数回调 即时函数</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/21/JavaScript-严格模式 - 作用域/" rel="next" title="JavaScript - 严格模式 - 作用域">
+                <i class="fa fa-chevron-left"></i> JavaScript - 严格模式 - 作用域
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/15/JavaScript-设计模式-命名空间/" rel="prev" title="JavaScript - 设计模式 - 命名空间">
+                JavaScript - 设计模式 - 命名空间 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/01/JavaScript-闭包-函数回调-即时函数/"
+           data-title="JavaScript - 闭包 - 函数回调 - 即时函数" data-url="git@github.com:anearseeyou/anearseeyou.git/2016/08/01/JavaScript-闭包-函数回调-即时函数/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://olrw5apal.bkt.clouddn.com/background.jpg"
+               alt="西巴撸" />
+          <p class="site-author-name" itemprop="name">西巴撸</p>
+          <p class="site-description motion-element" itemprop="description">Fucking the code</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本小节主要讲解闭包-是特别重要的一块内容-希望大家能够用心学习"><span class="nav-number">1.</span> <span class="nav-text">本小节主要讲解闭包,是特别重要的一块内容.希望大家能够用心学习!</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">本小节主要讲解闭包,是特别重要的一块内容.希望大家能够用心学习!</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域链的补充内容-—-gt-搜索规则"><span class="nav-number">2.</span> <span class="nav-text">作用域链的补充内容 —-> 搜索规则</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如果有忘记的人-翻一下上一篇博客"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">如果有忘记的人,翻一下上一篇博客</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意点-如果在内层作用域中声明了和外层作用域中同名的变量-那么这个变量是不会把外层的同名变量覆盖的"><span class="nav-number">2.0.1.</span> <span class="nav-text">注意点:如果在内层作用域中声明了和外层作用域中同名的变量,那么这个变量是不会把外层的同名变量覆盖的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搜索原则"><span class="nav-number">2.0.2.</span> <span class="nav-text">搜索原则:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">3.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#闭-关闭-封闭的意思-对外界不开方的"><span class="nav-number">3.0.1.</span> <span class="nav-text">闭 : 关闭,封闭的意思,对外界不开方的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包-包装起来"><span class="nav-number">3.0.2.</span> <span class="nav-text">包 : 包装起来</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包技术"><span class="nav-number">3.0.3.</span> <span class="nav-text">闭包技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#访问数据"><span class="nav-number">3.0.4.</span> <span class="nav-text">访问数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包读取数据和设置数据"><span class="nav-number">4.</span> <span class="nav-text">闭包读取数据和设置数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包的作用"><span class="nav-number">5.</span> <span class="nav-text">闭包的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#提供了一种间接访问函数封闭空间中数据的方法"><span class="nav-number">5.0.1.</span> <span class="nav-text">提供了一种间接访问函数封闭空间中数据的方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setTimeout和闭包的执行"><span class="nav-number">6.</span> <span class="nav-text">setTimeout和闭包的执行</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#setTimeout-只调用一次函数-延迟函数-一次是隔两秒-至少"><span class="nav-number">6.0.1.</span> <span class="nav-text">setTimeout(); 只调用一次函数(延迟函数) 一次是隔两秒(至少)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#每隔一定的时候就调用一次"><span class="nav-number">6.0.2.</span> <span class="nav-text">每隔一定的时候就调用一次</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setTimeout的问题"><span class="nav-number">6.0.3.</span> <span class="nav-text">setTimeout的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决setTimeout的问题"><span class="nav-number">6.0.4.</span> <span class="nav-text">解决setTimeout的问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#div事件和闭包"><span class="nav-number">7.</span> <span class="nav-text">div事件和闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的特性"><span class="nav-number">8.</span> <span class="nav-text">函数的特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的约定和name值"><span class="nav-number">9.</span> <span class="nav-text">函数的约定和name值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的回调-作为参数传递"><span class="nav-number">10.</span> <span class="nav-text">函数的回调(作为参数传递)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数是第一型对象-因此可以使用对象的地方都可以使用函数"><span class="nav-number">10.0.1.</span> <span class="nav-text">函数是第一型对象(因此可以使用对象的地方都可以使用函数)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回调函数-回调-当我们把某个函数作为参数传递给另一个函数的时候-这个函数就称为回调函数。"><span class="nav-number">10.0.2.</span> <span class="nav-text">回调函数(回调),当我们把某个函数作为参数传递给另一个函数的时候,这个函数就称为回调函数。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回调函数的基本模式"><span class="nav-number">10.0.3.</span> <span class="nav-text">回调函数的基本模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回调函数-关于this丢失的问题"><span class="nav-number">10.0.4.</span> <span class="nav-text">回调函数(关于this丢失的问题)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回调函数-解决this丢失的问题"><span class="nav-number">10.0.5.</span> <span class="nav-text">回调函数(解决this丢失的问题)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回调函数-兼容字符串方式"><span class="nav-number">10.0.6.</span> <span class="nav-text">回调函数(兼容字符串方式)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数作为返回值-计算器"><span class="nav-number">11.</span> <span class="nav-text">函数作为返回值( 计算器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义函数-惰性函数"><span class="nav-number">12.</span> <span class="nav-text">自定义函数( 惰性函数 )</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#惰性函数"><span class="nav-number">12.0.1.</span> <span class="nav-text">惰性函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景"><span class="nav-number">12.0.2.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点"><span class="nav-number">12.0.3.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">12.0.4.</span> <span class="nav-text">缺点:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#惰性定义函数存在的问题"><span class="nav-number">12.0.5.</span> <span class="nav-text">惰性定义函数存在的问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#即时函数"><span class="nav-number">13.</span> <span class="nav-text">即时函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在函数定义之后立即执行该函数。"><span class="nav-number">13.0.1.</span> <span class="nav-text">在函数定义之后立即执行该函数。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#即时函数模式的组成"><span class="nav-number">13.0.2.</span> <span class="nav-text">即时函数模式的组成:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#即时函数的作用"><span class="nav-number">13.0.3.</span> <span class="nav-text">即时函数的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#即时函数的优点"><span class="nav-number">13.0.4.</span> <span class="nav-text">即时函数的优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#即时函数和闭包"><span class="nav-number">13.0.5.</span> <span class="nav-text">即时函数和闭包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#即时对象初始化"><span class="nav-number">14.</span> <span class="nav-text">即时对象初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结构特征"><span class="nav-number">14.0.1.</span> <span class="nav-text">结构特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本结构"><span class="nav-number">14.0.2.</span> <span class="nav-text">基本结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模式优点"><span class="nav-number">14.0.3.</span> <span class="nav-text">模式优点</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">西巴撸</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"keeponcode"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("hCS32BdMw43hQACJYKDrXVny-gzGzoHsz", "Ja18UTWNr1AELp5Ba20h4Cyb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

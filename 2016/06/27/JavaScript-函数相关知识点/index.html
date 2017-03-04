@@ -1,0 +1,952 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="面向对象编程," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="函数内部的隐藏参数 –&amp;gt; arguments ( 重点 )arguments:接收实参
+该参数是一个类似于数组的结构（可以像数组一样遍历 + 还可以使用下标来访问数据），但是并不是数组。
+函数调用的时候，会把实参的值赋值给形参，而且会使用arguments来接收实参
+如果实参的个数超过形参的个数，那么可以通过arguments来获取超出的数据
+如果实参的格式小于形参的个数，那么不足的全部设置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript - 函数相关知识点">
+<meta property="og:url" content="git@github.com:anearseeyou/anearseeyou.git/2016/06/27/JavaScript-函数相关知识点/index.html">
+<meta property="og:site_name" content="Keep on coding">
+<meta property="og:description" content="函数内部的隐藏参数 –&amp;gt; arguments ( 重点 )arguments:接收实参
+该参数是一个类似于数组的结构（可以像数组一样遍历 + 还可以使用下标来访问数据），但是并不是数组。
+函数调用的时候，会把实参的值赋值给形参，而且会使用arguments来接收实参
+如果实参的个数超过形参的个数，那么可以通过arguments来获取超出的数据
+如果实参的格式小于形参的个数，那么不足的全部设置">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-d0fe79bf5c26ea67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-04T03:56:15.512Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript - 函数相关知识点">
+<meta name="twitter:description" content="函数内部的隐藏参数 –&amp;gt; arguments ( 重点 )arguments:接收实参
+该参数是一个类似于数组的结构（可以像数组一样遍历 + 还可以使用下标来访问数据），但是并不是数组。
+函数调用的时候，会把实参的值赋值给形参，而且会使用arguments来接收实参
+如果实参的个数超过形参的个数，那么可以通过arguments来获取超出的数据
+如果实参的格式小于形参的个数，那么不足的全部设置">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3359912-d0fe79bf5c26ea67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6389887927219914000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="git@github.com:anearseeyou/anearseeyou.git/2016/06/27/JavaScript-函数相关知识点/"/>
+
+
+
+
+
+  <title> JavaScript - 函数相关知识点 | Keep on coding </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Keep on coding</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">We can't stop | Just do it.</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="git@github.com:anearseeyou/anearseeyou.git/2016/06/27/JavaScript-函数相关知识点/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="西巴撸">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://olrw5apal.bkt.clouddn.com/background.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Keep on coding">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Keep on coding" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript - 函数相关知识点
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-27T23:39:39+08:00">
+                2016-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术控/" itemprop="url" rel="index">
+                    <span itemprop="name">技术控</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术控/程序猿/" itemprop="url" rel="index">
+                    <span itemprop="name">程序猿</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/06/27/JavaScript-函数相关知识点/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/27/JavaScript-函数相关知识点/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/06/27/JavaScript-函数相关知识点/" class="leancloud_visitors" data-flag-title="JavaScript - 函数相关知识点">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="函数内部的隐藏参数-–-gt-arguments-重点"><a href="#函数内部的隐藏参数-–-gt-arguments-重点" class="headerlink" title="函数内部的隐藏参数 –&gt; arguments ( 重点 )"></a>函数内部的隐藏参数 –&gt; arguments ( 重点 )</h2><h4 id="arguments-接收实参"><a href="#arguments-接收实参" class="headerlink" title="arguments:接收实参"></a>arguments:接收实参</h4><ul>
+<li><strong>该参数是一个类似于数组的结构（可以像数组一样遍历 + 还可以使用下标来访问数据），但是并不是数组。</strong></li>
+<li><strong>函数调用的时候，会把实参的值赋值给形参，而且会使用arguments来接收实参</strong></li>
+<li><strong>如果实参的个数超过形参的个数，那么可以通过arguments来获取超出的数据</strong></li>
+<li><strong>如果实参的格式小于形参的个数，那么不足的全部设置为undefined</strong></li>
+</ul>
+<h4 id="this指向的是一个对象，具体指向的是哪个对象由函数调用方式来决定。总之-this是面向对象里面最让人蛋疼的一个东西"><a href="#this指向的是一个对象，具体指向的是哪个对象由函数调用方式来决定。总之-this是面向对象里面最让人蛋疼的一个东西" class="headerlink" title="this指向的是一个对象，具体指向的是哪个对象由函数调用方式来决定。总之,this是面向对象里面最让人蛋疼的一个东西"></a>this指向的是一个对象，具体指向的是哪个对象由函数调用方式来决定。总之,this是面向对象里面最让人蛋疼的一个东西</h4><ul>
+<li><strong>使用this会让我们的代码灵活</strong></li>
+<li><strong>函数以普通方式调用：this指向window(注释：在非严格模式下指向window) 严格模式是 : <code>use static</code></strong></li>
+<li><strong>以对象的方法来调用：this指向调用方法的对象</strong></li>
+<li><strong>以构造函数的方式来调用 ：this指向的是构造函数内部新创建的对象</strong></li>
+<li><strong>上下文的方式调用（call|apply）: 第一个参数</strong></li>
+</ul>
+<h4 id="length属性"><a href="#length属性" class="headerlink" title="length属性"></a>length属性</h4><p><strong>1.arguments.length  实参长度（个数）</strong><br><strong>2.函数名.length     形参的长度（个数）</strong></p>
+<ul>
+<li><strong>示例代码1 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//1 扩展内置对象</span></div><div class="line">    <span class="built_in">Array</span>.prototype.des = <span class="string">"描述信息"</span>;</div><div class="line">    <span class="keyword">var</span> arr1 = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">    <span class="built_in">console</span>.log(arr1.des);</div><div class="line"></div><div class="line">    <span class="comment">//2 怎么判断一个对象的类型</span></div><div class="line">    <span class="comment">//typeof</span></div><div class="line">    <span class="comment">// 字符串|数字基本数据类型  string /number /boolean</span></div><div class="line">    <span class="comment">//函数  function</span></div><div class="line">    <span class="comment">//数组 | 日期类型     ---&gt;object</span></div><div class="line">    <span class="comment">//判断数组：Array.isArray()</span></div><div class="line"></div><div class="line">    <span class="comment">//3 toString判断</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">var</span> result = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</div><div class="line">           result += <span class="built_in">arguments</span>[i];</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.des,<span class="string">"______________"</span>);</div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(<span class="built_in">arguments</span>));   <span class="comment">//false</span></div><div class="line">        <span class="built_in">console</span>.log(result);</div><div class="line"></div><div class="line">        <span class="comment">//数组  [object Array]?</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="built_in">arguments</span>));   </div><div class="line">        <span class="comment">//不是数组  [object Arguments]</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    sum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);   <span class="comment">// 3</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码2 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params">a,b,c</span>)</span>&#123;</div><div class="line">        <span class="comment">// 打印用户传入的参数的个数</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length);</div><div class="line">        <span class="comment">//abc ===&gt; 123</span></div><div class="line">        <span class="comment">//4和5可以拿到</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[demo.length],<span class="string">"+++"</span>);</div><div class="line">        <span class="built_in">console</span>.log(c);</div><div class="line">        <span class="comment">//a =1 b = 2 c = undefined</span></div><div class="line">    &#125;</div><div class="line">    demo(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</div><div class="line">    <span class="built_in">console</span>.log(demo.length);</div><div class="line">    demo(<span class="number">1</span>,<span class="number">2</span>);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码3 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"></div><div class="line">    <span class="comment">//"use strict";</span></div><div class="line">    <span class="keyword">var</span> obj = &#123;<span class="attr">name</span>:<span class="string">"电话情缘1"</span>&#125;;</div><div class="line">    <span class="keyword">var</span> obj2 = &#123;<span class="attr">name</span>:<span class="string">"电话情缘2"</span>&#125;;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">showName</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">    &#125;;</div><div class="line"></div><div class="line"><span class="comment">//    obj.showName = showName;</span></div><div class="line"><span class="comment">//    obj2.showName = showName;</span></div><div class="line"><span class="comment">//    obj.showName();</span></div><div class="line">    showName();</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="callee和caller"><a href="#callee和caller" class="headerlink" title="callee和caller"></a>callee和caller</h2><h5 id="callee-函数自身"><a href="#callee-函数自身" class="headerlink" title="callee : 函数自身"></a>callee : 函数自身</h5><ul>
+<li><strong>主要用途：递归</strong></li>
+<li><strong>递归的特点：</strong></li>
+<li><strong>自己调用自己</strong></li>
+<li><strong>要有退出条件 不然就会陷入死循环</strong><h5 id="caller-调用函数的函数-注意点：在全局作用域中调用，指向的是null"><a href="#caller-调用函数的函数-注意点：在全局作用域中调用，指向的是null" class="headerlink" title="caller : 调用函数的函数  注意点：在全局作用域中调用，指向的是null"></a>caller : 调用函数的函数  注意点：在全局作用域中调用，指向的是null</h5></li>
+<li><strong>示例代码1 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">demo1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(demo1.caller);   <span class="comment">//demo2这个函数</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">demo2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        demo1();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    demo2();</div><div class="line">    demo1();</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码2 :</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    function func()&#123;</div><div class="line">        console.log(arguments.callee);  //函数自身</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    func();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">  <span class="comment">//1 - 2: 1+2</span></div><div class="line">  <span class="comment">//1 - 3: 1+2+3</span></div><div class="line">  <span class="comment">//1 - 4: 1+2+3+4</span></div><div class="line">  <span class="comment">//1 - 5: 1+2+3+4+5</span></div><div class="line">  <span class="comment">//1 - 6: 1+2+3+4+5+6</span></div><div class="line">  <span class="comment">//1 - n: 1+2+3+4.....n  ==&gt;1~(n-1) + n</span></div><div class="line"></div><div class="line">  <span class="built_in">console</span>.log((<span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</div><div class="line">          <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="comment">//如果函数的匿名函数，那么要在函数内部调用自身，可以使用arguments.callee</span></div><div class="line">      <span class="keyword">return</span> <span class="built_in">arguments</span>.callee(n - <span class="number">1</span>) + n;</div><div class="line">  &#125;)(<span class="number">100</span>));</div><div class="line"></div><div class="line">  <span class="comment">//console.log(demo(3000));  //1+2+3</span></div><div class="line"></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="Function的小应用"><a href="#Function的小应用" class="headerlink" title="Function的小应用"></a>Function的小应用</h2><h4 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h4><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">     <span class="comment">// 使用反括号`` 其实这里是走个铺垫 为之后的node.js</span></div><div class="line">    <span class="keyword">var</span> func = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">`</span></div><div class="line">     var arr = [];</div><div class="line">        for (var i = 0; i &lt; arguments.length; i++) &#123;</div><div class="line">            //去arr数组中查找指定的元素是否存在，如果不存在那么就添加</div><div class="line">            if (arr.indexOf(arguments[i]) == -1)</div><div class="line">            &#123;</div><div class="line">                arr.push(arguments[i])</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return arr;</div><div class="line"></div><div class="line">    `)</div><div class="line">    <span class="built_in">console</span>.log(func(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, , <span class="number">4</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">9</span>));</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h4 id="求最大值"><a href="#求最大值" class="headerlink" title="求最大值"></a>求最大值</h4><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getMax</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> maxNum = <span class="built_in">arguments</span>[<span class="number">0</span>];</div><div class="line">        <span class="comment">//遍历arguments</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (maxNum &lt; <span class="built_in">arguments</span>[i])</div><div class="line">            &#123;</div><div class="line">                maxNum = <span class="built_in">arguments</span>[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> maxNum;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(getMax(<span class="number">1</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">21</span>,<span class="number">220</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">123</span>));</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="eval-函数"><a href="#eval-函数" class="headerlink" title="eval 函数"></a>eval 函数</h2><h4 id="作用：把字符串转换为js的代码"><a href="#作用：把字符串转换为js的代码" class="headerlink" title="作用：把字符串转换为js的代码"></a>作用：把字符串转换为js的代码</h4><ul>
+<li><strong><code>new Function(&quot;字符串&quot;);</code>  // 把字符串转换为js的代码</strong><h4 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h4></li>
+<li><strong>Function：当函数调用的时候才会执行</strong></li>
+<li><strong>eval：立刻执行</strong></li>
+</ul>
+<h5 id="使用建议：不推荐使用（js是词法作用域，eval和with可以动态的调整破坏js的词法作用域），性能不好。"><a href="#使用建议：不推荐使用（js是词法作用域，eval和with可以动态的调整破坏js的词法作用域），性能不好。" class="headerlink" title="使用建议：不推荐使用（js是词法作用域，eval和with可以动态的调整破坏js的词法作用域），性能不好。"></a>使用建议：不推荐使用（js是词法作用域，eval和with可以动态的调整破坏js的词法作用域），性能不好。</h5><ul>
+<li><strong>场景：页面中接收用户的js代码 + json处理</strong></li>
+</ul>
+<h4 id="Json和XML"><a href="#Json和XML" class="headerlink" title="Json和XML"></a>Json和XML</h4><ul>
+<li><strong> json是一种国际标准协议,只要我们将数据转换成这个格式,就能实现传输</strong></li>
+<li><strong>XML比json更国际化标准,在所有语言中通用</strong></li>
+<li><strong>从整个互联网开发来看 XML占据80%,而json只有20%. 如果是前端开发的话,json占据55%,而XML占据45%</strong></li>
+<li><strong>HTML就是一种XML,XML不是一种语言,是一种规定,协议.</strong></li>
+</ul>
+<h4 id="Json协议和XML协议区别"><a href="#Json协议和XML协议区别" class="headerlink" title="Json协议和XML协议区别"></a>Json协议和XML协议区别</h4><ul>
+<li><strong>相同点</strong><br><strong>1.都是一种通信协议</strong><br><strong>2.都可以用来描述数据</strong></li>
+<li><p><strong>不同点<br>1.json:一种轻量级的数据结构，用来表示、存储、传输数据.<br>2.XML专用带宽大,json占用带宽小<br>3.json没有XML这么通用</strong><br><strong>4.json可以和js对象互相转换,和js是天生的一对,因此广泛用于前端开发<br>5.XML已经被业界广泛的使用,而json才刚刚开始,但是在Ajax这个特定的领域.未来的发展一定是XML让位给json,到时候Ajax就会编程Ajaj</strong></p>
+</li>
+<li><p><strong>示例代码 :</strong></p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">//把JSON数据转换为对象</span></div><div class="line">    <span class="keyword">var</span> obj = <span class="built_in">JSON</span>.parse(<span class="string">"&#123;\"name\":\"默默的备胎\"&#125;"</span>);</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(obj);</div><div class="line">    <span class="comment">//把对象转换为json数据</span></div><div class="line">    <span class="keyword">var</span> str = <span class="built_in">JSON</span>.stringify(obj);</div><div class="line">    <span class="built_in">console</span>.log(str);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> jsonStr = <span class="string">"&#123;\"name\":\"默默的备胎\"&#125;"</span>;</div><div class="line">    <span class="comment">//json---&gt;对象</span></div><div class="line">    <span class="built_in">eval</span>(<span class="string">"var o ="</span> +jsonStr);</div><div class="line">    <span class="built_in">console</span>.log(o);</div><div class="line">    <span class="keyword">var</span> obj = <span class="built_in">eval</span>(<span class="string">"("</span> + jsonStr +<span class="string">")"</span>);</div><div class="line">    <span class="built_in">console</span>.log(obj);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="Function-prototype的原型链"><a href="#Function-prototype的原型链" class="headerlink" title="Function.prototype的原型链"></a>Function.prototype的原型链</h2><ul>
+<li><strong>Function是Object构造函数的实例对象</strong></li>
+<li><strong>Object可以看作是Function的实例对象</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Boy</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">    <span class="comment">//设置继承</span></div><div class="line">    <span class="keyword">var</span> p1 = <span class="keyword">new</span> Person();</div><div class="line">    Boy.prototype = p1;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> boy = <span class="keyword">new</span> Boy();</div><div class="line">    <span class="comment">//console.log(Function.prototype);  //function () &#123;&#125;</span></div><div class="line">    <span class="built_in">console</span>.log(Boy.__proto__ == <span class="built_in">Function</span>.prototype);</div><div class="line">    <span class="built_in">console</span>.log(Boy.__proto__.constructor);   <span class="comment">//function Function() &#123; [native code] &#125;</span></div><div class="line">    <span class="built_in">console</span>.log(Boy.__proto__.__proto__ == <span class="built_in">Object</span>.prototype);     <span class="comment">//</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Function</span>.constructor == <span class="built_in">Function</span>);</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Function</span>.__proto__ == <span class="built_in">Function</span>.prototype);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script&gt;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Object</span>.constructor);</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Object</span>.__proto__);</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Object</span>.__proto__ == <span class="built_in">Function</span>.__proto__);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>解释</strong><br><strong>1.Boy构造函数本身是一个对象，因此有构造函数，它的构造函数是Function,它的原型对象是Boy.<strong>proto</strong> == Function.prototype 空函数<br>2.Function的原型对象是一个空的函数<br>3.这个空的函数也是一个对象，因此也有构造函数，它的构造函数是Function<br>4.推论：Function的原型对象是空函数，因此空函数的原型对象应该是自己（错误）是空的对象<br>5.空函数的原型对象 == Object.prototype<br>6.Function也是一个对象，因此也有构造函数，它的构造函数是谁？是自己Function<br>7.Function作为一个对象来说，也有自己的原型对象Function.<strong>proto</strong><br>8.Function对象的原型对象和其构造函数的原型对象是空函数<br>9.Object.prototype的构造函数是Object<br>10.Object本身也是一个对象，因此也有自己的构造函数—&gt;Function</strong></p>
+</li>
+<li><p><strong>图解 –&gt;  可以慢慢理解 这种东西急不得</strong></p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-d0fe79bf5c26ea67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="**Function的原型链**"></p>
+<h2 id="with的使用"><a href="#with的使用" class="headerlink" title="with的使用"></a>with的使用</h2><ul>
+<li><strong>作用：把对象的作用域引申到{}中,达到缩减代码的目的</strong></li>
+<li><strong>应用场合：在写代码的时候，要写很长的前缀.对象.属性.属性.属性</strong></li>
+<li><strong>具体的使用注意：</strong><br><strong>1.在{}中不能使用无前缀的方式来增加属性</strong><br><strong>2.this应该是谁？ window</strong><br><strong>3.严格模式下，with被禁止使用了</strong></li>
+<li><strong>使用建议：不建议使用 ,因为内部的this指向会有问题</strong></li>
+</ul>
+<h2 id="私有变量和私有函数"><a href="#私有变量和私有函数" class="headerlink" title="私有变量和私有函数"></a>私有变量和私有函数</h2><ul>
+<li><strong>在构造函数内部声明的变量称之为私有变量</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = <span class="string">"momo"</span>;</div><div class="line">        <span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> a = <span class="string">"测试的值"</span>;</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">getA</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">return</span> a;</div><div class="line">        &#125;;</div><div class="line">        <span class="comment">//像test这样的实例方法，它可以访问构造函数内部的变量和函数，这种方法被称为特权方法</span></div><div class="line">        <span class="keyword">this</span>.test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(getA());</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> p1 = <span class="keyword">new</span> Person();</div><div class="line">    p1.test();</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<hr>
+<h5 id="虽然讲了这么多了-但是还没有完-宝宝心里也苦啊-外国人的东西么的办法-要想超越人家-再不学习-都要被甩出外太空了"><a href="#虽然讲了这么多了-但是还没有完-宝宝心里也苦啊-外国人的东西么的办法-要想超越人家-再不学习-都要被甩出外太空了" class="headerlink" title="虽然讲了这么多了,但是还没有完,宝宝心里也苦啊! 外国人的东西么的办法,要想超越人家,再不学习,都要被甩出外太空了 !!!"></a>虽然讲了这么多了,但是还没有完,宝宝心里也苦啊! 外国人的东西么的办法,要想超越人家,再不学习,都要被甩出外太空了 !!!</h5><h6 id="未完待续-…"><a href="#未完待续-…" class="headerlink" title="未完待续 …"></a>未完待续 …</h6><hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面向对象编程/" rel="tag"># 面向对象编程</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/10/JavaScript-函数 - 原型链/" rel="next" title="JavaScript - 函数 - 原型链">
+                <i class="fa fa-chevron-left"></i> JavaScript - 函数 - 原型链
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/21/JavaScript-严格模式 - 作用域/" rel="prev" title="JavaScript - 严格模式 - 作用域">
+                JavaScript - 严格模式 - 作用域 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/27/JavaScript-函数相关知识点/"
+           data-title="JavaScript - 函数相关知识点" data-url="git@github.com:anearseeyou/anearseeyou.git/2016/06/27/JavaScript-函数相关知识点/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://olrw5apal.bkt.clouddn.com/background.jpg"
+               alt="西巴撸" />
+          <p class="site-author-name" itemprop="name">西巴撸</p>
+          <p class="site-description motion-element" itemprop="description">Fucking the code</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数内部的隐藏参数-–-gt-arguments-重点"><span class="nav-number">1.</span> <span class="nav-text">函数内部的隐藏参数 –> arguments ( 重点 )</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#arguments-接收实参"><span class="nav-number">1.0.1.</span> <span class="nav-text">arguments:接收实参</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this指向的是一个对象，具体指向的是哪个对象由函数调用方式来决定。总之-this是面向对象里面最让人蛋疼的一个东西"><span class="nav-number">1.0.2.</span> <span class="nav-text">this指向的是一个对象，具体指向的是哪个对象由函数调用方式来决定。总之,this是面向对象里面最让人蛋疼的一个东西</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#length属性"><span class="nav-number">1.0.3.</span> <span class="nav-text">length属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#callee和caller"><span class="nav-number">2.</span> <span class="nav-text">callee和caller</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#callee-函数自身"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">callee : 函数自身</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#caller-调用函数的函数-注意点：在全局作用域中调用，指向的是null"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">caller : 调用函数的函数  注意点：在全局作用域中调用，指向的是null</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function的小应用"><span class="nav-number">3.</span> <span class="nav-text">Function的小应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组去重"><span class="nav-number">3.0.1.</span> <span class="nav-text">数组去重</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#求最大值"><span class="nav-number">3.0.2.</span> <span class="nav-text">求最大值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eval-函数"><span class="nav-number">4.</span> <span class="nav-text">eval 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#作用：把字符串转换为js的代码"><span class="nav-number">4.0.1.</span> <span class="nav-text">作用：把字符串转换为js的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区别："><span class="nav-number">4.0.2.</span> <span class="nav-text">区别：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用建议：不推荐使用（js是词法作用域，eval和with可以动态的调整破坏js的词法作用域），性能不好。"><span class="nav-number">4.0.2.1.</span> <span class="nav-text">使用建议：不推荐使用（js是词法作用域，eval和with可以动态的调整破坏js的词法作用域），性能不好。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Json和XML"><span class="nav-number">4.0.3.</span> <span class="nav-text">Json和XML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Json协议和XML协议区别"><span class="nav-number">4.0.4.</span> <span class="nav-text">Json协议和XML协议区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function-prototype的原型链"><span class="nav-number">5.</span> <span class="nav-text">Function.prototype的原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#with的使用"><span class="nav-number">6.</span> <span class="nav-text">with的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#私有变量和私有函数"><span class="nav-number">7.</span> <span class="nav-text">私有变量和私有函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#虽然讲了这么多了-但是还没有完-宝宝心里也苦啊-外国人的东西么的办法-要想超越人家-再不学习-都要被甩出外太空了"><span class="nav-number">7.0.0.1.</span> <span class="nav-text">虽然讲了这么多了,但是还没有完,宝宝心里也苦啊! 外国人的东西么的办法,要想超越人家,再不学习,都要被甩出外太空了 !!!</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#未完待续-…"><span class="nav-number">7.0.0.1.1.</span> <span class="nav-text">未完待续 …</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">西巴撸</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"keeponcode"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("hCS32BdMw43hQACJYKDrXVny-gzGzoHsz", "Ja18UTWNr1AELp5Ba20h4Cyb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
