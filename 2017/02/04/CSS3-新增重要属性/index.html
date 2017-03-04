@@ -1,0 +1,1037 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS3," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本篇内容只要主要讲解CSS3新增属性,主要有伪类,动画,背景,边框,阴影等效果.CSS3学的好,不用js也一样能做好动画,C3很强大,逼格很高,现在很多前卫的企业都在用C3做动画.伪类选择器伪类选择器就是专门用于修改a标签不同状态样式的a标签有哪些状态
+默认状态, 从未被点击过  :link
+被访问过状态 :visited
+长按状态 :active
+鼠标悬浮状态 :hover
+
+注意点
+众多伪类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3 - 新增重要属性">
+<meta property="og:url" content="git@github.com:anearseeyou/anearseeyou.git/2017/02/04/CSS3-新增重要属性/index.html">
+<meta property="og:site_name" content="Keep on coding">
+<meta property="og:description" content="本篇内容只要主要讲解CSS3新增属性,主要有伪类,动画,背景,边框,阴影等效果.CSS3学的好,不用js也一样能做好动画,C3很强大,逼格很高,现在很多前卫的企业都在用C3做动画.伪类选择器伪类选择器就是专门用于修改a标签不同状态样式的a标签有哪些状态
+默认状态, 从未被点击过  :link
+被访问过状态 :visited
+长按状态 :active
+鼠标悬浮状态 :hover
+
+注意点
+众多伪类">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-8605a470e6710ee6.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-51f442a08d202633.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-5d418b0d451ba8ae.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-85ea14236174594f.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-45cfd8648430cfb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-c5fe0de9bf05cd8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-16a4c8af46392e53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3359912-1fd84f4e483d8f98.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-03-04T11:19:17.111Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3 - 新增重要属性">
+<meta name="twitter:description" content="本篇内容只要主要讲解CSS3新增属性,主要有伪类,动画,背景,边框,阴影等效果.CSS3学的好,不用js也一样能做好动画,C3很强大,逼格很高,现在很多前卫的企业都在用C3做动画.伪类选择器伪类选择器就是专门用于修改a标签不同状态样式的a标签有哪些状态
+默认状态, 从未被点击过  :link
+被访问过状态 :visited
+长按状态 :active
+鼠标悬浮状态 :hover
+
+注意点
+众多伪类">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3359912-8605a470e6710ee6.gif?imageMogr2/auto-orient/strip">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6389887927219914000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="git@github.com:anearseeyou/anearseeyou.git/2017/02/04/CSS3-新增重要属性/"/>
+
+
+
+
+
+  <title> CSS3 - 新增重要属性 | Keep on coding </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Keep on coding</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">We can't stop | Just do it.</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="git@github.com:anearseeyou/anearseeyou.git/2017/02/04/CSS3-新增重要属性/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="西巴撸">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://olrw5apal.bkt.clouddn.com/background.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Keep on coding">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Keep on coding" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS3 - 新增重要属性
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-04T19:15:52+08:00">
+                2017-02-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术控/" itemprop="url" rel="index">
+                    <span itemprop="name">技术控</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术控/程序猿/" itemprop="url" rel="index">
+                    <span itemprop="name">程序猿</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/04/CSS3-新增重要属性/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/04/CSS3-新增重要属性/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/02/04/CSS3-新增重要属性/" class="leancloud_visitors" data-flag-title="CSS3 - 新增重要属性">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h2 id="本篇内容只要主要讲解CSS3新增属性-主要有伪类-动画-背景-边框-阴影等效果-CSS3学的好-不用js也一样能做好动画-C3很强大-逼格很高-现在很多前卫的企业都在用C3做动画"><a href="#本篇内容只要主要讲解CSS3新增属性-主要有伪类-动画-背景-边框-阴影等效果-CSS3学的好-不用js也一样能做好动画-C3很强大-逼格很高-现在很多前卫的企业都在用C3做动画" class="headerlink" title="本篇内容只要主要讲解CSS3新增属性,主要有伪类,动画,背景,边框,阴影等效果.CSS3学的好,不用js也一样能做好动画,C3很强大,逼格很高,现在很多前卫的企业都在用C3做动画."></a>本篇内容只要主要讲解CSS3新增属性,主要有伪类,动画,背景,边框,阴影等效果.CSS3学的好,不用js也一样能做好动画,C3很强大,逼格很高,现在很多前卫的企业都在用C3做动画.</h2><h2 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h2><h4 id="伪类选择器就是专门用于修改a标签不同状态样式的"><a href="#伪类选择器就是专门用于修改a标签不同状态样式的" class="headerlink" title="伪类选择器就是专门用于修改a标签不同状态样式的"></a>伪类选择器就是专门用于修改a标签不同状态样式的</h4><h4 id="a标签有哪些状态"><a href="#a标签有哪些状态" class="headerlink" title="a标签有哪些状态"></a>a标签有哪些状态</h4><ul>
+<li>默认状态, 从未被点击过  :link</li>
+<li>被访问过状态 :visited</li>
+<li>长按状态 :active</li>
+<li>鼠标悬浮状态 :hover</li>
+</ul>
+<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><ul>
+<li>众多伪类选择器可以单独的存在, 也可以一起存在</li>
+<li>如果多个伪类选择器一起出现, 那么有严格的顺序要求<br>编写的顺序要严格的按照爱恨原则  love hate</li>
+</ul>
+<h2 id="超链接美化"><a href="#超链接美化" class="headerlink" title="超链接美化"></a>超链接美化</h2><h4 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h4><ul>
+<li>由于鼠标悬浮是从默认状态过度过来的, 所以不用再次设置删除下划线</li>
+<li>由于长按式从鼠标悬浮过度过来的, 所以在长按仲不用再次设置背景颜色</li>
+</ul>
+<h4 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h4><ul>
+<li>设置a标签盒子相关的属性写在标签选择器中(显示模式/尺寸), 设置a标签内容样式/背景写在伪类选择器中</li>
+<li>如果默认状态和点击之后状态的样式一样, 可以简写到a标签选择器中</li>
+</ul>
+<h4 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码 :"></a><strong>示例代码 :</strong></h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>我是导航<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>我是导航<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>我是导航<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>我是导航<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>我是导航<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>我是导航<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>我是导航<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>我是导航<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    *&#123;</div><div class="line">        margin: 0;</div><div class="line">        padding: 0;</div><div class="line">    &#125;</div><div class="line">    ul&#123;</div><div class="line">        width: 960px;</div><div class="line">        height: 30px;</div><div class="line">        background-color: red;</div><div class="line">        margin: 50px auto;</div><div class="line">    &#125;</div><div class="line">    ul li&#123;</div><div class="line">        list-style: none;</div><div class="line">        float: left;</div><div class="line">        background-color: pink;</div><div class="line">        width: 120px;</div><div class="line">        height: 30px;</div><div class="line">        text-align: center;</div><div class="line">        line-height: 30px;</div><div class="line">    &#125;</div><div class="line">    ul li a&#123;</div><div class="line">        display: inline-block;</div><div class="line">        width: 120px;</div><div class="line">        height: 30px;</div><div class="line"></div><div class="line">        color: white;</div><div class="line">        text-decoration: none;</div><div class="line">    &#125;</div><div class="line">    /*</div><div class="line">    ul li a:link&#123;</div><div class="line">        color: white;</div><div class="line">        text-decoration: none;</div><div class="line">    &#125;</div><div class="line">    ul li a:visited&#123;</div><div class="line">        color: white;</div><div class="line">        text-decoration: none;</div><div class="line">    &#125;</div><div class="line">    */</div><div class="line">    ul li a:hover&#123;</div><div class="line">        color: red;</div><div class="line">        background-color: #ccc;</div><div class="line">    &#125;</div><div class="line">    ul li a:active&#123;</div><div class="line">        color: yellow;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h4 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h4><p><img src="http://upload-images.jianshu.io/upload_images/3359912-8605a470e6710ee6.gif?imageMogr2/auto-orient/strip" alt="**超链接美化**"></p>
+<h2 id="过度模块"><a href="#过度模块" class="headerlink" title="过度模块"></a>过度模块</h2><h4 id="过渡三要素"><a href="#过渡三要素" class="headerlink" title="过渡三要素"></a>过渡三要素</h4><ul>
+<li>有属性发生改变</li>
+<li>必须告诉系统哪个属性需要添加过渡</li>
+<li>必须告诉系统过渡效果持续时间</li>
+</ul>
+<h4 id="如何给多个属性添加过渡效果"><a href="#如何给多个属性添加过渡效果" class="headerlink" title="如何给多个属性添加过渡效果"></a>如何给多个属性添加过渡效果</h4><ul>
+<li>通过逗号将多个属性和多个过渡时间隔开即可</li>
+<li><code>transition-property: width,background-color;</code></li>
+<li><code>transition-duration: 3s, 3s;</code></li>
+</ul>
+<h4 id="过渡属性连写格式"><a href="#过渡属性连写格式" class="headerlink" title="过渡属性连写格式"></a>过渡属性连写格式</h4><ul>
+<li><code>transition: property duration timing-function delay;</code></li>
+<li><code>transition: 过渡属性 过渡时间 过渡运动曲线 延迟时间</code></li>
+<li>其中运动曲线和延迟时间是可以省略的</li>
+</ul>
+<h4 id="浏览器的私有前缀"><a href="#浏览器的私有前缀" class="headerlink" title="浏览器的私有前缀"></a>浏览器的私有前缀</h4><ul>
+<li>每个版本的标准发布之前都会有一个草案, 浏览器厂商为了能够不影响正式版所以会给草案中的属性添加私有前缀, 当正式版发布之后如果新增的属性可以使用, 那么浏览器厂商会逐步去掉私有前缀, 如果正式版发布之后属性不可以使用, 但是由于过去添加了私有前缀所以对正式版也没有影响</li>
+</ul>
+<h4 id="私有前缀"><a href="#私有前缀" class="headerlink" title="私有前缀"></a>私有前缀</h4><ul>
+<li><code>-webkit-transition: 谷歌/苹果</code></li>
+<li><code>-moz-transition: 火狐</code></li>
+<li><code>-ms-transition: 微软</code></li>
+<li><code>-o-transition: 欧朋</code></li>
+</ul>
+<h4 id="示例代码-1"><a href="#示例代码-1" class="headerlink" title="示例代码 :"></a><strong>示例代码 :</strong></h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>让<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>我<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>掉<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>下<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>眼<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>泪<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>的<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>不<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>止<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>昨<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>夜<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>的<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>酒<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    *&#123;</div><div class="line">        margin: 0;</div><div class="line">        padding: 0;</div><div class="line">    &#125;</div><div class="line">    div&#123;</div><div class="line">        height: 150px;</div><div class="line">        background-color: red;</div><div class="line">        text-align: center;</div><div class="line">        line-height: 150px;</div><div class="line">        margin-top: 100px;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    span&#123;</div><div class="line">        font-size: 50px;</div><div class="line">        transition: margin 1s;</div><div class="line">    &#125;</div><div class="line">    div:hover span&#123;</div><div class="line">        margin:0 20px;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h4 id="效果展示-1"><a href="#效果展示-1" class="headerlink" title="效果展示"></a>效果展示</h4><p><img src="http://upload-images.jianshu.io/upload_images/3359912-51f442a08d202633.gif?imageMogr2/auto-orient/strip" alt="**过度效果**"></p>
+<p>附小Demo一个 以前这种效果都得用Js来实现 现在用C3轻松实现</p>
+<h4 id="lt-———-HTML-———–-gt"><a href="#lt-———-HTML-———–-gt" class="headerlink" title="&lt; ! ———- HTML  ———– &gt;"></a>&lt; ! ———- HTML  ———– &gt;</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>![](../素材/ad1.jpg)<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span>![](../素材/ad2.jpg)<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span>![](../素材/ad3.jpg)<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span>![](../素材/ad4.jpg)<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span>![](../素材/ad5.jpg)<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">li</span>&gt;</span>![](../素材/ad6.jpg)<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="lt-———-Style-—————-gt"><a href="#lt-———-Style-—————-gt" class="headerlink" title="&lt; ! ——— Style ————— &gt;"></a>&lt; ! ——— Style ————— &gt;</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    *&#123;</div><div class="line">        margin: 0;</div><div class="line">        padding: 0;</div><div class="line">    &#125;</div><div class="line">    ul&#123;</div><div class="line">        width: 960px;</div><div class="line">        height: 300px;</div><div class="line">        border: 1px solid #000;</div><div class="line">        margin: 100px auto;</div><div class="line">    &#125;</div><div class="line">    ul li&#123;</div><div class="line">        list-style: none;</div><div class="line">        float: left;</div><div class="line">        width: 160px;</div><div class="line">        height: 300px;</div><div class="line">        background-color: blue;</div><div class="line">        /*box-sizing: border-box;*/</div><div class="line">        /*border: 1px solid #000;*/</div><div class="line">        overflow: hidden;</div><div class="line">        transition: width 0.2s;</div><div class="line">    &#125;</div><div class="line">    ul:hover li&#123;</div><div class="line">        width: 100px;</div><div class="line">    &#125;</div><div class="line">    ul li:hover&#123;</div><div class="line">        width: 460px;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h4 id="lt-———-效果展示-———-gt"><a href="#lt-———-效果展示-———-gt" class="headerlink" title="&lt; ! ——— 效果展示  ———- &gt;"></a>&lt; ! ——— 效果展示  ———- &gt;</h4><p><img src="http://upload-images.jianshu.io/upload_images/3359912-5d418b0d451ba8ae.gif?imageMogr2/auto-orient/strip" alt="**手风琴效果**"></p>
+<h2 id="2D维度模块"><a href="#2D维度模块" class="headerlink" title="2D维度模块"></a>2D维度模块</h2><h4 id="2D维度模块可以让元素旋转-缩放-平移等操作"><a href="#2D维度模块可以让元素旋转-缩放-平移等操作" class="headerlink" title="2D维度模块可以让元素旋转/缩放/平移等操作"></a>2D维度模块可以让元素旋转/缩放/平移等操作</h4><p><code>transform: scale(缩放值) rotate(旋转度) translate(水平平移, 垂直平移);</code></p>
+<h4 id="2D维度模块-形变中心点"><a href="#2D维度模块-形变中心点" class="headerlink" title="2D维度模块 - 形变中心点"></a>2D维度模块 - 形变中心点</h4><ul>
+<li>默认情况下形变重点点是50% 50%, 宽度的一半和高度的一半</li>
+<li><p>我们可以通过<code>transform-origin</code>属性修改形变中心点</p>
+</li>
+<li><p><code>格式: transform-origin: 水平方向 垂直方向;</code></p>
+<ul>
+<li><strong>注意点:</strong><blockquote>
+<p>水平方向和垂直方向的取值有三种<br>特殊关键字 left right center bottom top<br>具体的像素点  0px<br>百分比</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>形变中心点会影响旋转和缩放, 但是不会影响平移以及倾斜, 但是不会影响平移</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/*transform-origin:50px 50px;*/</div><div class="line">/*transform-origin:0px 0px;*/</div><div class="line">/*transform-origin:100px 0px;*/</div><div class="line">/*transform-origin:right top;*/</div><div class="line">transform-origin:100% 0%;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2D维度模块-透视"><a href="#2D维度模块-透视" class="headerlink" title="2D维度模块 - 透视"></a>2D维度模块 - 透视</h4><ul>
+<li><strong>透视 就是近大远小</strong></li>
+<li><code>添加透视效果 : perspective: 0px;</code></li>
+<li><strong>注意点</strong><br>透视属性需要添加到父元素上</li>
+<li><strong>灭点</strong><br>灭点就是近大远小延伸线的相交点, 默认是父元素宽度高度的一半, 可以通过<code>perspective-origin: 0px 0px;</code>指定</li>
+</ul>
+<h4 id="附小Demo一个-可视化近大远小效果"><a href="#附小Demo一个-可视化近大远小效果" class="headerlink" title="附小Demo一个,可视化近大远小效果"></a>附小Demo一个,可视化近大远小效果</h4><h4 id="lt-———-HTML-———–-gt-1"><a href="#lt-———-HTML-———–-gt-1" class="headerlink" title="&lt; ! ———- HTML  ———– &gt;"></a>&lt; ! ———- HTML  ———– &gt;</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></div><div class="line">    ![](../素材/pk1.png)</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="lt-———-Style-—————-gt-1"><a href="#lt-———-Style-—————-gt-1" class="headerlink" title="&lt; ! ——— Style ————— &gt;"></a>&lt; ! ——— Style ————— &gt;</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">        *&#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">        &#125;</div><div class="line">        .box&#123;</div><div class="line">            width:310px;</div><div class="line">            height: 438px;</div><div class="line">            border: 1px solid #000;</div><div class="line">            margin: 100px auto;</div><div class="line">            background-color: skyblue;</div><div class="line">            perspective: 500px;</div><div class="line">        &#125;</div><div class="line">        .box img&#123;</div><div class="line">            /*推荐写法*/</div><div class="line">            transform-origin: center bottom;</div><div class="line">            transition: all 1s;</div><div class="line">        &#125;</div><div class="line">        .box:hover img&#123;</div><div class="line">            /*不推荐*/</div><div class="line">            /*transform-origin: center bottom;*/</div><div class="line">            transform: rotateX(70deg);</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
+<h4 id="lt-———-效果展示-———-gt-1"><a href="#lt-———-效果展示-———-gt-1" class="headerlink" title="&lt; ! ——— 效果展示  ———- &gt;"></a>&lt; ! ——— 效果展示  ———- &gt;</h4><p><img src="http://upload-images.jianshu.io/upload_images/3359912-85ea14236174594f.gif?imageMogr2/auto-orient/strip" alt="**近大远小效果**"></p>
+<h4 id="内附Demo一个-照片墙旋转-点击跳转到案例页面"><a href="#内附Demo一个-照片墙旋转-点击跳转到案例页面" class="headerlink" title="内附Demo一个 照片墙旋转 点击跳转到案例页面"></a><a href="http://www.jianshu.com/p/185f55a9ebee" target="_blank" rel="external">内附Demo一个 照片墙旋转 点击跳转到案例页面</a></h4><h2 id="动画模块"><a href="#动画模块" class="headerlink" title="动画模块"></a>动画模块</h2><h4 id="动画三要素"><a href="#动画三要素" class="headerlink" title="动画三要素"></a>动画三要素</h4><ul>
+<li>指定动画名称</li>
+<li>创建自定义动画</li>
+<li>指定动画时长</li>
+</ul>
+<h4 id="示例代码-2"><a href="#示例代码-2" class="headerlink" title="示例代码 :"></a>示例代码 :</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    *&#123;</div><div class="line">        margin: 0;</div><div class="line">        padding: 0;</div><div class="line">    &#125;</div><div class="line">    .box&#123;</div><div class="line">        width: 100px;</div><div class="line">        height: 50px;</div><div class="line">        background-color: red;</div><div class="line">        /*告诉系统当前元素需要执行动画, 动画的名称叫做nj*/</div><div class="line">        animation-name: nj;</div><div class="line">        /*告诉系统当前元素执行动画的时长*/</div><div class="line">        animation-duration: 5s;</div><div class="line"></div><div class="line">        position: absolute;</div><div class="line">        left: 0;</div><div class="line">        top: 0;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    /*告诉系统我们需要自己创建一个叫做nj的动画*/</div><div class="line">    @keyframes nj &#123;</div><div class="line">        /*</div><div class="line">        from&#123;</div><div class="line">            margin-left: 0;</div><div class="line">        &#125;</div><div class="line">        to&#123;</div><div class="line">            margin-left: 500px;</div><div class="line">        &#125;</div><div class="line">        */</div><div class="line">        /*</div><div class="line">        0%&#123;</div><div class="line">            left: 0;</div><div class="line">            top: 0;</div><div class="line">        &#125;</div><div class="line">        25%&#123;</div><div class="line">            left: 300px;</div><div class="line">            top: 0;</div><div class="line">        &#125;</div><div class="line">        50%&#123;</div><div class="line">            left: 300px;</div><div class="line">            top: 300px;</div><div class="line">        &#125;</div><div class="line">        75%&#123;</div><div class="line">            left: 0;</div><div class="line">            top: 300px;</div><div class="line">        &#125;</div><div class="line">        100%&#123;</div><div class="line">            left: 0;</div><div class="line">            top: 0;</div><div class="line">        &#125;</div><div class="line">        */</div><div class="line">        0%&#123;</div><div class="line">            left: 0;</div><div class="line">            top: 0;</div><div class="line">        &#125;</div><div class="line">        30%&#123;</div><div class="line">            left: 300px;</div><div class="line">            top: 0;</div><div class="line">        &#125;</div><div class="line">        60%&#123;</div><div class="line">            left: 300px;</div><div class="line">            top: 300px;</div><div class="line">        &#125;</div><div class="line">        100%&#123;</div><div class="line">            left: 0;</div><div class="line">            top: 300px;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="动画模块其它属性"><a href="#动画模块其它属性" class="headerlink" title="动画模块其它属性"></a>动画模块其它属性</h2><h4 id="示例代码-3"><a href="#示例代码-3" class="headerlink" title="示例代码 :"></a>示例代码 :</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    &lt;div class="box1"&gt;&lt;/div&gt;</div><div class="line">    &lt;div class="box2"&gt;&lt;/div&gt;</div><div class="line">    *&#123;</div><div class="line">        margin: 0;</div><div class="line">        padding: 0;</div><div class="line">    &#125;</div><div class="line">    .box1&#123;</div><div class="line">        width: 100px;</div><div class="line">        height: 50px;</div><div class="line">        background-color: red;</div><div class="line">        animation-name: sport;</div><div class="line">        animation-duration: 2s;</div><div class="line">        /*动画延迟时间*/</div><div class="line">        /*animation-delay: 2s;*/</div><div class="line">        /*动画运动曲线*/</div><div class="line">        animation-timing-function: linear;</div><div class="line">        /*指定动画重复次数*/</div><div class="line">        animation-iteration-count: 3;</div><div class="line">        /*指定动画时候需要往返, alternate往返 normal默认*/</div><div class="line">        animation-direction: alternate;</div><div class="line">    &#125;</div><div class="line">    .box1:hover&#123;</div><div class="line">        /*默认值是running, 如果设置为paused那么动画会暂停*/</div><div class="line">        animation-play-state: paused;</div><div class="line">    &#125;</div><div class="line">    @keyframes sport &#123;</div><div class="line">        from&#123;</div><div class="line">            margin-left: 0;</div><div class="line">        &#125;</div><div class="line">        to&#123;</div><div class="line">            margin-left: 400px;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    .box2&#123;</div><div class="line">        width: 100px;</div><div class="line">        height: 100px;</div><div class="line">        background-color: blue;</div><div class="line">        margin: 100px auto;</div><div class="line">        animation-name: xxoo;</div><div class="line">        animation-duration: 3s;</div><div class="line">        animation-timing-function: linear;</div><div class="line">        animation-delay: 2s;</div><div class="line">        /*</div><div class="line">        动画其实有三种状态, 分别是等待状态/运动状态/结束状态</div><div class="line">        none:默认值，　不做任何操作</div><div class="line">        backwards: 设置动画等待状态的样式为动画的第一个</div><div class="line">        forwards: 设置动画结束状态的样式为动画的最后一个</div><div class="line">        both:是backwards和forwards的结合</div><div class="line">        */</div><div class="line">        animation-fill-mode: both;</div><div class="line">    &#125;</div><div class="line">    @keyframes xxoo &#123;</div><div class="line">        0%&#123;</div><div class="line">            transform: rotate(10deg);</div><div class="line">        &#125;</div><div class="line">        50%&#123;</div><div class="line">            transform: rotate(30deg);</div><div class="line">        &#125;</div><div class="line">        100%&#123;</div><div class="line">            transform: rotate(80deg);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h4 id="连写格式"><a href="#连写格式" class="headerlink" title="连写格式"></a>连写格式</h4><ul>
+<li><p><code>animation</code>: 动画名称 动画时间 运动曲线 延迟时间 动画次数 往返动画;</p>
+</li>
+<li><p>连写格式简写 : <code>animation</code>: 动画名称 动画时间;</p>
+</li>
+</ul>
+<h4 id="附Demo1一个-云层特效-点击跳转到案例页面"><a href="#附Demo1一个-云层特效-点击跳转到案例页面" class="headerlink" title="附Demo1一个 云层特效 点击跳转到案例页面"></a><a href="http://www.jianshu.com/p/3b220d516c98" target="_blank" rel="external">附Demo1一个 云层特效 点击跳转到案例页面</a></h4><h4 id="附Demo2一个-无限轮播-点击跳转到案例页面"><a href="#附Demo2一个-无限轮播-点击跳转到案例页面" class="headerlink" title="附Demo2一个 无限轮播 点击跳转到案例页面"></a><a href="http://www.jianshu.com/p/cfbad93d4085" target="_blank" rel="external">附Demo2一个 无限轮播 点击跳转到案例页面</a></h4><h2 id="3D维度模块"><a href="#3D维度模块" class="headerlink" title="3D维度模块"></a>3D维度模块</h2><h4 id="示例代码-4"><a href="#示例代码-4" class="headerlink" title="示例代码 :"></a>示例代码 :</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">        *&#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">        &#125;</div><div class="line">        .father&#123;</div><div class="line">            width: 200px;</div><div class="line">            height: 200px;</div><div class="line">            background-color: red;</div><div class="line">            margin: 100px auto;</div><div class="line">            border: 1px solid #000;</div><div class="line"></div><div class="line">            perspective: 300px;</div><div class="line">            /*</div><div class="line">            1.2D和3D</div><div class="line">            默认情况下一个元素的transform-style等于flat, 也就是2D</div><div class="line">            如果将transform-style设置为preserve-3d, 那么这个元素所有的子元素都会变成3D的</div><div class="line">            2.注意点:</div><div class="line">            和透视一样, 如果想看到某个元素的3D效果, 那么就给这个元素的父元素设置 transform-style: preserve-3d;</div><div class="line">            */</div><div class="line">            transform-style: preserve-3d;</div><div class="line">            transform: rotateY(0deg);</div><div class="line">        &#125;</div><div class="line">        .father .son&#123;</div><div class="line">            width: 100px;</div><div class="line">            height: 100px;</div><div class="line">            background-color: blue;</div><div class="line">            margin: 0 auto;</div><div class="line">            margin-top: 50px;</div><div class="line">            transform: rotateY(45deg);</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
+<h4 id="附Demo一个-3D立方体效果-点击跳转到案例页面"><a href="#附Demo一个-3D立方体效果-点击跳转到案例页面" class="headerlink" title="附Demo一个 3D立方体效果 点击跳转到案例页面"></a><a href="http://www.jianshu.com/p/99593235c011" target="_blank" rel="external">附Demo一个 3D立方体效果 点击跳转到案例页面</a></h4><h2 id="背景新增属性"><a href="#背景新增属性" class="headerlink" title="背景新增属性"></a>背景新增属性</h2><h4 id="背景尺寸属性"><a href="#背景尺寸属性" class="headerlink" title="背景尺寸属性"></a>背景尺寸属性</h4><ul>
+<li>在CSS3以前背景图片是不支持设置大小的, 从CSS3开始我们可以通过background-size的属性来修改背景图片的大小</li>
+<li><code>background-size取值:</code></li>
+<li>固定像素: 指定多少就是多少, 例如:<code>background-size:100px 100px;</code></li>
+<li>百分比: 指定多少就是多少, 例如:<code>background-size:50% 20%;</code></li>
+<li><code>auto</code>: 如果宽度是auto, 那么就等比拉伸宽度. 如果高度是auto,那么久等比拉伸高度</li>
+<li><code>conver</code>: 等比拉伸图片, 保证图片的宽度”和”高度都填满盒子</li>
+<li><code>contain</code>: 等比拉伸图片, 保证图片的宽度”或”高度填满盒子</li>
+</ul>
+<h4 id="背景绘制位置属性"><a href="#背景绘制位置属性" class="headerlink" title="背景绘制位置属性"></a>背景绘制位置属性</h4><ul>
+<li><code>background-origin</code> 属性</li>
+<li><p>可以用于指定”背景图片”从什么地方开始绘制</p>
+</li>
+<li><p>取值:</p>
+</li>
+<li><code>border-box:</code> 背景图片从<code>border</code>开始绘制</li>
+<li><code>padding-box:</code> 背景图片从<code>padding</code>开始绘制, 默认</li>
+<li><p><code>content-box:</code> 背景图片从<code>content</code>开始绘制</p>
+</li>
+<li><p>注意点:<br><code>background-origin</code>只对背景图片有效, 对背景颜色无效的</p>
+</li>
+<li><p><strong>图解</strong></p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-45cfd8648430cfb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="**背景绘制**"></p>
+<h4 id="背景裁剪属性"><a href="#背景裁剪属性" class="headerlink" title="背景裁剪属性"></a>背景裁剪属性</h4><ul>
+<li><p><code>background-clip</code><br><code>background-clip</code> 可以设置背景哪些部分需要显示</p>
+</li>
+<li><p>取值<br><code>border-box:</code> 盒子的所有背景都需要显示<br><code>padding-box:</code> 盒子padding和content的部分背景需要显示<br><code>content-box:</code> 盒子content部分的背景需要显示</p>
+</li>
+<li><p>background-origin和background-clip<br><code>background-origin</code>是用于指定背景图片从什么地方开始绘制<br><code>background-clip</code>是用于指定显示哪些区域的背景需要</p>
+</li>
+<li><p><strong>图解</strong></p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-c5fe0de9bf05cd8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="**背景裁剪**"></p>
+<h4 id="多重背景"><a href="#多重背景" class="headerlink" title="多重背景"></a>多重背景</h4><ul>
+<li>只需要在连写格式后面通过逗号隔开即可</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">background: url(&quot;../素材/animal1.png&quot;) left top no-repeat,</div><div class="line">url(&quot;../地址&quot;) right top no-repeat;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>注意点<br>除了连写可以设置多重背景以外, 分开写也可以设置多重背景<br><code>background-image: url(&quot;../图片地址2&quot;),url(&quot;../图片地址2&quot;);</code><br><code>background-repeat:no-repeat, no-repeat;</code><br><code>background-position: left top, right top;</code></p>
+</li>
+<li><p><strong>图解</strong></p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-16a4c8af46392e53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="**多重背景**"></p>
+<ul>
+<li><strong>多重背景动画</strong></li>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;style&gt;</div><div class="line">        *&#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">        &#125;</div><div class="line">        .box&#123;</div><div class="line">            width: 500px;</div><div class="line">            height: 190px;</div><div class="line">            border: 1px solid #000;</div><div class="line">            margin: 100px auto;</div><div class="line">            /*添加背景*/</div><div class="line">            background-image: url(&quot;../素材/bg-plane.png&quot;), url(&quot;../素材/bg-sun.png&quot;),url(&quot;../素材/bg-clouds.png&quot;);</div><div class="line">            background-repeat:no-repeat, no-repeat,no-repeat;</div><div class="line">            background-position: 50px 150px,300px 50px ,left top;</div><div class="line">            background-size:50px 50px, 50px 50px,auto auto;</div><div class="line"></div><div class="line">            /*添加动画*/</div><div class="line">            animation: sport 10s linear 0s infinite normal;</div><div class="line">        &#125;</div><div class="line">        @keyframes sport &#123;</div><div class="line">            from&#123;</div><div class="line">                background-position: 50px 150px,300px 50px ,left top;</div><div class="line">            &#125;</div><div class="line">            to&#123;</div><div class="line">                background-position: 450px -100px,300px 50px ,-1123px top;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>图解</strong></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3359912-1fd84f4e483d8f98.gif?imageMogr2/auto-orient/strip" alt="**CSS3- 多重背景动画**"></p>
+<h2 id="边框圆角"><a href="#边框圆角" class="headerlink" title="边框圆角"></a>边框圆角</h2><ul>
+<li>边框圆角可以将边框从直角转换为圆角</li>
+</ul>
+<h4 id="格式"><a href="#格式" class="headerlink" title="格式:"></a>格式:</h4><ul>
+<li><code>border-radius: 左上 右上 右下 左下;</code></li>
+<li>当省略某个取值之后, 被省略的取值是它对角的取值, 如果只有一个取值代表四个角都是这个值</li>
+</ul>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/*第一个参数是水平方向, 第二个参数是垂直方向*/</div><div class="line">border-top-left-radius: 100px 50px;</div><div class="line">border-top-right-radius: 100px 50px;</div><div class="line">border-bottom-left-radius: 100px 50px;</div><div class="line">border-bottom-right-radius: 100px 50px;</div><div class="line"></div><div class="line">/*斜杠前面的是设置四个角水平方向的, 斜杠后面的是设置四个角垂直方向的*/</div><div class="line">border-radius: 100px 100px 100px 100px/50px 50px 50px 50px;</div><div class="line">border-radius: 100px/50px;</div></pre></td></tr></table></figure>
+<ul>
+<li>如果<code>border-radius</code>的取值大于边框的宽度, 那么内边框就会有圆角效果, 如果<code>border-radius</code>的取值小鱼边框的宽度, 那么内边框不会有圆角的效果</li>
+</ul>
+<h4 id="附Demo1一个-边框圆角之太极八卦-点击跳转到案例页面"><a href="#附Demo1一个-边框圆角之太极八卦-点击跳转到案例页面" class="headerlink" title="附Demo1一个 边框圆角之太极八卦 点击跳转到案例页面"></a><a href="http://www.jianshu.com/p/a901bd3366c4" target="_blank" rel="external">附Demo1一个 边框圆角之太极八卦 点击跳转到案例页面</a></h4><h4 id="附Demo2一个-边框圆角之跳动的心-点击跳转到案例页面"><a href="#附Demo2一个-边框圆角之跳动的心-点击跳转到案例页面" class="headerlink" title="附Demo2一个 边框圆角之跳动的心 点击跳转到案例页面"></a><a href="http://www.jianshu.com/p/61180f3925d6" target="_blank" rel="external">附Demo2一个 边框圆角之跳动的心 点击跳转到案例页面</a></h4><h4 id="附Demo3一个-边框圆角之安卓机器猫-点击跳转到案例页面"><a href="#附Demo3一个-边框圆角之安卓机器猫-点击跳转到案例页面" class="headerlink" title="附Demo3一个 边框圆角之安卓机器猫 点击跳转到案例页面"></a><a href="http://www.jianshu.com/p/d595087cb6e3" target="_blank" rel="external">附Demo3一个 边框圆角之安卓机器猫 点击跳转到案例页面</a></h4><h4 id="附Demo4一个-边框圆角之钟表-点击跳转到案例页面"><a href="#附Demo4一个-边框圆角之钟表-点击跳转到案例页面" class="headerlink" title="附Demo4一个 边框圆角之钟表 点击跳转到案例页面"></a><a href="http://www.jianshu.com/p/9d3489aaf86b" target="_blank" rel="external">附Demo4一个 边框圆角之钟表 点击跳转到案例页面</a></h4><hr>
+<h2 id="边框图片"><a href="#边框图片" class="headerlink" title="边框图片"></a>边框图片</h2><ul>
+<li><strong>示例代码 :</strong></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    *&#123;</div><div class="line">        margin: 0;</div><div class="line">        padding: 0;</div><div class="line">    &#125;</div><div class="line">    div&#123;</div><div class="line">        width: 300px;</div><div class="line">        height: 300px;</div><div class="line">        margin: 100px auto;</div><div class="line">        border: 10px solid #000;</div><div class="line">        /*指定边框图片*/</div><div class="line">        border-image-source: url("../素材/border.jpg");</div><div class="line">        /*slice告诉系统, 如果将边框图片切割为九宫格*/</div><div class="line">        border-image-slice: 70 70 70 70;</div><div class="line">        /*指定边框图片的宽度, 注意点: 优先级比直接给border添加要大*/</div><div class="line">        border-image-width: 70px;</div><div class="line">        /*指定除边框四个角以外的图片如何显示*/</div><div class="line">        /*border-image-repeat: repeat;*/</div><div class="line">        /*border-image-repeat: stretch;*/</div><div class="line">        border-image-repeat: round;</div><div class="line"></div><div class="line">        /*让边框图片向外移动多少*/</div><div class="line">        border-image-outset: 10px 30px 60px 100px;</div><div class="line"></div><div class="line">        box-sizing: border-box;</div><div class="line">        background-color: red;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h2 id="vertical-align属性"><a href="#vertical-align属性" class="headerlink" title="vertical-align属性"></a>vertical-align属性</h2><h4 id="元素默认情况下是和文字的基线对其的"><a href="#元素默认情况下是和文字的基线对其的" class="headerlink" title="元素默认情况下是和文字的基线对其的"></a>元素默认情况下是和文字的基线对其的</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/* 默认值 */</div><div class="line">vertical-align: baseline;</div><div class="line">/* 让元素和父元素的底部对齐 */</div><div class="line">vertical-align: bottom;</div><div class="line">/* 让元素和文字的底部对齐 */</div><div class="line">vertical-align: text-bottom;</div><div class="line">/* 让元素和文字的顶部对齐 */</div><div class="line">vertical-align: text-top;</div><div class="line">/* 让元素和父元素的顶部对齐 */</div><div class="line">vertical-align: top;</div><div class="line">/* 让元素和文字的中线对齐  */</div><div class="line">vertical-align: middle;</div></pre></td></tr></table></figure>
+<h2 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">background: linear-gradient(red, blue);</div><div class="line">background: linear-gradient(to right,red, blue);</div><div class="line">background: linear-gradient(to top right,red, blue);</div><div class="line">background: linear-gradient(0deg, red, blue);</div><div class="line">/*默认情况下系统会等分宽度给渐变的颜色, 如果不想等分, 可以直接在颜色后面添加百分比*/</div><div class="line">background: linear-gradient(red, blue);</div><div class="line">background: linear-gradient(red 50%, blue 60%);</div><div class="line">/*注意: 这里指定的百分之多少是用于计算过渡的距离</div><div class="line">例如 red 30%, blue 40%, 那么40-30=10, 所有显示完红色之后会有10%的距离用于从红色过渡到蓝色</div><div class="line">*/</div><div class="line">background: linear-gradient(red 30%, blue 40%, green 60%);</div></pre></td></tr></table></figure>
+<h2 id="径向渐变"><a href="#径向渐变" class="headerlink" title="径向渐变"></a>径向渐变</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/*background-image: radial-gradient(red, blue);*/</div><div class="line">/*</div><div class="line">第一个参数: 指定扩散范围</div><div class="line">第二个参数: 指定从什么地方开始扩散</div><div class="line">*/</div><div class="line">/*background-image: radial-gradient(150px at center center, red, blue);*/</div><div class="line">background-image: radial-gradient(150px at 50px 50px, red, blue);</div><div class="line">/*background-image: radial-gradient(150px at 50px 50px, red 50%, blue 50%);*/</div></pre></td></tr></table></figure>
+<h2 id="重复渐变"><a href="#重复渐变" class="headerlink" title="重复渐变"></a>重复渐变</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;style&gt;</div><div class="line">    *&#123;</div><div class="line">        margin: 0;</div><div class="line">        padding: 0;</div><div class="line">    &#125;</div><div class="line">    .box1&#123;</div><div class="line">        width: 300px;</div><div class="line">        height: 100px;</div><div class="line">        border: 1px solid #000;</div><div class="line">        margin: 100px auto;</div><div class="line">        background: repeating-linear-gradient(to right,red, blue);</div><div class="line">        background-size:100px 100px;</div><div class="line">    &#125;</div><div class="line">    .box2&#123;</div><div class="line">        width: 200px;</div><div class="line">        height: 200px;</div><div class="line">        border: 1px solid #000;</div><div class="line">        margin: 0px auto;</div><div class="line">        /*background: repeating-radial-gradient(red, blue, yellow);*/</div><div class="line">        background: repeating-radial-gradient(red 10%, blue 20%, yellow 30%);</div><div class="line">        /*background-size:100px 100px;*/</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h4 id="综合案例-叮当猫-点击跳转"><a href="#综合案例-叮当猫-点击跳转" class="headerlink" title="综合案例 叮当猫 点击跳转"></a><a href="http://www.jianshu.com/p/65df98ce1a77" target="_blank" rel="external">综合案例 叮当猫 点击跳转</a></h4><hr>
+<h4 id="CSS3新增一些重要的属性差不多就这么内容-把这些东西学会你就可以在前端玩转任意动画特效咯-持续更新中-希望大家多多支持"><a href="#CSS3新增一些重要的属性差不多就这么内容-把这些东西学会你就可以在前端玩转任意动画特效咯-持续更新中-希望大家多多支持" class="headerlink" title="CSS3新增一些重要的属性差不多就这么内容,把这些东西学会你就可以在前端玩转任意动画特效咯! 持续更新中,希望大家多多支持 !"></a>CSS3新增一些重要的属性差不多就这么内容,把这些东西学会你就可以在前端玩转任意动画特效咯! 持续更新中,希望大家多多支持 !</h4><hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS3/" rel="tag"># CSS3</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/15/JavaScript-设计模式-命名空间/" rel="next" title="JavaScript - 设计模式 - 命名空间">
+                <i class="fa fa-chevron-left"></i> JavaScript - 设计模式 - 命名空间
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/04/CSS3-新增重要属性/"
+           data-title="CSS3 - 新增重要属性" data-url="git@github.com:anearseeyou/anearseeyou.git/2017/02/04/CSS3-新增重要属性/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://olrw5apal.bkt.clouddn.com/background.jpg"
+               alt="西巴撸" />
+          <p class="site-author-name" itemprop="name">西巴撸</p>
+          <p class="site-description motion-element" itemprop="description">Fucking the code</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本篇内容只要主要讲解CSS3新增属性-主要有伪类-动画-背景-边框-阴影等效果-CSS3学的好-不用js也一样能做好动画-C3很强大-逼格很高-现在很多前卫的企业都在用C3做动画"><span class="nav-number">1.</span> <span class="nav-text">本篇内容只要主要讲解CSS3新增属性,主要有伪类,动画,背景,边框,阴影等效果.CSS3学的好,不用js也一样能做好动画,C3很强大,逼格很高,现在很多前卫的企业都在用C3做动画.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪类选择器"><span class="nav-number">2.</span> <span class="nav-text">伪类选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类选择器就是专门用于修改a标签不同状态样式的"><span class="nav-number">2.0.1.</span> <span class="nav-text">伪类选择器就是专门用于修改a标签不同状态样式的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a标签有哪些状态"><span class="nav-number">2.0.2.</span> <span class="nav-text">a标签有哪些状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意点"><span class="nav-number">2.0.3.</span> <span class="nav-text">注意点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超链接美化"><span class="nav-number">3.</span> <span class="nav-text">超链接美化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意点-1"><span class="nav-number">3.0.1.</span> <span class="nav-text">注意点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编码规范"><span class="nav-number">3.0.2.</span> <span class="nav-text">编码规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例代码"><span class="nav-number">3.0.3.</span> <span class="nav-text">示例代码 :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效果展示"><span class="nav-number">3.0.4.</span> <span class="nav-text">效果展示</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过度模块"><span class="nav-number">4.</span> <span class="nav-text">过度模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#过渡三要素"><span class="nav-number">4.0.1.</span> <span class="nav-text">过渡三要素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何给多个属性添加过渡效果"><span class="nav-number">4.0.2.</span> <span class="nav-text">如何给多个属性添加过渡效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过渡属性连写格式"><span class="nav-number">4.0.3.</span> <span class="nav-text">过渡属性连写格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器的私有前缀"><span class="nav-number">4.0.4.</span> <span class="nav-text">浏览器的私有前缀</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#私有前缀"><span class="nav-number">4.0.5.</span> <span class="nav-text">私有前缀</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例代码-1"><span class="nav-number">4.0.6.</span> <span class="nav-text">示例代码 :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效果展示-1"><span class="nav-number">4.0.7.</span> <span class="nav-text">效果展示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-HTML-———–-gt"><span class="nav-number">4.0.8.</span> <span class="nav-text">< ! ———- HTML  ———– ></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-Style-—————-gt"><span class="nav-number">4.0.9.</span> <span class="nav-text">< ! ——— Style ————— ></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-效果展示-———-gt"><span class="nav-number">4.0.10.</span> <span class="nav-text">< ! ——— 效果展示  ———- ></span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2D维度模块"><span class="nav-number">5.</span> <span class="nav-text">2D维度模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2D维度模块可以让元素旋转-缩放-平移等操作"><span class="nav-number">5.0.1.</span> <span class="nav-text">2D维度模块可以让元素旋转/缩放/平移等操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2D维度模块-形变中心点"><span class="nav-number">5.0.2.</span> <span class="nav-text">2D维度模块 - 形变中心点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2D维度模块-透视"><span class="nav-number">5.0.3.</span> <span class="nav-text">2D维度模块 - 透视</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附小Demo一个-可视化近大远小效果"><span class="nav-number">5.0.4.</span> <span class="nav-text">附小Demo一个,可视化近大远小效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-HTML-———–-gt-1"><span class="nav-number">5.0.5.</span> <span class="nav-text">< ! ———- HTML  ———– ></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-Style-—————-gt-1"><span class="nav-number">5.0.6.</span> <span class="nav-text">< ! ——— Style ————— ></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-———-效果展示-———-gt-1"><span class="nav-number">5.0.7.</span> <span class="nav-text">< ! ——— 效果展示  ———- ></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内附Demo一个-照片墙旋转-点击跳转到案例页面"><span class="nav-number">5.0.8.</span> <span class="nav-text">内附Demo一个 照片墙旋转 点击跳转到案例页面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画模块"><span class="nav-number">6.</span> <span class="nav-text">动画模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#动画三要素"><span class="nav-number">6.0.1.</span> <span class="nav-text">动画三要素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例代码-2"><span class="nav-number">6.0.2.</span> <span class="nav-text">示例代码 :</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画模块其它属性"><span class="nav-number">7.</span> <span class="nav-text">动画模块其它属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例代码-3"><span class="nav-number">7.0.1.</span> <span class="nav-text">示例代码 :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连写格式"><span class="nav-number">7.0.2.</span> <span class="nav-text">连写格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附Demo1一个-云层特效-点击跳转到案例页面"><span class="nav-number">7.0.3.</span> <span class="nav-text">附Demo1一个 云层特效 点击跳转到案例页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附Demo2一个-无限轮播-点击跳转到案例页面"><span class="nav-number">7.0.4.</span> <span class="nav-text">附Demo2一个 无限轮播 点击跳转到案例页面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3D维度模块"><span class="nav-number">8.</span> <span class="nav-text">3D维度模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例代码-4"><span class="nav-number">8.0.1.</span> <span class="nav-text">示例代码 :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附Demo一个-3D立方体效果-点击跳转到案例页面"><span class="nav-number">8.0.2.</span> <span class="nav-text">附Demo一个 3D立方体效果 点击跳转到案例页面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景新增属性"><span class="nav-number">9.</span> <span class="nav-text">背景新增属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景尺寸属性"><span class="nav-number">9.0.1.</span> <span class="nav-text">背景尺寸属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#背景绘制位置属性"><span class="nav-number">9.0.2.</span> <span class="nav-text">背景绘制位置属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#背景裁剪属性"><span class="nav-number">9.0.3.</span> <span class="nav-text">背景裁剪属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多重背景"><span class="nav-number">9.0.4.</span> <span class="nav-text">多重背景</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#边框圆角"><span class="nav-number">10.</span> <span class="nav-text">边框圆角</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#格式"><span class="nav-number">10.0.1.</span> <span class="nav-text">格式:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数"><span class="nav-number">10.0.2.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附Demo1一个-边框圆角之太极八卦-点击跳转到案例页面"><span class="nav-number">10.0.3.</span> <span class="nav-text">附Demo1一个 边框圆角之太极八卦 点击跳转到案例页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附Demo2一个-边框圆角之跳动的心-点击跳转到案例页面"><span class="nav-number">10.0.4.</span> <span class="nav-text">附Demo2一个 边框圆角之跳动的心 点击跳转到案例页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附Demo3一个-边框圆角之安卓机器猫-点击跳转到案例页面"><span class="nav-number">10.0.5.</span> <span class="nav-text">附Demo3一个 边框圆角之安卓机器猫 点击跳转到案例页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附Demo4一个-边框圆角之钟表-点击跳转到案例页面"><span class="nav-number">10.0.6.</span> <span class="nav-text">附Demo4一个 边框圆角之钟表 点击跳转到案例页面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#边框图片"><span class="nav-number">11.</span> <span class="nav-text">边框图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vertical-align属性"><span class="nav-number">12.</span> <span class="nav-text">vertical-align属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#元素默认情况下是和文字的基线对其的"><span class="nav-number">12.0.1.</span> <span class="nav-text">元素默认情况下是和文字的基线对其的</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性渐变"><span class="nav-number">13.</span> <span class="nav-text">线性渐变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#径向渐变"><span class="nav-number">14.</span> <span class="nav-text">径向渐变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重复渐变"><span class="nav-number">15.</span> <span class="nav-text">重复渐变</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#综合案例-叮当猫-点击跳转"><span class="nav-number">15.0.1.</span> <span class="nav-text">综合案例 叮当猫 点击跳转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3新增一些重要的属性差不多就这么内容-把这些东西学会你就可以在前端玩转任意动画特效咯-持续更新中-希望大家多多支持"><span class="nav-number">15.0.2.</span> <span class="nav-text">CSS3新增一些重要的属性差不多就这么内容,把这些东西学会你就可以在前端玩转任意动画特效咯! 持续更新中,希望大家多多支持 !</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">西巴撸</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"keeponcode"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("hCS32BdMw43hQACJYKDrXVny-gzGzoHsz", "Ja18UTWNr1AELp5Ba20h4Cyb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
