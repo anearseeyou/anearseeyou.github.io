@@ -434,7 +434,7 @@ AngularJS与我们之前学习的jQuery是有一定的区别的，jQuery更准�
 <li><p><strong>示例代码:</strong></p>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">    <span class="comment">// 1.导入文件 </span></div><div class="line">&lt;script src=<span class="string">"js/angular.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">// 2.创建模块</span></div><div class="line">    <span class="keyword">var</span> app = angular.module(<span class="string">'app'</span>, []);</div><div class="line">    <span class="comment">// 3.创建控制器</span></div><div class="line">    app.controller(<span class="string">'myController'</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$scope</span>) </span>&#123;</div><div class="line">        $scope.name = <span class="string">'aaa'</span>;</div><div class="line">        $scope.age = <span class="number">10</span>;</div><div class="line">    &#125;]);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;!-- <span class="number">4.</span>绑定模块 --&gt;</div><div class="line">&lt;body ng-app="app"&gt;</div><div class="line">    &lt;!-- 5.绑定控制器 --&gt;</div><div class="line">    &lt;input type="text" ng-model="msg"&gt;</div><div class="line">    &lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">    <span class="comment">// 1.导入文件 </span></div><div class="line">&lt;script src=<span class="string">"js/angular.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">// 2.创建模块</span></div><div class="line">    <span class="keyword">var</span> app = angular.module(<span class="string">'app'</span>, []);</div><div class="line">    <span class="comment">// 3.创建控制器</span></div><div class="line">    app.controller(<span class="string">'myController'</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$scope</span>) </span>&#123;</div><div class="line">        $scope.name = <span class="string">'aaa'</span>;</div><div class="line">        $scope.age = <span class="number">10</span>;</div><div class="line">    &#125;]);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;!-- <span class="number">4.</span>绑定模块 --&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"app"</span>&gt;</span></span></div><div class="line">    <span class="comment">&lt;!-- 5.绑定控制器 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"msg"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
 <h2 id="内置指令"><a href="#内置指令" class="headerlink" title="内置指令"></a>内置指令</h2><ul>
 <li><strong>HTML在构建应用（App）时存在诸多不足之处，AngularJS通过扩展一系列的HTML属性或标签来弥补这些缺陷，所谓指令就是AngularJS自定义的HTML属性或标签，这些指令都是以ng-做为前缀的，例如ng-app、ng-controller、ng-repeat等。</strong></li>
 </ul>
@@ -519,8 +519,8 @@ AngularJS与我们之前学习的jQuery是有一定的区别的，jQuery更准�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/11/Angular-自定义服务和路由/" rel="prev" title="Angular - 自定义服务&&路由">
-                Angular - 自定义服务&&路由 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/01/Angular-作用域和自定义指令/" rel="prev" title="Angular - 作用域&&自定义指令">
+                Angular - 作用域&&自定义指令 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -595,7 +595,7 @@ AngularJS与我们之前学习的jQuery是有一定的区别的，jQuery更准�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -613,7 +613,7 @@ AngularJS与我们之前学习的jQuery是有一定的区别的，jQuery更准�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
